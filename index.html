@@ -544,17 +544,21 @@
 
     .ticket-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin-top: 4rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .ticket-card {
       border: 1px solid var(--border);
       background: var(--bg);
-      padding: 2.8rem 2.4rem;
+      padding: 3rem 2.8rem;
       position: relative;
       transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+      text-align: center;
     }
 
     .ticket-card:hover {
@@ -586,34 +590,32 @@
       font-weight: 700;
       color: var(--pink);
       text-transform: uppercase;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
     }
 
     .ticket-price {
       font-family: var(--mono);
-      font-size: 2.4rem;
+      font-size: 3rem;
       font-weight: 900;
       color: var(--ink);
       margin-bottom: .4rem;
       line-height: 1;
     }
 
-    .ticket-price small { font-size: .8rem; font-weight: 400; color: var(--ink2); }
+    .ticket-price small { font-size: .85rem; font-weight: 400; color: var(--ink2); }
 
-    .ticket-desc { font-size: .82rem; color: var(--ink2); margin: 1rem 0 2rem; line-height: 1.8; }
+    .ticket-desc { font-size: .84rem; color: var(--ink2); margin: 1.2rem 0 2rem; line-height: 1.8; }
 
-    .ticket-list { list-style: none; margin-bottom: 2.4rem; }
-
-    .ticket-list li {
-      font-size: .82rem;
-      color: var(--ink2);
-      padding: .6rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: .8rem;
+    .ticket-note {
+      max-width: 720px;
+      margin: 2rem auto 0;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--ink3);
+      border-top: 1px solid var(--border);
+      padding-top: 1.4rem;
+      line-height: 1.9;
     }
-
-    .ticket-list li::before { content: '—'; color: var(--pink); flex-shrink: 0; }
 
     /* ─── SCHEDULE ─── */
     #schedule { background: var(--bg); }
@@ -1247,7 +1249,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .contents-grid { grid-template-columns: 1fr 1fr; }
       .lineup-grid { grid-template-columns: 1fr 1fr; }
-      .ticket-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .ticket-grid { grid-template-columns: 1fr; max-width: 480px; }
       .biz-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .access-inner { grid-template-columns: 1fr; }
@@ -1655,46 +1657,23 @@
       </div>
       <div class="ticket-grid">
         <div class="ticket-card reveal d1">
-          <p class="ticket-tier">STANDARD</p>
-          <p class="ticket-price">¥3,500 <small>/ 1日</small></p>
-          <p class="ticket-desc">会場内を自由に楽しめる基本チケット</p>
-          <ul class="ticket-list">
-            <li>会場入場権（指定日1日）</li>
-            <li>全展示エリア入場</li>
-            <li>ステージ観覧</li>
-            <li>公式ステッカー</li>
-          </ul>
+          <p class="ticket-tier">ADVANCE</p>
+          <p class="ticket-price">¥2,500</p>
+          <p class="ticket-desc">前売り券<br>会場内自由入場・全エリア対応</p>
           <a href="#" class="btn btn-outline" style="width:100%;justify-content:center;">購入する</a>
         </div>
         <div class="ticket-card featured reveal d2">
-          <span class="tc-ribbon">POPULAR</span>
-          <p class="ticket-tier">VIP</p>
-          <p class="ticket-price">¥9,800 <small>/ 1日</small></p>
-          <p class="ticket-desc">最高の体験を求めるあなたへ</p>
-          <ul class="ticket-list">
-            <li>先行入場（30分前）</li>
-            <li>全展示エリア入場</li>
-            <li>チェキ券 1枚付き</li>
-            <li>VIP限定グッズセット</li>
-            <li>限定サイン会参加権</li>
-            <li>VIPラウンジ利用</li>
-          </ul>
+          <span class="tc-ribbon">当日</span>
+          <p class="ticket-tier">DOOR</p>
+          <p class="ticket-price">¥3,000</p>
+          <p class="ticket-desc">当日券<br>当日会場入口にて販売</p>
           <a href="#" class="btn btn-pink" style="width:100%;justify-content:center;">購入する</a>
         </div>
-        <div class="ticket-card reveal d3">
-          <p class="ticket-tier">2DAYS PASS</p>
-          <p class="ticket-price">¥6,000 <small>/ 2日</small></p>
-          <p class="ticket-desc">2日間両日に参加したい方向け</p>
-          <ul class="ticket-list">
-            <li>2日間通し入場権</li>
-            <li>全展示エリア入場</li>
-            <li>ステージ観覧</li>
-            <li>公式バッジ</li>
-          </ul>
-          <a href="#" class="btn btn-outline" style="width:100%;justify-content:center;">購入する</a>
-        </div>
       </div>
-      <p class="reveal" style="text-align:center;margin-top:1.8rem;font-size:.76rem;color:var(--ink3);">※ 価格はすべて税込。チケットの転売は固く禁じます。18歳以上限定。</p>
+      <div class="ticket-note reveal">
+        <p>※ ステージチケット・チェキ券等は別途販売となります。</p>
+        <p>※ 価格はすべて税込。チケットの転売は固く禁じます。18歳以上限定。</p>
+      </div>
     </div>
   </section>
 

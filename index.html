@@ -99,6 +99,17 @@
 
     .logo span { color: var(--pink); }
 
+    .logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .drawer-logo-img {
+      height: 32px;
+      filter: brightness(0) invert(1);
+    }
+
     #live-clock {
       font-family: var(--mono);
       font-size: 1.15rem;
@@ -1261,7 +1272,7 @@
   <!-- MENU DRAWER -->
   <aside class="drawer" id="drawer" aria-label="ナビゲーション">
     <div class="drawer-header">
-      <span class="drawer-logo">GRASTE<span>.</span></span>
+      <span class="drawer-logo"><img src="logo.png" alt="GRASTE" class="logo-img drawer-logo-img" /></span>
       <button class="drawer-close" id="drawer-close" aria-label="閉じる">✕</button>
     </div>
     <nav class="drawer-nav">
@@ -1409,7 +1420,7 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a href="#" class="logo">GRASTE<span>.</span></a>
+      <a href="#" class="logo"><img src="logo.png" alt="GRASTE" class="logo-img" /></a>
       <div id="live-clock">00 : 00 : 00</div>
       <div class="header-right">
         <button class="menu-btn" id="menu-btn">MENU</button>

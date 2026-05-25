@@ -22,7 +22,8 @@
       --purple:  #8b52d6;
       --gold:    #c8924a;
       --border:  rgba(26,22,18,.1);
-      --serif:   'Noto Serif JP', serif;
+      --display: 'Cinzel', serif;
+      --mincho:  'Shippori Mincho', serif;
       --sans:    'Noto Sans JP', sans-serif;
       --mono:    'Montserrat', sans-serif;
     }
@@ -33,7 +34,9 @@
       background: var(--bg);
       color: var(--ink);
       font-family: var(--sans);
+      font-weight: 300;
       line-height: 1.8;
+      letter-spacing: .04em;
       overflow-x: hidden;
     }
 
@@ -153,10 +156,10 @@
     }
 
     .sec-label-text {
-      font-family: var(--mono);
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .28em;
+      font-family: var(--display);
+      font-size: .62rem;
+      font-weight: 400;
+      letter-spacing: .3em;
       text-transform: uppercase;
       color: var(--pink);
     }
@@ -182,22 +185,21 @@
     .hero-text { position: relative; z-index: 1; }
 
     .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: .7rem;
-      letter-spacing: .28em;
-      font-weight: 600;
+      font-family: var(--sans);
+      font-size: .68rem;
+      letter-spacing: .3em;
+      font-weight: 300;
       color: var(--ink3);
-      text-transform: uppercase;
       margin-bottom: 2rem;
       display: block;
     }
 
     .hero-h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 5.5vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -.01em;
+      font-family: var(--mincho);
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: .08em;
       margin-bottom: 1.6rem;
     }
 
@@ -209,9 +211,10 @@
     }
 
     .hero-lead {
-      font-size: .92rem;
+      font-size: .9rem;
       color: var(--ink2);
-      line-height: 2;
+      line-height: 2.1;
+      letter-spacing: .06em;
       max-width: 420px;
       margin-bottom: 3rem;
     }
@@ -309,11 +312,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--mono);
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .2em;
+      font-family: var(--display);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .25em;
       color: var(--pink);
+      text-align: center;
+      line-height: 1.6;
     }
 
     @keyframes spin1 { to { transform: rotate(360deg); } }
@@ -328,8 +333,8 @@
     }
 
     .hd-item {}
-    .hd-label { font-family: var(--mono); font-size: .6rem; letter-spacing: .22em; font-weight: 700; color: var(--ink3); text-transform: uppercase; display: block; margin-bottom: .3rem; }
-    .hd-value { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+    .hd-label { font-family: var(--display); font-size: .58rem; letter-spacing: .28em; font-weight: 400; color: var(--ink3); text-transform: uppercase; display: block; margin-bottom: .4rem; }
+    .hd-value { font-family: var(--mincho); font-size: 1.05rem; font-weight: 500; letter-spacing: .1em; color: var(--ink); }
 
     /* ─── COMMON SECTION ─── */
     .section { padding: 120px 8%; }
@@ -338,18 +343,19 @@
     .section-center .sec-label { justify-content: center; }
 
     .section-h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -.01em;
+      font-family: var(--mincho);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: .1em;
       margin-bottom: 1rem;
     }
 
     .section-lead {
-      font-size: .9rem;
+      font-size: .88rem;
       color: var(--ink2);
-      line-height: 2;
+      line-height: 2.1;
+      letter-spacing: .05em;
       max-width: 540px;
     }
 
@@ -368,10 +374,11 @@
     }
 
     .about-statement {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-family: var(--mincho);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
       font-weight: 500;
-      line-height: 1.7;
+      line-height: 1.75;
+      letter-spacing: .1em;
       color: var(--ink);
       margin-bottom: 2.4rem;
     }
@@ -386,6 +393,7 @@
       font-size: .88rem;
       color: var(--ink2);
       line-height: 2.1;
+      letter-spacing: .05em;
     }
 
     /* ─── STATS ─── */
@@ -459,13 +467,14 @@
     .cell-icon { font-size: 2rem; margin-bottom: 1rem; }
 
     .cell-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: 1.1rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .1em;
       margin-bottom: .8rem;
     }
 
-    .cell-desc { font-size: .83rem; color: var(--ink2); line-height: 1.9; }
+    .cell-desc { font-size: .82rem; color: var(--ink2); line-height: 2; letter-spacing: .04em; }
 
     /* ─── LINEUP ─── */
     #lineup { background: var(--bg); }
@@ -518,8 +527,8 @@
     }
 
     .talent-info { padding: 1.2rem; background: var(--bg); }
-    .talent-name { font-family: var(--serif); font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
-    .talent-handle { font-size: .75rem; color: var(--pink); font-family: var(--mono); }
+    .talent-name { font-family: var(--mincho); font-size: .95rem; font-weight: 600; letter-spacing: .08em; margin-bottom: .3rem; }
+    .talent-handle { font-size: .72rem; color: var(--pink); font-family: var(--mono); letter-spacing: .08em; }
 
     .talent-tags { display: flex; gap: .4rem; margin-top: .7rem; flex-wrap: wrap; }
 
@@ -604,7 +613,7 @@
 
     .ticket-price small { font-size: .85rem; font-weight: 400; color: var(--ink2); }
 
-    .ticket-desc { font-size: .84rem; color: var(--ink2); margin: 1.2rem 0 2rem; line-height: 1.8; }
+    .ticket-desc { font-size: .84rem; color: var(--ink2); margin: 1.2rem 0 2rem; line-height: 2; letter-spacing: .05em; }
 
     .ticket-note {
       max-width: 720px;
@@ -658,13 +667,14 @@
     }
 
     .tl-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: 1.05rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .08em;
       margin-bottom: .4rem;
     }
 
-    .tl-body { font-size: .83rem; color: var(--ink2); line-height: 1.9; }
+    .tl-body { font-size: .83rem; color: var(--ink2); line-height: 2; letter-spacing: .04em; }
 
     /* ─── BUSINESS ─── */
     #business { background: var(--bg2); }
@@ -714,13 +724,14 @@
     }
 
     .biz-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: 1.1rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .1em;
       margin-bottom: .8rem;
     }
 
-    .biz-desc { font-size: .82rem; color: var(--ink2); line-height: 1.9; margin-bottom: 1.4rem; }
+    .biz-desc { font-size: .82rem; color: var(--ink2); line-height: 2; letter-spacing: .04em; margin-bottom: 1.4rem; }
 
     .biz-link {
       font-family: var(--mono);
@@ -802,10 +813,11 @@
     .cta-inner .sec-label-line { background: linear-gradient(90deg, var(--pink2), var(--purple)); }
 
     .cta-h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 700;
-      line-height: 1.4;
+      font-family: var(--mincho);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: .1em;
       margin-bottom: 1.4rem;
     }
 
@@ -819,7 +831,8 @@
     .cta-lead {
       font-size: .9rem;
       color: rgba(248,246,242,.65);
-      line-height: 2;
+      line-height: 2.1;
+      letter-spacing: .06em;
       margin-bottom: 3rem;
     }
 
@@ -1006,9 +1019,10 @@
       padding: 1.1rem 0;
       text-decoration: none;
       color: rgba(248,246,242,.85);
-      font-family: var(--serif);
-      font-size: 1.15rem;
+      font-family: var(--mincho);
+      font-size: 1.1rem;
       font-weight: 500;
+      letter-spacing: .1em;
       transition: color .2s, padding-left .2s;
     }
 
@@ -1094,9 +1108,10 @@
     }
 
     .modal-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: 1.3rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .1em;
     }
 
     .modal-close {
@@ -1198,13 +1213,14 @@
     .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
 
     .form-success-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .1em;
       margin-bottom: .6rem;
     }
 
-    .form-success-body { font-size: .85rem; color: var(--ink2); line-height: 1.9; }
+    .form-success-body { font-size: .85rem; color: var(--ink2); line-height: 2; letter-spacing: .05em; }
 
     /* ─── ANIMATIONS ─── */
     .reveal {
@@ -1264,10 +1280,11 @@
     }
 
     .safety-commitment-text {
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-      font-weight: 700;
-      line-height: 1.55;
+      font-family: var(--mincho);
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 500;
+      line-height: 1.65;
+      letter-spacing: .1em;
       color: #fff;
       margin-bottom: 1.4rem;
     }
@@ -1276,6 +1293,7 @@
       font-size: .86rem;
       color: rgba(248,246,242,.6);
       line-height: 2.1;
+      letter-spacing: .05em;
       max-width: 540px;
     }
 
@@ -1311,19 +1329,20 @@
     }
 
     .safety-block-en {
-      font-family: var(--mono);
+      font-family: var(--display);
       font-size: .58rem;
-      font-weight: 700;
-      letter-spacing: .22em;
+      font-weight: 400;
+      letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--pink);
       margin-bottom: .3rem;
     }
 
     .safety-block-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: 1.15rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .1em;
     }
 
     .safety-rule-list { list-style: none; }
@@ -1350,10 +1369,10 @@
     }
 
     .rule-tag {
-      font-family: var(--mono);
-      font-size: .56rem;
-      font-weight: 700;
-      letter-spacing: .18em;
+      font-family: var(--display);
+      font-size: .54rem;
+      font-weight: 400;
+      letter-spacing: .22em;
       text-transform: uppercase;
       color: var(--pink);
       display: block;
@@ -1361,16 +1380,18 @@
     }
 
     .rule-title {
-      font-family: var(--serif);
+      font-family: var(--mincho);
       font-size: .98rem;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: .08em;
       margin-bottom: .5rem;
     }
 
     .rule-body {
       font-size: .82rem;
       color: var(--ink2);
-      line-height: 1.95;
+      line-height: 2;
+      letter-spacing: .04em;
     }
 
     .safety-penalty {

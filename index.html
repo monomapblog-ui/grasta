@@ -902,6 +902,297 @@
       margin-top: 2rem;
     }
 
+    /* ─── MENU DRAWER ─── */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,22,18,.6);
+      z-index: 1100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s cubic-bezier(.16,1,.3,1);
+      backdrop-filter: blur(4px);
+    }
+
+    .drawer-overlay.open { opacity: 1; pointer-events: all; }
+
+    .drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(420px, 100vw);
+      height: 100%;
+      background: var(--ink);
+      z-index: 1200;
+      transform: translateX(100%);
+      transition: transform .5s cubic-bezier(.16,1,.3,1);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow-y: auto;
+    }
+
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 2.4rem;
+      border-bottom: 1px solid rgba(248,246,242,.08);
+      flex-shrink: 0;
+    }
+
+    .drawer-logo {
+      font-family: var(--mono);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: var(--bg);
+    }
+
+    .drawer-logo span { color: var(--pink2); }
+
+    .drawer-close {
+      width: 40px; height: 40px;
+      background: transparent;
+      border: 1.5px solid rgba(248,246,242,.2);
+      color: var(--bg);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s;
+    }
+
+    .drawer-close:hover { border-color: var(--pink2); background: rgba(212,72,122,.15); }
+
+    .drawer-nav {
+      padding: 2.4rem;
+      flex: 1;
+    }
+
+    .drawer-nav-label {
+      font-family: var(--mono);
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      color: rgba(248,246,242,.3);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+    }
+
+    .drawer-nav-list { list-style: none; }
+
+    .drawer-nav-item {
+      border-bottom: 1px solid rgba(248,246,242,.06);
+    }
+
+    .drawer-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+      text-decoration: none;
+      color: rgba(248,246,242,.85);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      transition: color .2s, padding-left .2s;
+    }
+
+    .drawer-nav-link:hover { color: var(--pink2); padding-left: .5rem; }
+
+    .drawer-nav-link .nav-en {
+      font-family: var(--mono);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: rgba(248,246,242,.3);
+      text-transform: uppercase;
+    }
+
+    .drawer-nav-link:hover .nav-en { color: var(--pink2); }
+
+    .drawer-footer {
+      padding: 2rem 2.4rem;
+      border-top: 1px solid rgba(248,246,242,.08);
+      flex-shrink: 0;
+    }
+
+    .drawer-footer-sns { display: flex; gap: .6rem; margin-bottom: 1.4rem; }
+
+    .drawer-sns-icon {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(248,246,242,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      text-decoration: none;
+      color: rgba(248,246,242,.6);
+    }
+
+    .drawer-sns-icon:hover { border-color: var(--pink2); background: rgba(212,72,122,.12); }
+
+    .drawer-footer-copy {
+      font-size: .68rem;
+      color: rgba(248,246,242,.25);
+      font-family: var(--mono);
+      letter-spacing: .05em;
+    }
+
+    /* ─── CONTACT MODAL ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,22,18,.7);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s cubic-bezier(.16,1,.3,1);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--bg);
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(40px) scale(.97);
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+      position: relative;
+    }
+
+    .modal-overlay.open .modal { transform: none; }
+
+    .modal-header {
+      padding: 2rem 2.4rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 36px; height: 36px;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: border-color .2s, background .2s;
+    }
+
+    .modal-close:hover { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+
+    .modal-body { padding: 2rem 2.4rem 2.4rem; }
+
+    .form-group { margin-bottom: 1.4rem; }
+
+    .form-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      margin-bottom: .55rem;
+    }
+
+    .form-label .req { color: var(--pink); margin-left: .2rem; }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      font-family: var(--sans);
+      font-size: .88rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s;
+      border-radius: 0;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--pink); }
+
+    .form-textarea { min-height: 120px; resize: vertical; }
+
+    .form-select-wrap { position: relative; }
+
+    .form-select-wrap::after {
+      content: '↓';
+      position: absolute;
+      right: 1rem; top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink3);
+      font-size: .8rem;
+      pointer-events: none;
+    }
+
+    .form-note {
+      font-size: .75rem;
+      color: var(--ink3);
+      margin-top: .4rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color: #fff;
+      border: none;
+      font-family: var(--sans);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s;
+      margin-top: .4rem;
+    }
+
+    .form-submit:hover { opacity: .9; transform: translateY(-1px); }
+    .form-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .form-success {
+      text-align: center;
+      padding: 2rem 0;
+      display: none;
+    }
+
+    .form-success.show { display: block; }
+
+    .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+    .form-success-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+
+    .form-success-body { font-size: .85rem; color: var(--ink2); line-height: 1.9; }
+
     /* ─── ANIMATIONS ─── */
     .reveal {
       opacity: 0;
@@ -963,6 +1254,136 @@
   </style>
 </head>
 <body>
+
+  <!-- DRAWER OVERLAY -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- MENU DRAWER -->
+  <aside class="drawer" id="drawer" aria-label="ナビゲーション">
+    <div class="drawer-header">
+      <span class="drawer-logo">GRASTE<span>.</span></span>
+      <button class="drawer-close" id="drawer-close" aria-label="閉じる">✕</button>
+    </div>
+    <nav class="drawer-nav">
+      <p class="drawer-nav-label">Navigation</p>
+      <ul class="drawer-nav-list">
+        <li class="drawer-nav-item">
+          <a href="#hero" class="drawer-nav-link">
+            <span>トップ</span>
+            <span class="nav-en">TOP</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#about" class="drawer-nav-link">
+            <span>イベント概要</span>
+            <span class="nav-en">ABOUT</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#contents" class="drawer-nav-link">
+            <span>体験できること</span>
+            <span class="nav-en">CONTENTS</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#lineup" class="drawer-nav-link">
+            <span>参加タレント</span>
+            <span class="nav-en">LINEUP</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#ticket" class="drawer-nav-link">
+            <span>チケット</span>
+            <span class="nav-en">TICKET</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#schedule" class="drawer-nav-link">
+            <span>スケジュール</span>
+            <span class="nav-en">SCHEDULE</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#business" class="drawer-nav-link">
+            <span>グラステの世界観</span>
+            <span class="nav-en">UNIVERSE</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#access" class="drawer-nav-link">
+            <span>アクセス</span>
+            <span class="nav-en">ACCESS</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#" class="drawer-nav-link" id="drawer-contact-btn">
+            <span>お問い合わせ</span>
+            <span class="nav-en">CONTACT</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="drawer-footer">
+      <div class="drawer-footer-sns">
+        <a class="drawer-sns-icon" title="X (Twitter)">𝕏</a>
+        <a class="drawer-sns-icon" title="Instagram">📷</a>
+        <a class="drawer-sns-icon" title="TikTok">🎵</a>
+      </div>
+      <p class="drawer-footer-copy">© 2026 合同会社グラステ / GRASTE LLC.</p>
+    </div>
+  </aside>
+
+  <!-- CONTACT MODAL OVERLAY -->
+  <div class="modal-overlay" id="contact-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div>
+          <div class="sec-label" style="margin-bottom:.6rem;">
+            <div class="sec-label-line"></div>
+            <span class="sec-label-text">CONTACT</span>
+          </div>
+          <h2 class="modal-title" id="modal-title">お問い合わせ</h2>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="cf-name">お名前<span class="req">*</span></label>
+            <input class="form-input" type="text" id="cf-name" name="name" placeholder="山田 花子" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-email">メールアドレス<span class="req">*</span></label>
+            <input class="form-input" type="email" id="cf-email" name="email" placeholder="example@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-category">お問い合わせ種別<span class="req">*</span></label>
+            <div class="form-select-wrap">
+              <select class="form-select" id="cf-category" name="category" required>
+                <option value="">選択してください</option>
+                <option value="ticket">チケットについて</option>
+                <option value="talent">出演者・タレントについて</option>
+                <option value="sponsor">協賛・スポンサーについて</option>
+                <option value="media">メディア・取材について</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-message">メッセージ<span class="req">*</span></label>
+            <textarea class="form-textarea" id="cf-message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+          </div>
+          <p class="form-note">※ 返信まで2〜3営業日いただく場合がございます。</p>
+          <button class="form-submit" type="submit" id="form-submit-btn">送信する</button>
+        </form>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">✉️</div>
+          <p class="form-success-title">送信完了しました</p>
+          <p class="form-success-body">お問い合わせありがとうございます。<br>内容を確認のうえ、担当者よりご連絡いたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- SCROLL PROGRESS NAV -->
   <nav id="scroll-nav" aria-hidden="true">
@@ -1455,7 +1876,7 @@
           <li><a href="#">合同会社グラステ</a></li>
           <li><a href="#">グラビアステーション</a></li>
           <li><a href="#">グラステBAR</a></li>
-          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="#" data-contact>お問い合わせ</a></li>
           <li><a href="#">プライバシーポリシー</a></li>
         </ul>
       </div>
@@ -1477,14 +1898,13 @@
       const h = String(now.getHours()).padStart(2, '0');
       const m = String(now.getMinutes()).padStart(2, '0');
       const s = String(now.getSeconds()).padStart(2, '0');
-      // plai-ai.com のように各数字をスペースで区切って表示
       document.getElementById('live-clock').textContent =
         `${h[0]} ${h[1]} : ${m[0]} ${m[1]} : ${s[0]} ${s[1]}`;
     }
     updateClock();
     setInterval(updateClock, 1000);
 
-    // ── スクロールアニメーション（ぬるっと） ──
+    // ── スクロールアニメーション ──
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -1494,7 +1914,6 @@
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
     revealEls.forEach(el => revealObserver.observe(el));
 
     // ── 右サイドのスクロールナビ ──
@@ -1523,9 +1942,102 @@
       });
     });
 
-    // ── MENUボタン（シンプルなスムーズスクロール） ──
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('contents').scrollIntoView({ behavior: 'smooth' });
+    // ── MENU ドロワー ──
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerClose = document.getElementById('drawer-close');
+    const menuBtn = document.getElementById('menu-btn');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // ドロワー内リンクをクリックしたら閉じる
+    drawer.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const href = link.getAttribute('href');
+        if (href === '#' || link.id === 'drawer-contact-btn') return;
+        closeDrawer();
+      });
+    });
+
+    // ─ ESCキーで閉じる ─
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeDrawer(); closeContactModal(); }
+    });
+
+    // ── お問い合わせモーダル ──
+    const contactModal = document.getElementById('contact-modal');
+    const modalClose = document.getElementById('modal-close');
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    const submitBtn = document.getElementById('form-submit-btn');
+
+    function openContactModal() {
+      contactModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeContactModal() {
+      contactModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // フッターの「お問い合わせ」リンクから開く
+    document.querySelectorAll('a[data-contact]').forEach(el => {
+      el.addEventListener('click', e => { e.preventDefault(); openContactModal(); });
+    });
+
+    // ドロワー内「お問い合わせ」から開く
+    document.getElementById('drawer-contact-btn').addEventListener('click', e => {
+      e.preventDefault();
+      closeDrawer();
+      setTimeout(openContactModal, 300);
+    });
+
+    modalClose.addEventListener('click', closeContactModal);
+    contactModal.addEventListener('click', e => {
+      if (e.target === contactModal) closeContactModal();
+    });
+
+    // フォーム送信（mailtoフォールバック）
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name     = document.getElementById('cf-name').value.trim();
+      const email    = document.getElementById('cf-email').value.trim();
+      const category = document.getElementById('cf-category').value;
+      const message  = document.getElementById('cf-message').value.trim();
+
+      if (!name || !email || !category || !message) {
+        alert('必須項目をすべてご入力ください。');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中…';
+
+      const subject = encodeURIComponent(`【グラステFES お問い合わせ】${category}`);
+      const body = encodeURIComponent(
+        `お名前: ${name}\nメールアドレス: ${email}\n種別: ${category}\n\n${message}`
+      );
+      window.location.href = `mailto:info@graste.co.jp?subject=${subject}&body=${body}`;
+
+      setTimeout(() => {
+        contactForm.style.display = 'none';
+        formSuccess.classList.add('show');
+      }, 800);
     });
   </script>
 </body>

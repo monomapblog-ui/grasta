@@ -708,6 +708,12 @@
         <p class="form-section-title">前売り券の申し込み</p>
 
         <form id="ticket-form" novalidate>
+          <!-- Web3Forms 設定 (access_key は web3forms.com で取得後に差し替え) -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="【グラステFES】チケット申込が届きました" />
+          <input type="hidden" name="from_name" value="グラステFES チケット申込" />
+          <!-- スパム対策ハニーポット（非表示・入力されたら弾く） -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="tf-name">お名前<span class="req">*</span></label>
@@ -870,13 +876,29 @@
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = '送信中...';
+      submitBtn.textContent = '送信中…';
 
-      // TODO: Replace with actual form submission (e.g. Formspree / API)
-      setTimeout(() => {
-        form.style.display = 'none';
-        success.classList.add('show');
-      }, 800);
+      const data = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+        .then(res => res.json())
+        .then(json => {
+          if (json.success) {
+            form.style.display = 'none';
+            success.classList.add('show');
+          } else {
+            throw new Error(json.message || '送信に失敗しました');
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = '申し込む（前売り ¥2,500）';
+          alert('送信に失敗しました。時間をおいて再度お試しください。');
+        });
     });
   </script>
 

@@ -419,6 +419,49 @@
     .hd-label { font-family: var(--display); font-size: .58rem; letter-spacing: .28em; font-weight: 400; color: var(--ink3); text-transform: uppercase; display: block; margin-bottom: .4rem; }
     .hd-value { font-family: var(--mincho); font-size: 1.05rem; font-weight: 500; letter-spacing: .1em; color: var(--ink); }
 
+    /* ─── COUNTDOWN ─── */
+    .countdown-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      align-items: flex-end;
+    }
+    .cd-block {
+      text-align: center;
+      min-width: 58px;
+    }
+    .cd-num {
+      font-family: var(--mono);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--pink);
+      line-height: 1;
+      display: block;
+    }
+    .cd-label {
+      font-family: var(--display);
+      font-size: .52rem;
+      letter-spacing: .28em;
+      color: var(--ink3);
+      display: block;
+      margin-top: .4rem;
+    }
+    .cd-sep {
+      font-family: var(--mono);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      padding-bottom: 1.4rem;
+    }
+    .cd-ended {
+      font-family: var(--mincho);
+      font-size: 1rem;
+      color: var(--ink2);
+      letter-spacing: .08em;
+    }
+
     /* ─── COMMON SECTION ─── */
     .section { padding: 120px 8%; }
 
@@ -1599,6 +1642,16 @@
         <a href="ticket.html" class="btn btn-pink">チケットを入手する</a>
         <a href="#about" class="btn btn-outline">詳しく見る ↓</a>
       </div>
+      <div class="countdown-row reveal d4" id="countdown-row" aria-live="polite">
+        <div class="cd-block"><span class="cd-num" id="cd-days">---</span><span class="cd-label">DAYS</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">HOURS</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">MINS</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">SECS</span></div>
+      </div>
+
       <div class="hero-date-row reveal d4">
         <div class="hd-item">
           <span class="hd-label">DATE</span>
@@ -2060,6 +2113,28 @@
     }
     updateClock();
     setInterval(updateClock, 1000);
+
+    // ── カウントダウンタイマー ──
+    (function() {
+      const target = new Date('2026-11-01T11:00:00+09:00').getTime();
+      function tick() {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          document.getElementById('countdown-row').innerHTML = '<span class="cd-ended">イベント開催中！</span>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent  = String(d).padStart(3, '0');
+        document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+        document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
+        document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
 
     // ── スクロールアニメーション ──
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');

@@ -165,6 +165,72 @@
       background: var(--border);
     }
 
+    /* ─── LOADER ─── */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+    #loader.hide { opacity: 0; visibility: hidden; }
+    .loader-logo {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: .22em;
+      color: var(--bg);
+      animation: loaderFadeIn .6s ease forwards;
+    }
+    .loader-logo span { color: var(--pink); }
+    .loader-bar {
+      width: 0; height: 1.5px;
+      background: linear-gradient(90deg, var(--pink), #7b1fa2);
+      animation: loaderBar 1s ease forwards;
+    }
+    @keyframes loaderFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes loaderBar    { from { width: 0; } to { width: 120px; } }
+
+    /* ─── NEWS ─── */
+    #news { background: var(--bg2); }
+    .news-inner { max-width: 860px; margin: 0 auto; }
+    .news-list { margin-top: 3rem; display: flex; flex-direction: column; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 120px auto 1fr;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--ink);
+      transition: color .2s;
+    }
+    .news-item:first-child { border-top: 1px solid var(--border); }
+    .news-item:hover { color: var(--pink); }
+    .news-date {
+      font-family: var(--mono); font-size: .75rem; letter-spacing: .08em;
+      color: var(--ink3); flex-shrink: 0;
+    }
+    .news-tag {
+      display: inline-block; font-family: var(--display); font-size: .55rem;
+      letter-spacing: .2em; padding: .25rem .7rem; border-radius: 50px;
+      border: 1px solid var(--pink); color: var(--pink); white-space: nowrap;
+    }
+    .news-title {
+      font-family: var(--mincho); font-size: .95rem; font-weight: 500;
+      letter-spacing: .06em; line-height: 1.6;
+    }
+    .news-empty {
+      padding: 3rem 0; text-align: center;
+      font-size: .9rem; color: var(--ink3); letter-spacing: .06em;
+    }
+    @media (max-width: 600px) {
+      .news-item { grid-template-columns: 1fr auto; grid-template-rows: auto auto; }
+      .news-date { grid-column: 1; grid-row: 1; }
+      .news-tag  { grid-column: 2; grid-row: 1; }
+      .news-title{ grid-column: 1 / -1; grid-row: 2; }
+    }
+
     /* ─── ANNOUNCE BAR ─── */
     .announce-bar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
@@ -1540,6 +1606,12 @@
 </head>
 <body class="bar-visible">
 
+  <!-- LOADER -->
+  <div id="loader" aria-hidden="true">
+    <p class="loader-logo">GRASTA<span>.</span></p>
+    <div class="loader-bar"></div>
+  </div>
+
   <!-- ANNOUNCE BAR -->
   <div class="announce-bar" id="announce-bar" role="banner">
     🎟 前売りチケット受付中！当日より500円お得。
@@ -1563,6 +1635,12 @@
           <a href="#hero" class="drawer-nav-link">
             <span>トップ</span>
             <span class="nav-en">TOP</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
+          <a href="#news" class="drawer-nav-link">
+            <span>お知らせ</span>
+            <span class="nav-en">NEWS</span>
           </a>
         </li>
         <li class="drawer-nav-item">
@@ -1697,6 +1775,8 @@
   <nav id="scroll-nav" aria-hidden="true">
     <div class="snav-dot active" data-target="hero"></div>
     <div class="snav-dash"></div>
+    <div class="snav-dot" data-target="news"></div>
+    <div class="snav-dash"></div>
     <div class="snav-dot" data-target="about"></div>
     <div class="snav-dash"></div>
     <div class="snav-dot" data-target="stats"></div>
@@ -1774,6 +1854,37 @@
         <div class="ring ring-2"></div>
         <div class="ring ring-3"></div>
         <div class="ring-center">GRASTA<br>FES</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="section">
+    <div class="news-inner">
+      <div class="section-center reveal">
+        <div class="sec-label" style="justify-content:center;">
+          <div class="sec-label-line"></div>
+          <span class="sec-label-text">NEWS &amp; UPDATES</span>
+          <div class="sec-label-diamond"></div>
+        </div>
+        <h2 class="section-h2">お知らせ</h2>
+      </div>
+      <div class="news-list reveal d1">
+        <a href="ticket.html" class="news-item">
+          <span class="news-date">2026.05.26</span>
+          <span class="news-tag">TICKET</span>
+          <span class="news-title">前売りチケット受付開始。当日券より500円お得な¥2,500。</span>
+        </a>
+        <div class="news-item" style="cursor:default;">
+          <span class="news-date">2026.05.26</span>
+          <span class="news-tag">VENUE</span>
+          <span class="news-title">会場が東京文具共和会館（千代田区神田錦町）に決定しました。</span>
+        </div>
+        <div class="news-item" style="cursor:default;">
+          <span class="news-date">2026.05.26</span>
+          <span class="news-tag">EVENT</span>
+          <span class="news-title">グラステフェス 2026年11月1日（日）開催決定！</span>
+        </div>
       </div>
     </div>
   </section>
@@ -2306,6 +2417,13 @@
     updateClock();
     setInterval(updateClock, 1000);
 
+    // ── ローダー ──
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hide');
+      }, 900);
+    });
+
     // ── お知らせバー ──
     const announceBar   = document.getElementById('announce-bar');
     const announceClose = document.getElementById('announce-close');
@@ -2377,7 +2495,7 @@
     revealEls.forEach(el => revealObserver.observe(el));
 
     // ── 右サイドのスクロールナビ ──
-    const sections = ['hero','about','stats','contents','lineup','ticket','schedule','business','access','faq'];
+    const sections = ['hero','news','about','stats','contents','lineup','ticket','schedule','business','access','faq'];
     const dots = document.querySelectorAll('.snav-dot');
 
     const sectionObserver = new IntersectionObserver(entries => {

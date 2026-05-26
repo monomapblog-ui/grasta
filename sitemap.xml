@@ -23,6 +23,13 @@
   </url>
 
   <url>
+    <loc>https://monomapblog-ui.github.io/grasta/company.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://monomapblog-ui.github.io/grasta/terms.html</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>

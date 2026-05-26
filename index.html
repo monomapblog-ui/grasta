@@ -462,6 +462,30 @@
       letter-spacing: .08em;
     }
 
+    /* ─── FAQ ─── */
+    #faq { background: var(--bg2); }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: .6rem; }
+    .faq-item { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); overflow: hidden; }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 1.2rem 1.6rem; cursor: pointer; background: none; border: none;
+      text-align: left; font-family: var(--mincho); font-size: 1rem; font-weight: 500;
+      letter-spacing: .06em; color: var(--ink); line-height: 1.6;
+    }
+    .faq-q:hover { background: rgba(181,23,72,.04); }
+    .faq-icon {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--pink); display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; color: var(--pink); transition: transform .3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease;
+      padding: 0 1.6rem; font-size: .92rem; color: var(--ink2); line-height: 1.9;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 1.6rem 1.4rem; }
+
     /* ─── COMMON SECTION ─── */
     .section { padding: 120px 8%; }
 
@@ -1514,6 +1538,12 @@
           </a>
         </li>
         <li class="drawer-nav-item">
+          <a href="#faq" class="drawer-nav-link">
+            <span>よくある質問</span>
+            <span class="nav-en">FAQ</span>
+          </a>
+        </li>
+        <li class="drawer-nav-item">
           <a href="safety.html" class="drawer-nav-link">
             <span>安心・安全</span>
             <span class="nav-en">SAFETY</span>
@@ -1612,6 +1642,7 @@
     <div class="snav-dot" data-target="business"></div>
     <div class="snav-dash"></div>
     <div class="snav-dot" data-target="access"></div>
+    <div class="snav-dot" data-target="faq"></div>
   </nav>
 
   <!-- HEADER -->
@@ -1997,6 +2028,88 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="faq-inner">
+      <div class="section-center reveal">
+        <div class="sec-label" style="justify-content:center;">
+          <div class="sec-label-line"></div>
+          <span class="sec-label-text">FAQ</span>
+          <div class="sec-label-diamond"></div>
+        </div>
+        <h2 class="section-h2">よくある質問</h2>
+        <p class="section-lead">ご不明な点はお気軽にお問い合わせください。</p>
+      </div>
+      <div class="faq-list reveal d1">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            年齢制限はありますか？
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">18歳以上の方のみご入場いただけます。入場時に年齢確認書類（運転免許証・学生証など）の提示をお求めする場合があります。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            チケットの受け取り方を教えてください。
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">ご予約後にお送りするメールをご確認ください。当日は受付にてお名前をお伝えいただくだけで入場できます。紙チケットの郵送はありません。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            再入場はできますか？
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">当日の再入場が可能です。退場の際に受付にてスタンプを押してもらい、再入場時にご提示ください。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            会場内での撮影はできますか？
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">会場内の一般的な撮影は可能です。ただし出演者の撮影については、各出演者が定めるルールに従ってください。無断での動画撮影・SNS投稿はご遠慮ください。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            キャンセル・払い戻しはできますか？
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">イベント開催7日前までにお問い合わせフォームよりご連絡いただいた場合に限り、払い戻しに対応いたします。それ以降のキャンセルはご対応できかねますのでご了承ください。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            会場へのアクセスを教えてください。
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">東京文具共和会館（東京都千代田区神田錦町3-21）です。東京メトロ竹橋駅より徒歩約5分。お車でのご来場はご遠慮いただき、公共交通機関をご利用ください。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            荷物の預かりはありますか？
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">会場内にクロークサービスを設置予定です。詳細は開催が近づいた際に公式SNSにてご案内します。</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            問い合わせ先を教えてください。
+            <span class="faq-icon">＋</span>
+          </button>
+          <div class="faq-a">公式メール（grasta.contact@gmail.com）またはサイト下部のお問い合わせフォームよりご連絡ください。平日10:00〜18:00対応しております。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- TRUST & SAFETY -->
   <section id="safety" class="section">
     <div class="safety-summary-inner">
@@ -2114,6 +2227,22 @@
     updateClock();
     setInterval(updateClock, 1000);
 
+    // ── FAQ アコーディオン ──
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
     // ── カウントダウンタイマー ──
     (function() {
       const target = new Date('2026-11-01T11:00:00+09:00').getTime();
@@ -2149,7 +2278,7 @@
     revealEls.forEach(el => revealObserver.observe(el));
 
     // ── 右サイドのスクロールナビ ──
-    const sections = ['hero','about','stats','contents','lineup','ticket','schedule','business','access'];
+    const sections = ['hero','about','stats','contents','lineup','ticket','schedule','business','access','faq'];
     const dots = document.querySelectorAll('.snav-dot');
 
     const sectionObserver = new IntersectionObserver(entries => {

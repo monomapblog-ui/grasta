@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /privacy.html
+
+Sitemap: https://monomapblog-ui.github.io/grasta/sitemap.xml

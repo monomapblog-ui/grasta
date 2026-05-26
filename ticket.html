@@ -104,6 +104,13 @@
     }
 
     .menu-btn:hover { background: var(--ink); color: var(--bg); }
+    .btn {
+      display: inline-block; padding: .85rem 2.4rem; border-radius: 50px;
+      font-family: var(--display); font-size: .78rem; letter-spacing: .18em;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn:hover { opacity: .8; }
+    .btn-outline { border: 1.5px solid var(--border); color: var(--ink2); }
 
     /* ─── BREADCRUMB ─── */
     .breadcrumb {
@@ -794,6 +801,13 @@
         <p>※ ステージチケット・チェキ券等は別途会場内にて販売となります。</p>
         <p>※ 18歳未満の方は入場できません。入場時に顔写真付き身分証をご提示ください。</p>
         <p>※ 当日券は会場入口にて販売しますが、売り切れの場合があります。</p>
+      </div>
+
+      <div class="reveal" style="margin-top:2.5rem;padding:2rem;border:1px solid rgba(181,23,72,.2);border-radius:8px;background:rgba(181,23,72,.03);text-align:center;">
+        <p style="font-family:var(--display);font-size:.62rem;letter-spacing:.28em;color:var(--pink);margin-bottom:.6rem;">HAVE QUESTIONS?</p>
+        <p style="font-family:var(--mincho);font-size:1.05rem;font-weight:500;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;">ご不明な点はFAQをご確認ください</p>
+        <p style="font-size:.88rem;color:var(--ink2);margin-bottom:1.2rem;">年齢制限・再入場・撮影ルールなどよくある質問をまとめています。</p>
+        <a href="index.html#faq" class="btn btn-outline" style="font-size:.8rem;padding:.6rem 1.8rem;">よくある質問を見る →</a>
       </div>
 
     </div>

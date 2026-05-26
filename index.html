@@ -164,6 +164,60 @@
       background: var(--border);
     }
 
+    /* ─── ANNOUNCE BAR ─── */
+    .announce-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+      background: linear-gradient(90deg, var(--pink) 0%, #7b1fa2 100%);
+      color: #fff; text-align: center;
+      font-family: var(--sans); font-size: .8rem; letter-spacing: .06em;
+      padding: .6rem 3rem;
+      display: flex; align-items: center; justify-content: center; gap: .8rem;
+      transition: transform .35s ease, opacity .35s ease;
+    }
+    .announce-bar.hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+    .announce-bar a { color: #fff; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+    .announce-bar-close {
+      position: absolute; right: 1rem;
+      background: none; border: none; color: rgba(255,255,255,.7);
+      font-size: 1rem; cursor: pointer; padding: .2rem .4rem; line-height: 1;
+    }
+    .announce-bar-close:hover { color: #fff; }
+    body.bar-visible header { top: 40px; }
+    body.bar-visible #hero { padding-top: calc(140px + 40px); }
+    @media (max-width: 768px) {
+      .announce-bar { font-size: .72rem; padding: .55rem 2.5rem; }
+    }
+
+    /* ─── SCROLL TOP BUTTON ─── */
+    .scroll-top-btn {
+      position: fixed; bottom: 2rem; right: 1.8rem; z-index: 900;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--ink); color: var(--bg);
+      border: none; cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s, background .2s;
+      box-shadow: 0 4px 16px rgba(26,22,18,.2);
+    }
+    .scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top-btn:hover { background: var(--pink); transform: translateY(-3px); }
+
+    /* ─── SNS SHARE ─── */
+    .share-row {
+      display: flex; gap: .8rem; justify-content: center;
+      flex-wrap: wrap; margin-top: 1.8rem;
+    }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .55rem 1.4rem; border-radius: 50px;
+      font-family: var(--display); font-size: .65rem; letter-spacing: .16em;
+      text-decoration: none; transition: opacity .2s, transform .2s;
+      border: 1.5px solid rgba(248,246,242,.25);
+    }
+    .share-btn:hover { opacity: .85; transform: translateY(-2px); }
+    .share-btn-x   { background: #000; color: #fff; }
+    .share-btn-line { background: #06C755; color: #fff; border-color: #06C755; }
+
     /* ─── HEADER ─── */
     header {
       position: fixed;
@@ -1483,7 +1537,14 @@
     }
   </style>
 </head>
-<body>
+<body class="bar-visible">
+
+  <!-- ANNOUNCE BAR -->
+  <div class="announce-bar" id="announce-bar" role="banner">
+    🎟 前売りチケット受付中！当日より500円お得。
+    <a href="ticket.html">今すぐ予約する →</a>
+    <button class="announce-bar-close" id="announce-close" aria-label="閉じる">✕</button>
+  </div>
 
   <!-- DRAWER OVERLAY -->
   <div class="drawer-overlay" id="drawer-overlay"></div>
@@ -2173,8 +2234,17 @@
       <div class="reveal d4">
         <span class="age-badge">⚠ 18歳以上限定のイベントです</span>
       </div>
+      <div class="share-row reveal d5">
+        <a href="https://twitter.com/intent/tweet?text=%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%86%E3%83%95%E3%82%A7%E3%82%B92026.11.01%EF%BC%88%E6%97%A5%EF%BC%89%E6%9D%B1%E4%BA%AC%E6%96%87%E5%85%B7%E5%85%B1%E5%92%8C%E4%BC%9A%E9%A4%A8%E3%81%A7%E9%96%8B%E5%82%AC%EF%BC%81%20%E3%83%81%E3%82%A7%E3%82%AD%E3%83%BB%E7%89%A9%E8%B2%A9%E3%83%BB%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%86BAR%E3%81%AA%E3%81%A9%E7%9B%9B%E3%82%8A%E3%81%A0%E3%81%8F%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%F0%9F%8E%89&url=https%3A%2F%2Fmonomapblog-ui.github.io%2Fgrasta%2F"
+           target="_blank" rel="noopener" class="share-btn share-btn-x">𝕏 Xでシェア</a>
+        <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fmonomapblog-ui.github.io%2Fgrasta%2F"
+           target="_blank" rel="noopener" class="share-btn share-btn-line">LINE でシェア</a>
+      </div>
     </div>
   </section>
+
+  <!-- SCROLL TOP -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="ページトップへ戻る">↑</button>
 
   <!-- FOOTER -->
   <footer>
@@ -2234,6 +2304,26 @@
     }
     updateClock();
     setInterval(updateClock, 1000);
+
+    // ── お知らせバー ──
+    const announceBar   = document.getElementById('announce-bar');
+    const announceClose = document.getElementById('announce-close');
+    if (sessionStorage.getItem('barClosed')) {
+      announceBar.classList.add('hidden');
+      document.body.classList.remove('bar-visible');
+    }
+    announceClose.addEventListener('click', () => {
+      announceBar.classList.add('hidden');
+      document.body.classList.remove('bar-visible');
+      sessionStorage.setItem('barClosed', '1');
+    });
+
+    // ── スクロールトップボタン ──
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     // ── FAQ アコーディオン ──
     document.querySelectorAll('.faq-q').forEach(btn => {

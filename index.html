@@ -1766,7 +1766,11 @@
             <textarea class="form-textarea" id="cf-message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
           </div>
           <p class="form-note">※ 返信まで2〜3営業日いただく場合がございます。</p>
-          <button class="form-submit" type="submit" id="form-submit-btn">送信する</button>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;margin:1.2rem 0 .8rem;">
+            <input type="checkbox" id="privacy-agree" style="margin-top:.25rem;width:16px;height:16px;accent-color:var(--pink);cursor:pointer;flex-shrink:0;" />
+            <label for="privacy-agree" style="font-size:.82rem;color:var(--ink2);line-height:1.7;cursor:pointer;"><a href="privacy.html" target="_blank" style="color:var(--pink);text-decoration:underline;text-underline-offset:3px;">プライバシーポリシー</a>に同意する</label>
+          </div>
+          <button class="form-submit" type="submit" id="form-submit-btn" disabled>送信する</button>
         </form>
         <div class="form-success" id="form-success">
           <div class="form-success-icon">✉️</div>
@@ -2060,7 +2064,8 @@
         </div>
       </div>
       <div class="lineup-more-row reveal">
-        <p style="font-size:.84rem;color:var(--ink2);margin-bottom:1.4rem;">さらに多数のタレントが参加予定 ── 続報をお待ちください</p>
+        <p style="font-size:.84rem;color:var(--ink2);margin-bottom:.6rem;">さらに多数のタレントが参加予定 ── 続報をお待ちください</p>
+        <p style="font-size:.78rem;color:var(--pink);margin-bottom:1.4rem;letter-spacing:.04em;">※ 第1弾出演者発表は【〇月〇日】を予定しています。公式SNSをフォローしてお待ちください。</p>
         <a href="#" class="btn btn-outline">出演者一覧（近日公開）</a>
       </div>
     </div>
@@ -2116,6 +2121,7 @@
         <p style="font-family:var(--display);font-size:.75rem;letter-spacing:.3em;color:var(--pink);margin-bottom:1rem;">COMING SOON</p>
         <p style="font-family:var(--mincho);font-size:1.4rem;letter-spacing:.1em;color:var(--ink);margin-bottom:.75rem;">スケジュール近日公開</p>
         <p style="font-size:.9rem;color:var(--ink2);line-height:1.8;">出演者・タイムテーブルの詳細は、公式SNSにて順次発表いたします。<br>フォローして最新情報をお見逃しなく。</p>
+        <p style="font-size:.78rem;color:var(--pink);margin-top:1.2rem;letter-spacing:.04em;">※ 第1弾出演者発表は【〇月〇日】を予定しています。公式SNSをフォローしてお待ちください。</p>
         <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
           <a href="https://x.com/grasta_official" target="_blank" rel="noopener" class="btn" style="font-size:.85rem;padding:.6rem 1.6rem;">𝕏 をフォロー</a>
           <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.85rem;padding:.6rem 1.6rem;">Instagram をフォロー</a>
@@ -2242,7 +2248,7 @@
             チケットの受け取り方を教えてください。
             <span class="faq-icon">＋</span>
           </button>
-          <div class="faq-a">ご予約後にお送りするメールをご確認ください。当日は受付にてお名前をお伝えいただくだけで入場できます。紙チケットの郵送はありません。</div>
+          <div class="faq-a">ご予約後にお送りするメールをご確認ください。当日は電子チケット（QRコード）での受付となります。また、入場の際に18歳以上であることを確認できる顔写真付き身分証明書のご提示をお願いいたします。</div>
         </div>
 
         <div class="faq-item">
@@ -2258,7 +2264,7 @@
             会場内での撮影はできますか？
             <span class="faq-icon">＋</span>
           </button>
-          <div class="faq-a">会場内の一般的な撮影は可能です。ただし出演者の撮影については、各出演者が定めるルールに従ってください。無断での動画撮影・SNS投稿はご遠慮ください。</div>
+          <div class="faq-a">被写体（人物）の撮影は全面禁止です。会場内の風景や展示物のみ撮影可能です。</div>
         </div>
 
         <div class="faq-item">
@@ -2290,7 +2296,7 @@
             問い合わせ先を教えてください。
             <span class="faq-icon">＋</span>
           </button>
-          <div class="faq-a">公式メール（grasta.contact@gmail.com）またはサイト下部のお問い合わせフォームよりご連絡ください。平日10:00〜18:00対応しております。</div>
+          <div class="faq-a">公式メール（info@grasta.co.jp）またはサイト下部のお問い合わせフォームよりご連絡ください。平日10:00〜18:00対応しております。</div>
         </div>
 
       </div>
@@ -2353,9 +2359,9 @@
         <span class="age-badge">⚠ 18歳以上限定のイベントです</span>
       </div>
       <div class="share-row reveal d5">
-        <a href="https://twitter.com/intent/tweet?text=%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%86%E3%83%95%E3%82%A7%E3%82%B92026.11.01%EF%BC%88%E6%97%A5%EF%BC%89%E6%9D%B1%E4%BA%AC%E6%96%87%E5%85%B7%E5%85%B1%E5%92%8C%E4%BC%9A%E9%A4%A8%E3%81%A7%E9%96%8B%E5%82%AC%EF%BC%81%20%E3%83%81%E3%82%A7%E3%82%AD%E3%83%BB%E7%89%A9%E8%B2%A9%E3%83%BB%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%86BAR%E3%81%AA%E3%81%A9%E7%9B%9B%E3%82%8A%E3%81%A0%E3%81%8F%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%F0%9F%8E%89&url=https%3A%2F%2Fmonomapblog-ui.github.io%2Fgrasta%2F"
+        <a href="https://twitter.com/intent/tweet?text=%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%86%E3%83%95%E3%82%A7%E3%82%B92026.11.01%EF%BC%88%E6%97%A5%EF%BC%89%E6%9D%B1%E4%BA%AC%E6%96%87%E5%85%B7%E5%85%B1%E5%92%8C%E4%BC%9A%E9%A4%A8%E3%81%A7%E9%96%8B%E5%82%AC%EF%BC%81%20%E3%83%81%E3%82%A7%E3%82%AD%E3%83%BB%E7%89%A9%E8%B2%A9%E3%83%BB%E3%82%B0%E3%83%A9%E3%82%B9%E3%83%86BAR%E3%81%AA%E3%81%A9%E7%9B%9B%E3%82%8A%E3%81%A0%E3%81%8F%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%F0%9F%8E%89&url=https%3A%2F%2Fgravurestation.jp%2F"
            target="_blank" rel="noopener" class="share-btn share-btn-x">𝕏 Xでシェア</a>
-        <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fmonomapblog-ui.github.io%2Fgrasta%2F"
+        <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fgravurestation.jp%2F"
            target="_blank" rel="noopener" class="share-btn share-btn-line">LINE でシェア</a>
       </div>
     </div>
@@ -2396,6 +2402,7 @@
           <li><span style="font-size:.85rem;color:rgba(248,246,242,.3);">グラビアステーション</span></li>
           <li><span style="font-size:.85rem;color:rgba(248,246,242,.3);">グラステBAR</span></li>
           <li><a href="#" data-contact>お問い合わせ</a></li>
+          <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
           <li><a href="privacy.html">プライバシーポリシー</a></li>
         </ul>
       </div>
@@ -2568,6 +2575,10 @@
     const contactForm = document.getElementById('contact-form');
     const formSuccess = document.getElementById('form-success');
     const submitBtn = document.getElementById('form-submit-btn');
+    const privacyAgree = document.getElementById('privacy-agree');
+    privacyAgree.addEventListener('change', () => {
+      submitBtn.disabled = !privacyAgree.checked;
+    });
 
     function openContactModal() {
       contactModal.classList.add('open');

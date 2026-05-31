@@ -1602,6 +1602,500 @@
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr; }
     }
+
+    /* ═══════════════════════════════════════
+       HERO — FULL-SCREEN REIMAGINED
+    ═══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: #0d0b09;
+      padding: 120px 6% 100px;
+      text-align: center;
+      gap: 0;
+    }
+
+    body.bar-visible #hero { padding-top: calc(120px + 40px); }
+
+    .hero-bg {
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(ellipse 60% 50% at 18% 60%, rgba(181,23,72,.42) 0%, transparent 58%),
+        radial-gradient(ellipse 55% 60% at 82% 28%, rgba(139,82,214,.38) 0%, transparent 58%),
+        radial-gradient(ellipse 45% 45% at 52% 85%, rgba(200,146,74,.2) 0%, transparent 50%),
+        #0d0b09;
+      animation: heroKenburns 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroKenburns {
+      0%   { transform: scale(1)    translate(0, 0); }
+      50%  { transform: scale(1.07) translate(-1.5%, -.8%); }
+      100% { transform: scale(1.12) translate(1%, .6%); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--display);
+      font-size: .62rem;
+      letter-spacing: .45em;
+      font-weight: 400;
+      color: rgba(248,246,242,.38);
+      margin-bottom: 1.4rem;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .hero-h1 { margin-bottom: 2rem; }
+
+    .hero-h1-fes {
+      display: block;
+      font-family: var(--mono);
+      font-size: clamp(4rem, 13vw, 10rem);
+      font-weight: 900;
+      letter-spacing: .04em;
+      color: #fff;
+      line-height: .95;
+      margin-bottom: .18em;
+    }
+
+    .hero-h1-ja {
+      display: block;
+      font-family: var(--mincho);
+      font-size: clamp(1.1rem, 2.8vw, 2rem);
+      font-weight: 500;
+      letter-spacing: .12em;
+      color: rgba(248,246,242,.62);
+      line-height: 1.6;
+    }
+
+    .hero-h1-ja .grad {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Date badges row */
+    .hero-date-badges {
+      display: inline-flex;
+      align-items: stretch;
+      border: 1px solid rgba(248,246,242,.1);
+      border-radius: 6px;
+      background: rgba(248,246,242,.04);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-badge { padding: .9rem 2rem; text-align: center; }
+
+    .hero-badge-sep {
+      width: 1px;
+      background: rgba(248,246,242,.1);
+      flex-shrink: 0;
+    }
+
+    .hero-badge-label {
+      display: block;
+      font-family: var(--display);
+      font-size: .5rem;
+      letter-spacing: .3em;
+      color: rgba(248,246,242,.32);
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+
+    .hero-badge-value {
+      display: block;
+      font-family: var(--mincho);
+      font-size: .92rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      color: rgba(248,246,242,.88);
+    }
+
+    /* Hero CTAs */
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .btn-hero-main {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: 1.1rem 3.2rem;
+      font-family: var(--mono);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+      color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(181,23,72,.55), 0 0 0 1px rgba(181,23,72,.25);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-hero-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 44px rgba(181,23,72,.7), 0 0 0 1px rgba(181,23,72,.4);
+    }
+
+    .btn-hero-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: 1.1rem 2.4rem;
+      font-family: var(--mono);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: transparent;
+      color: rgba(248,246,242,.6);
+      border: 1px solid rgba(248,246,242,.16);
+      border-radius: 4px;
+      transition: border-color .2s, color .2s, background .2s;
+      cursor: pointer;
+    }
+
+    .btn-hero-sub:hover {
+      border-color: rgba(248,246,242,.45);
+      color: #fff;
+      background: rgba(248,246,242,.06);
+    }
+
+    /* Countdown on dark bg */
+    .hero-countdown {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .hero-cd-block { text-align: center; min-width: 52px; }
+
+    .hero-cd-num {
+      font-family: var(--mono);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+
+    .hero-cd-label {
+      font-family: var(--display);
+      font-size: .48rem;
+      letter-spacing: .28em;
+      color: rgba(248,246,242,.3);
+      display: block;
+      margin-top: .3rem;
+    }
+
+    .hero-cd-sep {
+      font-family: var(--mono);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: rgba(248,246,242,.18);
+      padding-bottom: 1.2rem;
+    }
+
+    .cd-ended { font-family: var(--mincho); font-size: 1rem; color: rgba(248,246,242,.7); letter-spacing: .08em; }
+
+    /* Scroll hint */
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-scroll-hint span {
+      font-family: var(--display);
+      font-size: .5rem;
+      letter-spacing: .36em;
+      color: rgba(248,246,242,.22);
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(248,246,242,.28), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .3; transform: scaleY(.6) translateY(-4px); }
+      50%       { opacity: 1;  transform: scaleY(1)  translateY(4px); }
+    }
+
+    /* ═══════════════════════════════════════
+       MARQUEE LINEUP
+    ═══════════════════════════════════════ */
+    #lineup {
+      background: #0d0b09;
+      overflow: hidden;
+      padding-bottom: 100px;
+    }
+
+    #lineup .lineup-inner { max-width: none; padding: 0; }
+
+    .lineup-head {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 8% 0;
+    }
+
+    .marquee-wrap {
+      position: relative;
+      margin-top: 3.5rem;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 100px;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #0d0b09, transparent);
+    }
+
+    .marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #0d0b09, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: marqueeScroll 40s linear infinite;
+      padding: 8px 0 24px;
+    }
+
+    .marquee-wrap:hover .marquee-track,
+    .marquee-wrap.is-paused .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-card {
+      width: 240px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform .45s cubic-bezier(.16,1,.3,1);
+    }
+
+    .marquee-card:hover { transform: translateY(-10px) scale(1.02); }
+
+    .marquee-thumb {
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .marquee-thumb-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform .6s cubic-bezier(.16,1,.3,1);
+    }
+
+    .marquee-card:hover .marquee-thumb-bg { transform: scale(1.07); }
+
+    .mc-1 .marquee-thumb-bg { background: linear-gradient(160deg, #2d1020 0%, #190c32 100%); }
+    .mc-2 .marquee-thumb-bg { background: linear-gradient(160deg, #221030 0%, #130922 100%); }
+    .mc-3 .marquee-thumb-bg { background: linear-gradient(160deg, #1c1530 0%, #280d1c 100%); }
+    .mc-4 .marquee-thumb-bg { background: linear-gradient(160deg, #0e1c2e 0%, #1e0d2c 100%); }
+    .mc-5 .marquee-thumb-bg { background: linear-gradient(160deg, #2c160d 0%, #200d2c 100%); }
+    .mc-6 .marquee-thumb-bg { background: linear-gradient(160deg, #150d2c 0%, #2a100d 100%); }
+    .mc-7 .marquee-thumb-bg { background: linear-gradient(160deg, #18082a 0%, #2e1218 100%); }
+    .mc-8 .marquee-thumb-bg { background: linear-gradient(160deg, #0c1a20 0%, #1c0c2a 100%); }
+
+    .marquee-thumb-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      font-size: 3.8rem;
+      opacity: .22;
+      z-index: 1;
+    }
+
+    .marquee-card-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-family: var(--mono);
+      font-size: .54rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      padding: .3rem .75rem;
+      background: var(--pink);
+      color: #fff;
+      z-index: 3;
+      text-transform: uppercase;
+    }
+
+    .marquee-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.12) 45%, transparent 100%);
+      z-index: 2;
+    }
+
+    .marquee-card-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.4rem 1.2rem;
+      z-index: 3;
+    }
+
+    .marquee-card-name {
+      font-family: var(--mincho);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      color: #fff;
+      margin-bottom: .2rem;
+    }
+
+    .marquee-card-handle {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      color: var(--pink2);
+    }
+
+    .lineup-coming-note {
+      max-width: 1100px;
+      margin: 2.4rem auto 0;
+      padding: 0 8%;
+      text-align: center;
+    }
+
+    /* ═══════════════════════════════════════
+       FLOATING TICKET BUTTON
+    ═══════════════════════════════════════ */
+    .float-ticket {
+      position: fixed;
+      bottom: 2.2rem;
+      right: 2.2rem;
+      z-index: 850;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .9rem 1.8rem;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      box-shadow: 0 8px 28px rgba(181,23,72,.55);
+      transform: translateY(80px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .45s cubic-bezier(.16,1,.3,1), opacity .45s, box-shadow .2s;
+    }
+
+    .float-ticket.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .float-ticket:hover {
+      box-shadow: 0 14px 40px rgba(181,23,72,.7);
+      transform: translateY(-3px);
+    }
+
+    .float-ticket-icon { font-size: .95rem; }
+
+    @media (max-width: 768px) {
+      #hero { padding: 100px 5% 80px; }
+      body.bar-visible #hero { padding-top: calc(100px + 40px); }
+      .hero-date-badges { flex-direction: column; border-radius: 4px; }
+      .hero-badge-sep { width: 60%; height: 1px; margin: 0 auto; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-hero-main, .btn-hero-sub { width: 100%; max-width: 320px; justify-content: center; }
+      .marquee-card { width: 190px; }
+      .float-ticket {
+        bottom: 0; left: 0; right: 0;
+        border-radius: 0;
+        justify-content: center;
+        padding: 1rem 2rem;
+        box-shadow: 0 -4px 24px rgba(181,23,72,.45);
+        transform: translateY(100%);
+      }
+      .float-ticket.visible { transform: translateY(0); }
+      .float-ticket:hover { transform: translateY(0); box-shadow: 0 -4px 24px rgba(181,23,72,.55); }
+    }
+
+    /* ═══════════════════════════════════════
+       SECTION BG OVERRIDES
+    ═══════════════════════════════════════ */
+    #stats {
+      background: linear-gradient(135deg, #0d0b09 0%, #1c0a1e 50%, #0d0b09 100%);
+    }
+
+    #business {
+      background: #0d0b09;
+    }
+
+    #business .biz-title { color: rgba(248,246,242,.9); }
+    #business .biz-desc  { color: rgba(248,246,242,.5); }
+    #business .biz-num   { color: rgba(139,82,214,.8); }
+    #business .biz-card  { background: rgba(248,246,242,.03); border-color: rgba(248,246,242,.08); }
+    #business .biz-card:hover { background: rgba(248,246,242,.07); transform: translateY(-5px); }
+    #business .section-h2 { color: #fff; }
+    #business .section-lead { color: rgba(248,246,242,.5); }
+    #business .sec-label-text { color: rgba(248,246,242,.5); }
   </style>
 </head>
 <body class="bar-visible">
@@ -1818,53 +2312,51 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-text">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-inner">
       <span class="hero-eyebrow reveal">合同会社グラステ 主催イベント</span>
       <h1 class="hero-h1 reveal d1">
-        <span class="grad">裏垢女子</span>が、<br>
-        リアルに集う。
+        <span class="hero-h1-fes">GRASTA FES</span>
+        <span class="hero-h1-ja"><span class="grad">裏垢女子</span>が、リアルに集う。</span>
       </h1>
-      <p class="hero-lead reveal d2">
-        グラステフェスは、SNSで活動する裏垢系インフルエンサーたちが
-        一堂に会す、新感覚の展示会型イベントです。
-        オンラインを超えた、ここだけの出会いと体験を。
-      </p>
-      <div class="hero-btns reveal d3">
-        <a href="ticket.html" class="btn btn-pink">チケットを入手する</a>
-        <a href="#about" class="btn btn-outline">詳しく見る ↓</a>
-      </div>
-      <div class="countdown-row reveal d4" id="countdown-row" aria-live="polite">
-        <div class="cd-block"><span class="cd-num" id="cd-days">---</span><span class="cd-label">DAYS</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">HOURS</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">MINS</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">SECS</span></div>
+
+      <div class="hero-date-badges reveal d2">
+        <div class="hero-badge">
+          <span class="hero-badge-label">DATE</span>
+          <span class="hero-badge-value">2026.11.01</span>
+        </div>
+        <div class="hero-badge-sep"></div>
+        <div class="hero-badge">
+          <span class="hero-badge-label">VENUE</span>
+          <span class="hero-badge-value">東京文具共和会館</span>
+        </div>
+        <div class="hero-badge-sep"></div>
+        <div class="hero-badge">
+          <span class="hero-badge-label">OPEN</span>
+          <span class="hero-badge-value">11:00 – 20:00</span>
+        </div>
       </div>
 
-      <div class="hero-date-row reveal d4">
-        <div class="hd-item">
-          <span class="hd-label">DATE</span>
-          <span class="hd-value">2026.11.01</span>
-        </div>
-        <div class="hd-item">
-          <span class="hd-label">VENUE</span>
-          <span class="hd-value">東京文具共和会館</span>
-        </div>
-        <div class="hd-item">
-          <span class="hd-label">OPEN</span>
-          <span class="hd-value">11:00 – 20:00</span>
-        </div>
+      <div class="hero-btns reveal d3">
+        <a href="ticket.html" class="btn-hero-main">🎟 チケットを購入する</a>
+        <a href="#about" class="btn-hero-sub">イベント詳細 ↓</a>
+      </div>
+
+      <div class="hero-countdown reveal d4" id="countdown-row" aria-live="polite">
+        <div class="hero-cd-block"><span class="hero-cd-num" id="cd-days">---</span><span class="hero-cd-label">DAYS</span></div>
+        <span class="hero-cd-sep">:</span>
+        <div class="hero-cd-block"><span class="hero-cd-num" id="cd-hours">--</span><span class="hero-cd-label">HOURS</span></div>
+        <span class="hero-cd-sep">:</span>
+        <div class="hero-cd-block"><span class="hero-cd-num" id="cd-mins">--</span><span class="hero-cd-label">MINS</span></div>
+        <span class="hero-cd-sep">:</span>
+        <div class="hero-cd-block"><span class="hero-cd-num" id="cd-secs">--</span><span class="hero-cd-label">SECS</span></div>
       </div>
     </div>
-    <div class="hero-visual reveal-right">
-      <div class="ring-wrap">
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
-        <div class="ring ring-3"></div>
-        <div class="ring-center">GRASTA<br>FES</div>
-      </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
@@ -2002,72 +2494,202 @@
   </section>
 
   <!-- LINEUP -->
-  <section id="lineup" class="section">
+  <section id="lineup">
     <div class="lineup-inner">
-      <div class="reveal">
+
+      <div class="lineup-head reveal">
         <div class="sec-label">
           <div class="sec-label-line"></div>
-          <span class="sec-label-text">TALENT LINEUP</span>
+          <span class="sec-label-text" style="color:rgba(248,246,242,.5);">TALENT LINEUP</span>
           <div class="sec-label-diamond"></div>
         </div>
-        <h2 class="section-h2">参加タレント</h2>
-        <p class="section-lead">SNSで話題の人気タレントたちがグラステフェスに集結。詳細は随時更新予定。</p>
+        <h2 class="section-h2" style="color:#fff;">参加タレント</h2>
+        <p class="section-lead" style="color:rgba(248,246,242,.45);">SNSで話題の人気タレントたちがグラステフェスに集結。詳細は随時更新予定。</p>
       </div>
-      <div class="lineup-grid">
-        <div class="talent-card reveal d1">
-          <div class="talent-thumb tc-1">
-            ✨
-            <span class="talent-badge">SPECIAL</span>
-          </div>
-          <div class="talent-info">
-            <p class="talent-name">出演者①</p>
-            <p class="talent-handle">@coming_soon</p>
-            <div class="talent-tags">
-              <span class="tag">Twitter/X</span>
-              <span class="tag">Instagram</span>
+
+      <!-- INFINITE MARQUEE -->
+      <div class="marquee-wrap" id="marquee-wrap" aria-label="出演者カルーセル">
+        <div class="marquee-track" id="marquee-track">
+
+          <!-- SET A -->
+          <div class="marquee-card mc-1">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">✨</span>
+              <span class="marquee-card-badge">SPECIAL</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者①</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="talent-card reveal d2">
-          <div class="talent-thumb tc-2">💫</div>
-          <div class="talent-info">
-            <p class="talent-name">出演者②</p>
-            <p class="talent-handle">@coming_soon</p>
-            <div class="talent-tags">
-              <span class="tag">Twitter/X</span>
+          <div class="marquee-card mc-2">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">💫</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者②</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="talent-card reveal d3">
-          <div class="talent-thumb tc-3">
-            🌸
-            <span class="talent-badge">GUEST</span>
-          </div>
-          <div class="talent-info">
-            <p class="talent-name">出演者③</p>
-            <p class="talent-handle">@coming_soon</p>
-            <div class="talent-tags">
-              <span class="tag">TikTok</span>
-              <span class="tag">Instagram</span>
+          <div class="marquee-card mc-3">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🌸</span>
+              <span class="marquee-card-badge">GUEST</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者③</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="talent-card reveal d4">
-          <div class="talent-thumb tc-4">🔥</div>
-          <div class="talent-info">
-            <p class="talent-name">出演者④</p>
-            <p class="talent-handle">@coming_soon</p>
-            <div class="talent-tags">
-              <span class="tag">Twitter/X</span>
+          <div class="marquee-card mc-4">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🔥</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者④</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
             </div>
           </div>
+          <div class="marquee-card mc-5">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🎀</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑤</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-6">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">⚡</span>
+              <span class="marquee-card-badge">VIP</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑥</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-7">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🌙</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑦</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-8">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🦋</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑧</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SET B (duplicate for seamless loop) -->
+          <div class="marquee-card mc-1">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">✨</span>
+              <span class="marquee-card-badge">SPECIAL</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者①</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-2">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">💫</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者②</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-3">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🌸</span>
+              <span class="marquee-card-badge">GUEST</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者③</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-4">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🔥</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者④</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-5">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🎀</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑤</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-6">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">⚡</span>
+              <span class="marquee-card-badge">VIP</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑥</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-7">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🌙</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑦</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+          <div class="marquee-card mc-8">
+            <div class="marquee-thumb">
+              <div class="marquee-thumb-bg"></div>
+              <span class="marquee-thumb-icon">🦋</span>
+              <div class="marquee-card-info">
+                <p class="marquee-card-name">出演者⑧</p>
+                <p class="marquee-card-handle">COMING SOON</p>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div><!-- /marquee-wrap -->
+
+      <div class="lineup-coming-note reveal">
+        <p style="font-size:.82rem;color:rgba(248,246,242,.38);margin-bottom:.55rem;">さらに多数のタレントが参加予定 ── 続報をお待ちください</p>
+        <p style="font-size:.78rem;color:var(--pink2);margin-bottom:1.6rem;letter-spacing:.04em;">※ 第1弾出演者発表は【〇月〇日】を予定しています。公式SNSをフォローしてお待ちください。</p>
+        <a href="#" class="btn btn-outline" style="border-color:rgba(248,246,242,.18);color:rgba(248,246,242,.65);">出演者一覧（近日公開）</a>
       </div>
-      <div class="lineup-more-row reveal">
-        <p style="font-size:.84rem;color:var(--ink2);margin-bottom:.6rem;">さらに多数のタレントが参加予定 ── 続報をお待ちください</p>
-        <p style="font-size:.78rem;color:var(--pink);margin-bottom:1.4rem;letter-spacing:.04em;">※ 第1弾出演者発表は【〇月〇日】を予定しています。公式SNSをフォローしてお待ちください。</p>
-        <a href="#" class="btn btn-outline">出演者一覧（近日公開）</a>
-      </div>
+
     </div>
   </section>
 
@@ -2367,6 +2989,12 @@
     </div>
   </section>
 
+  <!-- FLOAT TICKET -->
+  <a href="ticket.html" class="float-ticket" id="float-ticket" aria-label="チケットを購入する">
+    <span class="float-ticket-icon">🎟</span>
+    <span>TICKETS</span>
+  </a>
+
   <!-- SCROLL TOP -->
   <button class="scroll-top-btn" id="scroll-top-btn" aria-label="ページトップへ戻る">↑</button>
 
@@ -2486,10 +3114,14 @@
         const h = Math.floor((diff % 86400000) / 3600000);
         const m = Math.floor((diff % 3600000) / 60000);
         const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('cd-days').textContent  = String(d).padStart(3, '0');
-        document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-        document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
-        document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
+        const dEl = document.getElementById('cd-days');
+        const hEl = document.getElementById('cd-hours');
+        const mEl = document.getElementById('cd-mins');
+        const sEl = document.getElementById('cd-secs');
+        if (dEl) dEl.textContent = String(d).padStart(3, '0');
+        if (hEl) hEl.textContent = String(h).padStart(2, '0');
+        if (mEl) mEl.textContent = String(m).padStart(2, '0');
+        if (sEl) sEl.textContent = String(s).padStart(2, '0');
       }
       tick();
       setInterval(tick, 1000);
@@ -2606,6 +3238,23 @@
     contactModal.addEventListener('click', e => {
       if (e.target === contactModal) closeContactModal();
     });
+
+    // ── フロートチケットボタン ──
+    const floatTicket = document.getElementById('float-ticket');
+    window.addEventListener('scroll', () => {
+      floatTicket.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
+    }, { passive: true });
+
+    // ── マーキー タッチ対応 ──
+    const marqueeWrap = document.getElementById('marquee-wrap');
+    if (marqueeWrap) {
+      marqueeWrap.addEventListener('touchstart', () => {
+        marqueeWrap.classList.add('is-paused');
+      }, { passive: true });
+      marqueeWrap.addEventListener('touchend', () => {
+        setTimeout(() => marqueeWrap.classList.remove('is-paused'), 200);
+      }, { passive: true });
+    }
 
     // フォーム送信（mailtoフォールバック）
     contactForm.addEventListener('submit', e => {

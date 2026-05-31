@@ -2096,6 +2096,102 @@
     #business .section-h2 { color: #fff; }
     #business .section-lead { color: rgba(248,246,242,.5); }
     #business .sec-label-text { color: rgba(248,246,242,.5); }
+
+    /* ═══════════════════════════════════════
+       ホワイトベース カラー補正
+       白90% / ピンク・青アクセント / 赤黄緑は最小
+    ═══════════════════════════════════════ */
+
+    /* ── HERO ── */
+    #hero { background: var(--bg); }
+
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 55% 45% at 15% 65%, rgba(181,23,72,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 55% at 85% 25%, rgba(139,82,214,.06) 0%, transparent 60%),
+        var(--bg);
+    }
+
+    .hero-eyebrow   { color: var(--ink3); }
+    .hero-h1-fes    { color: var(--ink); }
+    .hero-h1-ja     { color: var(--ink2); }
+
+    .hero-date-badges {
+      border-color: var(--border);
+      background: rgba(26,22,18,.03);
+      backdrop-filter: none;
+    }
+
+    .hero-badge-sep   { background: var(--border); }
+    .hero-badge-label { color: var(--ink3); }
+    .hero-badge-value { color: var(--ink); }
+
+    .btn-hero-sub {
+      color: var(--ink2);
+      border-color: rgba(26,22,18,.18);
+    }
+
+    .btn-hero-sub:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: rgba(26,22,18,.05);
+    }
+
+    .hero-cd-num   { color: var(--pink); }
+    .hero-cd-sep   { color: var(--border); }
+    .hero-cd-label { color: var(--ink3); }
+    .cd-ended      { color: var(--ink2); }
+
+    .hero-scroll-hint span { color: var(--ink3); }
+    .hero-scroll-line { background: linear-gradient(to bottom, rgba(26,22,18,.18), transparent); }
+
+    /* ── LINEUP ── */
+    #lineup { background: var(--bg); }
+
+    .marquee-wrap::before { background: linear-gradient(to right, var(--bg), transparent); }
+    .marquee-wrap::after  { background: linear-gradient(to left,  var(--bg), transparent); }
+
+    .mc-1 .marquee-thumb-bg { background: linear-gradient(160deg, #f8e8f2, #ede8f8); }
+    .mc-2 .marquee-thumb-bg { background: linear-gradient(160deg, #f4eaf8, #f0e4f4); }
+    .mc-3 .marquee-thumb-bg { background: linear-gradient(160deg, #edf0f8, #f0e8f6); }
+    .mc-4 .marquee-thumb-bg { background: linear-gradient(160deg, #e8f0f8, #ede8f8); }
+    .mc-5 .marquee-thumb-bg { background: linear-gradient(160deg, #f8f0e8, #f5e8f0); }
+    .mc-6 .marquee-thumb-bg { background: linear-gradient(160deg, #f0e8f8, #f8ede8); }
+    .mc-7 .marquee-thumb-bg { background: linear-gradient(160deg, #ece8f8, #f5e8f2); }
+    .mc-8 .marquee-thumb-bg { background: linear-gradient(160deg, #e8f3f8, #eee8f8); }
+
+    .marquee-thumb-icon { opacity: .15; }
+
+    .marquee-thumb::after {
+      background: linear-gradient(to top, rgba(26,22,18,.72) 0%, rgba(26,22,18,.04) 42%, transparent 100%);
+    }
+
+    .marquee-card-name   { color: #fff; }
+    .marquee-card-handle { color: rgba(248,246,242,.72); }
+
+    #lineup .lineup-head .section-h2    { color: var(--ink)  !important; }
+    #lineup .lineup-head .section-lead  { color: var(--ink2) !important; }
+    #lineup .lineup-head .sec-label-text { color: var(--pink) !important; }
+
+    .lineup-coming-note p:first-child   { color: var(--ink3) !important; }
+    .lineup-coming-note .btn-outline    { border-color: var(--border) !important; color: var(--ink2) !important; }
+
+    /* ── STATS ── */
+    #stats {
+      background: linear-gradient(135deg, #8b52d6 0%, #B51748 55%, #c8924a 100%);
+    }
+
+    /* ── BUSINESS ── */
+    #business { background: var(--bg2); }
+
+    #business .biz-title      { color: var(--ink)    !important; }
+    #business .biz-desc       { color: var(--ink2)   !important; }
+    #business .biz-num        { color: var(--purple)  !important; }
+    #business .biz-card       { background: var(--bg) !important; border-color: var(--border) !important; }
+    #business .biz-card:hover { background: var(--bg2) !important; }
+    #business .section-h2     { color: var(--ink)    !important; }
+    #business .section-lead   { color: var(--ink2)   !important; }
+    #business .sec-label-text { color: var(--pink)   !important; }
   </style>
 </head>
 <body class="bar-visible">

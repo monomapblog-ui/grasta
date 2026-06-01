@@ -11,906 +11,364 @@
     gtag('js', new Date());
     gtag('config', 'G-NMWGEPBMND');
   </script>
-  <title>グラビアステーション | 裏垢インフルエンサー総合メディア</title>
+  <title>グラビアステーション | Gravure Station</title>
+  <meta name="description" content="グラビアステーション — 活動する人と応援する人を繋ぐプラットフォーム。グラビアアイドル・裏垢女子・コスプレイヤーのイベント情報を発信。" />
   <link rel="canonical" href="https://gravurestation.jp/station.html" />
   <link rel="icon" href="logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="logo.png" />
-  <meta name="description" content="グラビアステーションは裏垢インフルエンサーの総合メディアサイト。タレント一覧・ジャンル別フィルター・イベントカレンダーで推しのすべてがわかる。" />
 
   <!-- OGP -->
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="グラビアステーション" />
-  <meta property="og:title"       content="グラビアステーション | 裏垢インフルエンサー総合メディア" />
-  <meta property="og:description" content="裏垢インフルエンサーの総合メディア。タレント一覧・ジャンル別フィルター・裏垢イベントカレンダー。" />
+  <meta property="og:title"       content="グラビアステーション | Gravure Station" />
+  <meta property="og:description" content="活動する人と応援する人を繋ぐプラットフォーム。グラビアアイドル・裏垢女子・コスプレイヤーのイベント情報を発信。" />
   <meta property="og:url"         content="https://gravurestation.jp/station.html" />
   <meta property="og:image"       content="https://gravurestation.jp/ogp.jpg" />
-  <meta property="og:locale"      content="ja_JP" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:site"        content="@grasta_official" />
-  <meta name="twitter:title"       content="グラビアステーション | 裏垢インフルエンサー総合メディア" />
-  <meta name="twitter:description" content="裏垢インフルエンサーの総合メディア。タレント一覧・ジャンル別フィルター・裏垢イベントカレンダー。" />
-  <meta name="twitter:image"       content="https://gravurestation.jp/ogp.jpg" />
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "グラビアステーション",
-    "url": "https://gravurestation.jp/station.html",
-    "description": "裏垢インフルエンサーの総合メディアサイト",
-    "publisher": {
-      "@type": "Organization",
-      "name": "合同会社グラステ",
-      "url": "https://gravurestation.jp/company.html"
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            enji: { DEFAULT: '#b32b47', dark: '#8c1f35', light: '#c94060' }
+          }
+        }
+      }
     }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "HOME", "item": "https://gravurestation.jp/" },
-      { "@type": "ListItem", "position": 2, "name": "グラビアステーション", "item": "https://gravurestation.jp/station.html" }
-    ]
-  }
   </script>
 
-  <!-- Fonts -->
+  <!-- Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@500;600;700&family=Montserrat:wght@400;700;900&display=swap"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@500;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #f8f6f2;
-      --bg2:     #f0ede7;
-      --ink:     #1a1612;
-      --ink2:    #5a5450;
-      --ink3:    #9a9390;
-      --pink:    #B51748;
-      --pink2:   #D4476B;
-      --purple:  #8b52d6;
-      --border:  rgba(26,22,18,.1);
-      --display: 'Cinzel', serif;
-      --mincho:  'Shippori Mincho', serif;
-      --sans:    'Noto Sans JP', sans-serif;
-      --mono:    'Montserrat', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.8;
-      letter-spacing: .04em;
-      overflow-x: hidden;
-    }
-
-    /* ─── HEADER ─── */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(248,246,242,.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 5%;
-      height: 70px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo { text-decoration: none; }
-    .logo-img { height: 36px; width: auto; display: block; }
-    .menu-btn {
-      font-family: var(--display); font-size: .65rem; letter-spacing: .22em;
-      background: none; border: 1.5px solid var(--border); padding: .55rem 1.2rem;
-      border-radius: 50px; cursor: pointer; color: var(--ink); transition: border-color .2s;
-    }
-    .menu-btn:hover { border-color: var(--pink); }
-
-    /* ─── DRAWER ─── */
-    .drawer-overlay {
-      position: fixed; inset: 0; background: rgba(26,22,18,.45);
-      z-index: 1100; opacity: 0; pointer-events: none; transition: opacity .3s;
-    }
-    .drawer-overlay.open { opacity: 1; pointer-events: auto; }
-    .drawer {
-      position: fixed; top: 0; right: 0; bottom: 0; width: min(340px, 88vw);
-      background: var(--bg); z-index: 1200; transform: translateX(100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
-      display: flex; flex-direction: column; overflow-y: auto;
-    }
-    .drawer.open { transform: translateX(0); }
-    .drawer-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 1.6rem; border-bottom: 1px solid var(--border);
-    }
-    .drawer-logo-img { height: 28px; width: auto; }
-    .drawer-close { background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--ink2); padding: .4rem; }
-    .drawer-nav { padding: 1.6rem; flex: 1; }
-    .drawer-nav-label { font-family: var(--display); font-size: .58rem; letter-spacing: .28em; color: var(--ink3); margin-bottom: 1rem; }
-    .drawer-nav-list { list-style: none; display: flex; flex-direction: column; gap: .2rem; }
-    .drawer-nav-link {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .85rem .6rem; text-decoration: none; color: var(--ink);
-      border-bottom: 1px solid var(--border); font-size: .95rem; letter-spacing: .04em; transition: color .2s;
-    }
-    .drawer-nav-link:hover { color: var(--pink); }
-    .nav-en { font-family: var(--display); font-size: .58rem; letter-spacing: .22em; color: var(--ink3); }
-    .drawer-footer { padding: 1.4rem 1.6rem; border-top: 1px solid var(--border); }
-    .drawer-footer-sns { display: flex; gap: .6rem; margin-bottom: 1rem; }
-    .drawer-sns-icon {
-      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; font-size: .9rem;
-      text-decoration: none; color: var(--ink2); transition: border-color .2s, background .2s;
-    }
-    .drawer-sns-icon:hover { border-color: var(--pink2); background: rgba(181,23,72,.12); }
-    .drawer-footer-copy { font-size: .7rem; color: var(--ink3); letter-spacing: .06em; }
-
-    /* ─── BREADCRUMB ─── */
-    .breadcrumb { margin-top: 70px; background: var(--bg2); border-bottom: 1px solid var(--border); }
-    .breadcrumb-inner {
-      max-width: 1200px; margin: 0 auto; padding: .7rem 5%;
-      font-family: var(--display); font-size: .6rem; letter-spacing: .18em;
-      color: var(--ink3); display: flex; align-items: center; gap: .6rem;
-    }
-    .breadcrumb-inner a { color: var(--ink3); text-decoration: none; }
-    .breadcrumb-inner a:hover { color: var(--pink); }
-    .breadcrumb-sep { opacity: .4; }
-    .breadcrumb-current { color: var(--ink2); }
-
-    /* ─── HERO ─── */
-    .st-hero {
-      position: relative;
-      background: linear-gradient(135deg, #1a1612 0%, #2d1a2e 50%, #1a1219 100%);
-      padding: 7rem 5% 5rem;
-      text-align: center;
+    * { font-family: 'Noto Sans JP', sans-serif; }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
-    }
-    .st-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(181,23,72,.18) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(139,82,214,.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .st-hero-inner { position: relative; max-width: 800px; margin: 0 auto; }
-    .st-hero-label {
-      font-family: var(--display); font-size: .62rem; letter-spacing: .38em;
-      color: var(--pink2); margin-bottom: 1.4rem; display: block;
-    }
-    .st-hero-title {
-      font-family: var(--mincho); font-size: clamp(2rem, 6vw, 3.6rem);
-      font-weight: 600; letter-spacing: .14em; color: #f8f6f2;
-      line-height: 1.3; margin-bottom: 1.2rem;
-    }
-    .st-hero-title span { color: var(--pink); }
-    .st-hero-sub {
-      font-size: .92rem; letter-spacing: .1em; color: rgba(248,246,242,.6);
-      margin-bottom: 2.4rem;
-    }
-    .st-hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
-    .st-hero-tag {
-      font-family: var(--display); font-size: .58rem; letter-spacing: .2em;
-      padding: .35rem .9rem; border: 1px solid rgba(181,23,72,.4);
-      border-radius: 50px; color: rgba(248,246,242,.6);
-    }
-
-    /* ─── SECTION SHELL ─── */
-    .section { max-width: 1200px; margin: 0 auto; padding: 5rem 5%; }
-    .section-sm { max-width: 1200px; margin: 0 auto; padding: 3rem 5%; }
-
-    .sec-label { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; }
-    .sec-label-line { flex: 0 0 32px; height: 1px; background: var(--pink); }
-    .sec-label-text { font-family: var(--display); font-size: .62rem; letter-spacing: .28em; color: var(--pink); }
-    .sec-label-diamond { width: 5px; height: 5px; background: var(--pink); transform: rotate(45deg); flex-shrink: 0; }
-    .sec-title {
-      font-family: var(--mincho); font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 500; letter-spacing: .1em; margin-bottom: .6rem;
-    }
-    .sec-desc { font-size: .88rem; color: var(--ink2); line-height: 1.9; margin-bottom: 2.4rem; }
-
-    /* ─── AD BANNER ─── */
-    .ad-wrap { max-width: 1200px; margin: 0 auto; padding: 2rem 5%; }
-    .ad-banner {
-      background: var(--bg2);
-      border: 1px dashed rgba(26,22,18,.2);
-      border-radius: 6px;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-    }
-    .ad-badge {
-      position: absolute; top: .7rem; right: .8rem;
-      font-family: var(--display); font-size: .5rem; letter-spacing: .2em;
-      color: var(--ink3); border: 1px solid var(--border);
-      padding: .2rem .6rem; border-radius: 50px;
-    }
-    .ad-banner-label {
-      font-family: var(--display); font-size: .6rem; letter-spacing: .3em;
-      color: var(--ink3); margin-bottom: .5rem; display: block;
-    }
-    .ad-banner-title {
-      font-family: var(--mincho); font-size: 1.1rem; font-weight: 500;
-      color: var(--ink2); margin-bottom: .4rem;
-    }
-    .ad-banner-sub { font-size: .8rem; color: var(--ink3); margin-bottom: 1rem; }
-    .ad-cta {
-      display: inline-block;
-      font-family: var(--display); font-size: .65rem; letter-spacing: .2em;
-      color: var(--pink); border: 1px solid var(--pink);
-      padding: .55rem 1.6rem; border-radius: 50px;
-      text-decoration: none; transition: background .2s, color .2s;
-    }
-    .ad-cta:hover { background: var(--pink); color: #fff; }
-
-    /* ─── TALENT SECTION ─── */
-    .talent-controls {
-      display: flex; flex-direction: column; gap: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    /* 五十音タブ */
-    .kana-tabs {
-      display: flex; flex-wrap: wrap; gap: .4rem;
-    }
-    .kana-tab {
-      font-family: var(--mono); font-size: .72rem; letter-spacing: .14em;
-      padding: .45rem .9rem; border-radius: 50px; cursor: pointer;
-      border: 1px solid var(--border); background: var(--bg);
-      color: var(--ink2); transition: all .2s;
-    }
-    .kana-tab:hover { border-color: var(--pink); color: var(--pink); }
-    .kana-tab.active {
-      background: var(--pink); border-color: var(--pink);
-      color: #fff;
-    }
-
-    /* ジャンルフィルター */
-    .genre-filters {
-      display: flex; flex-wrap: wrap; gap: .5rem; align-items: center;
-    }
-    .genre-label {
-      font-family: var(--display); font-size: .58rem; letter-spacing: .2em;
-      color: var(--ink3); margin-right: .2rem;
-    }
-    .genre-btn {
-      font-size: .78rem; letter-spacing: .06em;
-      padding: .38rem .9rem; border-radius: 50px; cursor: pointer;
-      border: 1px solid var(--border); background: var(--bg);
-      color: var(--ink2); transition: all .2s;
-    }
-    .genre-btn:hover { border-color: var(--purple); color: var(--purple); }
-    .genre-btn.active {
-      background: var(--purple); border-color: var(--purple);
-      color: #fff;
-    }
-
-    /* タレントグリッド */
-    .talent-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.2rem;
-    }
-    .talent-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
-      text-decoration: none;
-      color: var(--ink);
-      display: flex; flex-direction: column;
-    }
-    .talent-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,22,18,.08); }
-    .talent-card-avatar {
-      width: 100%; aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--bg2) 0%, #e8e4dd 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; position: relative; overflow: hidden;
-    }
-    .talent-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .talent-card-genres {
-      position: absolute; bottom: .5rem; left: .5rem;
-      display: flex; flex-wrap: wrap; gap: .3rem;
-    }
-    .talent-genre-tag {
-      font-size: .6rem; letter-spacing: .04em;
-      padding: .2rem .5rem; border-radius: 50px;
-      background: rgba(26,22,18,.6); color: rgba(248,246,242,.9);
-    }
-    .talent-card-body { padding: 1rem; }
-    .talent-card-name {
-      font-family: var(--mincho); font-size: 1rem; font-weight: 500;
-      letter-spacing: .08em; margin-bottom: .2rem;
-    }
-    .talent-card-kana { font-size: .72rem; color: var(--ink3); margin-bottom: .6rem; }
-    .talent-card-sns { display: flex; gap: .5rem; }
-    .talent-sns-link {
-      font-size: .7rem; color: var(--ink3); text-decoration: none;
-      padding: .2rem .5rem; border: 1px solid var(--border); border-radius: 50px;
-      transition: color .2s, border-color .2s;
-    }
-    .talent-sns-link:hover { color: var(--pink); border-color: var(--pink); }
-
-    .talent-empty {
-      grid-column: 1 / -1; text-align: center;
-      padding: 3rem 1rem;
-      font-family: var(--display); font-size: .7rem; letter-spacing: .2em;
-      color: var(--ink3);
-    }
-
-    /* ─── CALENDAR ─── */
-    .calendar-wrap { }
-    .cal-nav {
-      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.6rem;
-    }
-    .cal-nav-btn {
-      font-family: var(--display); font-size: .65rem; letter-spacing: .16em;
-      background: none; border: 1px solid var(--border); padding: .45rem 1rem;
-      border-radius: 50px; cursor: pointer; color: var(--ink2); transition: border-color .2s, color .2s;
-    }
-    .cal-nav-btn:hover { border-color: var(--pink); color: var(--pink); }
-    .cal-month {
-      font-family: var(--mincho); font-size: 1.2rem; font-weight: 500;
-      letter-spacing: .12em; flex: 1; text-align: center;
-    }
-
-    .cal-grid-wrap { overflow-x: auto; }
-    .cal-grid {
-      min-width: 560px;
-      display: grid; grid-template-columns: repeat(7, 1fr);
-      gap: 2px;
-    }
-    .cal-dow {
-      font-family: var(--display); font-size: .58rem; letter-spacing: .18em;
-      color: var(--ink3); text-align: center; padding: .5rem 0;
-    }
-    .cal-dow:first-child { color: var(--pink); }
-    .cal-dow:last-child { color: #3b82f6; }
-
-    .cal-day {
-      min-height: 80px; padding: .4rem .5rem;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 4px; position: relative;
-    }
-    .cal-day.empty { background: var(--bg2); border-color: transparent; }
-    .cal-day.today .cal-day-num {
-      background: var(--pink); color: #fff;
-      width: 24px; height: 24px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cal-day-num {
-      font-family: var(--mono); font-size: .75rem;
-      color: var(--ink2); margin-bottom: .3rem;
-      display: inline-block;
-    }
-    .cal-day.sun .cal-day-num { color: var(--pink); }
-    .cal-day.sat .cal-day-num { color: #3b82f6; }
-    .cal-event-dot {
-      display: block; font-size: .62rem; line-height: 1.4;
-      color: var(--ink); background: rgba(181,23,72,.1);
-      border-left: 2px solid var(--pink);
-      padding: .1rem .3rem; margin-bottom: .15rem;
-      border-radius: 0 2px 2px 0;
-      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-      cursor: pointer; text-decoration: none;
-    }
-    .cal-event-dot:hover { background: rgba(181,23,72,.2); }
-
-    /* event detail popup */
-    .cal-popup {
-      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      background: var(--ink); color: var(--bg); padding: 1rem 1.6rem;
-      border-radius: 8px; font-size: .85rem; z-index: 2000;
-      max-width: 92vw; text-align: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity .25s;
-      box-shadow: 0 8px 32px rgba(26,22,18,.3);
-    }
-    .cal-popup.show { opacity: 1; pointer-events: auto; }
-    .cal-popup-title { font-family: var(--mincho); font-size: 1rem; margin-bottom: .2rem; }
-    .cal-popup-meta { font-size: .78rem; color: rgba(248,246,242,.6); margin-bottom: .6rem; }
-    .cal-popup-link {
-      font-family: var(--display); font-size: .6rem; letter-spacing: .18em;
-      color: var(--pink2); text-decoration: none;
-      border: 1px solid rgba(212,71,107,.4); padding: .3rem .8rem; border-radius: 50px;
-      transition: background .2s;
-    }
-    .cal-popup-link:hover { background: rgba(181,23,72,.2); }
-    .cal-popup-close {
-      position: absolute; top: .5rem; right: .7rem;
-      background: none; border: none; color: rgba(248,246,242,.4);
-      cursor: pointer; font-size: .9rem;
-    }
-
-    /* ─── REVEAL ─── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
-
-    /* ─── FOOTER ─── */
-    footer { background: var(--ink); color: rgba(248,246,242,.7); padding: 60px 8% 30px; }
-    .footer-top {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem;
-      padding-bottom: 3rem; border-bottom: 1px solid rgba(248,246,242,.1);
-    }
-    .footer-logo {
-      font-family: var(--display); font-size: 1.3rem; letter-spacing: .12em;
-      color: var(--bg); text-decoration: none; display: inline-block; margin-bottom: 1rem;
-    }
-    .footer-logo span { color: var(--pink); }
-    .footer-brand-desc { font-size: .82rem; line-height: 1.9; color: rgba(248,246,242,.5); }
-    .footer-col h4 { font-family: var(--display); font-size: .6rem; letter-spacing: .24em; color: rgba(248,246,242,.4); margin-bottom: 1.2rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
-    .footer-col ul a { font-size: .85rem; color: rgba(248,246,242,.6); text-decoration: none; transition: color .2s; }
-    .footer-col ul a:hover { color: var(--pink2); }
-    .footer-col ul span.footer-soon { font-size: .85rem; color: rgba(248,246,242,.3); }
-    .footer-bottom {
-      padding-top: 2rem; display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-copy { font-size: .75rem; letter-spacing: .08em; color: rgba(248,246,242,.3); }
-    .footer-sns { display: flex; gap: .6rem; }
-    .sns-icon {
-      width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(248,246,242,.15);
-      display: flex; align-items: center; justify-content: center; font-size: .85rem;
-      text-decoration: none; color: rgba(248,246,242,.5); transition: border-color .2s, background .2s;
-    }
-    .sns-icon:hover { border-color: var(--pink2); background: rgba(181,23,72,.12); }
-
-    @media (max-width: 768px) {
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .talent-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    }
-    @media (max-width: 480px) {
-      .footer-top { grid-template-columns: 1fr; }
-      .talent-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 text-sm">
 
-  <!-- DRAWER OVERLAY -->
-  <div class="drawer-overlay" id="drawer-overlay"></div>
-
-  <!-- MENU DRAWER -->
-  <aside class="drawer" id="drawer" aria-label="ナビゲーション">
-    <div class="drawer-header">
-      <span><img src="logo.jpg" alt="GRASTA" class="drawer-logo-img" width="113" height="100" /></span>
-      <button class="drawer-close" id="drawer-close" aria-label="閉じる">✕</button>
+  <!-- ── TOP UTILITY BAR ── -->
+  <div class="bg-gray-800 text-white text-xs py-1.5 px-4">
+    <div class="max-w-6xl mx-auto flex justify-end gap-5">
+      <a href="index.html" class="hover:text-gray-300 transition">← グラステフェス TOP</a>
+      <a href="company.html" class="hover:text-gray-300 transition">運営会社</a>
+      <a href="index.html#contact" class="hover:text-gray-300 transition">お問い合わせ</a>
     </div>
-    <nav class="drawer-nav">
-      <p class="drawer-nav-label">Navigation</p>
-      <ul class="drawer-nav-list">
-        <li class="drawer-nav-item">
-          <a href="index.html" class="drawer-nav-link"><span>グラステフェス</span><span class="nav-en">GRASTA FES</span></a>
-        </li>
-        <li class="drawer-nav-item">
-          <a href="ticket.html" class="drawer-nav-link"><span>チケット</span><span class="nav-en">TICKET</span></a>
-        </li>
-        <li class="drawer-nav-item">
-          <a href="station.html" class="drawer-nav-link"><span>グラビアステーション</span><span class="nav-en">STATION</span></a>
-        </li>
-        <li class="drawer-nav-item">
-          <a href="index.html#faq" class="drawer-nav-link"><span>よくある質問</span><span class="nav-en">FAQ</span></a>
-        </li>
-        <li class="drawer-nav-item">
-          <a href="company.html" class="drawer-nav-link"><span>会社概要</span><span class="nav-en">COMPANY</span></a>
-        </li>
-      </ul>
-    </nav>
-    <div class="drawer-footer">
-      <div class="drawer-footer-sns">
-        <a href="https://x.com/grasta_official" target="_blank" rel="noopener" class="drawer-sns-icon" title="X (Twitter)">𝕏</a>
-        <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener" class="drawer-sns-icon" title="Instagram">📷</a>
-        <a class="drawer-sns-icon" title="TikTok">🎵</a>
+  </div>
+
+  <!-- ── HEADER ── -->
+  <header class="bg-white border-b border-gray-200 py-4 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 bg-[#b32b47] flex items-center justify-center flex-shrink-0 rounded">
+          <span class="text-white font-bold text-2xl tracking-tight select-none">GS</span>
+        </div>
+        <div>
+          <div class="text-xl font-bold text-gray-900 leading-tight tracking-tight">グラビアステーション</div>
+          <div class="text-xs text-gray-400 tracking-[.18em] uppercase mt-0.5">Gravure Station</div>
+          <div class="text-xs text-gray-500 mt-1">— 活動する人と応援する人を繋ぐプラットフォーム —</div>
+        </div>
       </div>
-      <p class="drawer-footer-copy">© 2026 合同会社グラステ / GRASTA LLC.</p>
-    </div>
-  </aside>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo"><img src="logo.jpg" alt="GRASTA" class="logo-img" width="113" height="100" /></a>
-      <div></div>
-      <div class="header-right">
-        <button class="menu-btn" id="menu-btn">MENU</button>
+      <!-- Search -->
+      <div class="flex items-center w-full sm:w-72 border border-gray-300 rounded overflow-hidden shadow-sm">
+        <input type="text" placeholder="タレント名・ジャンルで検索..."
+          class="flex-1 px-3 py-2 text-sm outline-none bg-white" />
+        <button class="bg-[#b32b47] hover:bg-[#8c1f35] transition px-3 py-2 text-white flex items-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <div class="breadcrumb-inner">
-      <a href="index.html">HOME</a>
-      <span class="breadcrumb-sep">/</span>
-      <span class="breadcrumb-current">GRAVIA STATION</span>
+  <!-- ── GLOBAL NAVIGATION ── -->
+  <nav class="bg-[#b32b47] text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex overflow-x-auto">
+      <a href="station.html" class="px-5 py-3 text-sm font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1 border-b-2 border-white">トップ <span class="text-xs opacity-70">▼</span></a>
+      <a href="#news"        class="px-5 py-3 text-sm font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">新着 <span class="text-xs opacity-70">▼</span></a>
+      <a href="#events"      class="px-5 py-3 text-sm font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">イベント <span class="text-xs opacity-70">▼</span></a>
+      <a href="#"            class="px-5 py-3 text-sm font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">カテゴリ <span class="text-xs opacity-70">▼</span></a>
+      <a href="#"            class="px-5 py-3 text-sm font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">活動者一覧 <span class="text-xs opacity-70">▼</span></a>
+      <a href="#"            class="px-5 py-3 text-sm font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">コラム <span class="text-xs opacity-70">▼</span></a>
+    </div>
+  </nav>
+
+  <!-- ── BREADCRUMB ── -->
+  <div class="bg-white border-b border-gray-200 py-2 px-4">
+    <div class="max-w-6xl mx-auto text-xs text-gray-400">
+      <a href="index.html" class="hover:text-[#b32b47] transition">HOME</a>
+      <span class="mx-1">›</span>
+      <span class="text-gray-600">グラビアステーション</span>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="st-hero">
-    <div class="st-hero-inner">
-      <span class="st-hero-label">GRAVIA STATION</span>
-      <h1 class="st-hero-title">グラビア<span>ステーション</span></h1>
-      <p class="st-hero-sub">裏垢インフルエンサーの総合メディア — タレント・イベント・最新情報をひとつに</p>
-      <div class="st-hero-tags">
-        <span class="st-hero-tag">TALENT LIST</span>
-        <span class="st-hero-tag">GENRE FILTER</span>
-        <span class="st-hero-tag">EVENT CALENDAR</span>
-        <span class="st-hero-tag">EXCLUSIVE INFO</span>
-      </div>
-    </div>
-  </section>
+  <!-- ── MAIN ── -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-  <!-- AD BANNER ① -->
-  <div class="ad-wrap reveal">
-    <div class="ad-banner">
-      <span class="ad-badge">SPONSOR</span>
-      <span class="ad-banner-label">ADVERTISEMENT</span>
-      <p class="ad-banner-title">広告掲載・タイアップのご相談</p>
-      <p class="ad-banner-sub">グラビアステーション メディアへの広告出稿・スポンサーシップはお気軽にお問い合わせください</p>
-      <a href="mailto:grasta.contact@gmail.com?subject=広告掲載のご相談" class="ad-cta">お問い合わせ →</a>
-    </div>
-  </div>
+      <!-- ── LEFT: 新着情報 (2/3) ── -->
+      <div class="lg:col-span-2" id="news">
 
-  <!-- TALENT SECTION -->
-  <section class="section" id="talents">
-    <div class="reveal">
-      <div class="sec-label">
-        <div class="sec-label-line"></div>
-        <span class="sec-label-text">TALENT LIST</span>
-        <div class="sec-label-diamond"></div>
-      </div>
-      <h2 class="sec-title">タレント一覧</h2>
-      <p class="sec-desc">五十音順・ジャンル別でお好みのタレントを探せます。</p>
-    </div>
-
-    <div class="talent-controls reveal">
-      <!-- 五十音タブ -->
-      <div class="kana-tabs" id="kana-tabs" role="tablist" aria-label="五十音フィルター">
-        <button class="kana-tab active" data-row="all" role="tab" aria-selected="true">全て</button>
-        <button class="kana-tab" data-row="あ" role="tab" aria-selected="false">ア行</button>
-        <button class="kana-tab" data-row="か" role="tab" aria-selected="false">カ行</button>
-        <button class="kana-tab" data-row="さ" role="tab" aria-selected="false">サ行</button>
-        <button class="kana-tab" data-row="た" role="tab" aria-selected="false">タ行</button>
-        <button class="kana-tab" data-row="な" role="tab" aria-selected="false">ナ行</button>
-        <button class="kana-tab" data-row="は" role="tab" aria-selected="false">ハ行</button>
-        <button class="kana-tab" data-row="ま" role="tab" aria-selected="false">マ行</button>
-        <button class="kana-tab" data-row="や" role="tab" aria-selected="false">ヤ行</button>
-        <button class="kana-tab" data-row="ら" role="tab" aria-selected="false">ラ行</button>
-        <button class="kana-tab" data-row="わ" role="tab" aria-selected="false">ワ行</button>
-      </div>
-
-      <!-- ジャンルフィルター -->
-      <div class="genre-filters" id="genre-filters">
-        <span class="genre-label">GENRE:</span>
-        <button class="genre-btn active" data-genre="all">全て</button>
-        <button class="genre-btn" data-genre="巨乳">巨乳</button>
-        <button class="genre-btn" data-genre="グラマー">グラマー</button>
-        <button class="genre-btn" data-genre="スレンダー">スレンダー</button>
-        <button class="genre-btn" data-genre="ロリ系">ロリ系</button>
-        <button class="genre-btn" data-genre="お姉系">お姉系</button>
-      </div>
-    </div>
-
-    <!-- タレントグリッド -->
-    <div class="talent-grid reveal" id="talent-grid" aria-live="polite"></div>
-  </section>
-
-  <!-- CALENDAR SECTION -->
-  <section style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div class="section" id="calendar">
-      <div class="reveal">
-        <div class="sec-label">
-          <div class="sec-label-line"></div>
-          <span class="sec-label-text">EVENT CALENDAR</span>
-          <div class="sec-label-diamond"></div>
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-base font-bold border-l-4 border-[#b32b47] pl-3 text-gray-800">新着情報</h2>
         </div>
-        <h2 class="sec-title">裏垢イベントカレンダー</h2>
-        <p class="sec-desc">今月・来月の裏垢・撮影会・イベント情報をまとめてチェック。</p>
-      </div>
 
-      <div class="calendar-wrap reveal">
-        <div class="cal-nav">
-          <button class="cal-nav-btn" id="cal-prev">← PREV</button>
-          <div class="cal-month" id="cal-month-label"></div>
-          <button class="cal-nav-btn" id="cal-next">NEXT →</button>
+        <div class="bg-white border border-gray-200 rounded shadow-sm divide-y divide-gray-100">
+
+          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
+            <div class="w-24 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>
+                <span class="text-xs text-gray-400">2026.06.01</span>
+                <span class="text-xs text-[#b32b47] bg-red-50 px-1.5 py-0.5 rounded">イベント</span>
+              </div>
+              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
+                グラステEXPO 2026 開催決定！チケット販売開始のお知らせ
+              </p>
+            </div>
+          </a>
+
+          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
+            <div class="w-24 h-16 bg-gradient-to-br from-pink-100 to-purple-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>
+                <span class="text-xs text-gray-400">2026.05.28</span>
+                <span class="text-xs text-[#b32b47] bg-red-50 px-1.5 py-0.5 rounded">出演者</span>
+              </div>
+              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
+                出演者第一弾発表！人気グラビアアイドル・裏垢女子5名が登場
+              </p>
+            </div>
+          </a>
+
+          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
+            <div class="w-24 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>
+                <span class="text-xs text-gray-400">2026.05.20</span>
+                <span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">お知らせ</span>
+              </div>
+              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
+                グラビアステーション公式サイトをリニューアルしました
+              </p>
+            </div>
+          </a>
+
+          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
+            <div class="w-24 h-16 bg-gradient-to-br from-yellow-100 to-orange-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="text-xs text-gray-400">2026.05.15</span>
+                <span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">登録</span>
+              </div>
+              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
+                コスプレイヤー・裏垢女子の新規出演者登録受付開始
+              </p>
+            </div>
+          </a>
+
+          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
+            <div class="w-24 h-16 bg-gradient-to-br from-green-100 to-teal-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="text-xs text-gray-400">2026.05.10</span>
+                <span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">ガイドライン</span>
+              </div>
+              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
+                グラビアステーション運営方針・利用ガイドラインを公開しました
+              </p>
+            </div>
+          </a>
+
         </div>
-        <div class="cal-grid-wrap">
-          <div class="cal-grid" id="cal-grid"></div>
+
+        <div class="text-right mt-2.5">
+          <a href="#" class="text-xs text-[#b32b47] hover:underline font-medium">› もっと見る</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- AD BANNER ② -->
-  <div class="ad-wrap reveal">
-    <div class="ad-banner">
-      <span class="ad-badge">SPONSOR</span>
-      <span class="ad-banner-label">PREMIUM PARTNER</span>
-      <p class="ad-banner-title">プレミアムパートナー募集中</p>
-      <p class="ad-banner-sub">独占バナー・タレントコラボ・イベント協賛など、各種スポンサーシップをご用意しています</p>
-      <a href="mailto:grasta.contact@gmail.com?subject=スポンサーシップのご相談" class="ad-cta">詳細を問い合わせる →</a>
-    </div>
-  </div>
+      <!-- ── RIGHT: Event banner + SNS (1/3) ── -->
+      <div class="lg:col-span-1 flex flex-col gap-4">
 
-  <!-- EVENT POPUP -->
-  <div class="cal-popup" id="cal-popup" role="dialog" aria-modal="true">
-    <button class="cal-popup-close" id="cal-popup-close" aria-label="閉じる">✕</button>
-    <p class="cal-popup-title" id="cal-popup-title"></p>
-    <p class="cal-popup-meta" id="cal-popup-meta"></p>
-    <a class="cal-popup-link" id="cal-popup-link" href="#">詳細を見る →</a>
-  </div>
+        <!-- Event card -->
+        <div class="rounded shadow-sm overflow-hidden border border-gray-200">
+          <div class="relative bg-gradient-to-br from-gray-900 via-[#2a0d18] to-[#b32b47] p-6 text-white">
+            <div class="absolute inset-0 opacity-[.06]"
+              style="background-image: repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%); background-size: 10px 10px;">
+            </div>
+            <div class="relative z-10">
+              <p class="text-xs font-medium text-pink-200 tracking-wide mb-2">女子が好きな全人類、集合！</p>
+              <h3 class="text-xl font-bold leading-snug mb-1">初開催！</h3>
+              <h3 class="text-xl font-bold leading-snug mb-3">グラステEXPO 2026</h3>
+              <p class="text-xs text-gray-300 leading-relaxed mb-5">ネットで見かける素敵な女子に<br>出会える即売会</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="bg-[#b32b47] border border-[#d4476b] text-white text-xs px-2 py-0.5 rounded-sm font-medium">グラビアアイドル</span>
+                <span class="bg-[#b32b47] border border-[#d4476b] text-white text-xs px-2 py-0.5 rounded-sm font-medium">裏垢女子</span>
+                <span class="bg-[#b32b47] border border-[#d4476b] text-white text-xs px-2 py-0.5 rounded-sm font-medium">セクシー女優</span>
+                <span class="bg-[#b32b47] border border-[#d4476b] text-white text-xs px-2 py-0.5 rounded-sm font-medium">コスプレイヤー</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-4">
+            <div class="space-y-2 mb-4">
+              <div class="flex items-start gap-2 text-xs text-gray-700">
+                <svg class="w-3.5 h-3.5 text-[#b32b47] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                <span>2026年11月1日（日）　来場 2,500円</span>
+              </div>
+              <div class="flex items-start gap-2 text-xs text-gray-700">
+                <svg class="w-3.5 h-3.5 text-[#b32b47] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span>東京文具共和会館</span>
+              </div>
+            </div>
+            <a href="ticket.html"
+              class="block w-full bg-[#b32b47] hover:bg-[#8c1f35] text-white text-center text-xs font-bold py-2.5 rounded transition">
+              チケットを確認する →
+            </a>
+          </div>
+        </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div>
-        <a href="index.html" class="footer-logo">GRASTA<span>.</span></a>
-        <p class="footer-brand-desc">グラビアステーションは合同会社グラステが運営する裏垢インフルエンサーの総合メディアです。</p>
-      </div>
-      <div class="footer-col">
-        <h4>SITE</h4>
-        <ul>
-          <li><a href="index.html">グラステフェス</a></li>
-          <li><a href="ticket.html">チケット購入</a></li>
-          <li><a href="station.html">グラビアステーション</a></li>
-          <li><a href="safety.html">安全への取り組み</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>INFO</h4>
-        <ul>
-          <li><a href="company.html">会社概要</a></li>
-          <li><a href="privacy.html">プライバシーポリシー</a></li>
-          <li><a href="terms.html">注意事項</a></li>
-          <li><a href="index.html#faq">よくある質問</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>CONTACT</h4>
-        <ul>
-          <li><a href="mailto:grasta.contact@gmail.com">grasta.contact@gmail.com</a></li>
-          <li><a href="https://x.com/grasta_official" target="_blank" rel="noopener">X @grasta_official</a></li>
-          <li><a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
+        <!-- SNS -->
+        <div class="bg-white border border-gray-200 rounded shadow-sm p-4">
+          <h3 class="text-xs font-bold border-l-4 border-[#b32b47] pl-2 mb-3">公式SNSをフォロー</h3>
+          <div class="flex flex-col gap-2">
+            <a href="https://x.com/grasta_official" target="_blank" rel="noopener"
+              class="flex items-center gap-2 bg-black text-white text-xs font-bold py-2 px-3 rounded hover:opacity-85 transition">
+              <span class="text-base leading-none">𝕏</span>
+              <span>@grasta_official</span>
+            </a>
+            <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener"
+              class="flex items-center gap-2 text-white text-xs font-bold py-2 px-3 rounded hover:opacity-85 transition"
+              style="background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
+              <span class="text-base leading-none">📷</span>
+              <span>@grasta_official</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 <a href="company.html" style="color:inherit;text-decoration:none;">合同会社グラステ</a> / GRASTA LLC. All rights reserved.</p>
-      <div class="footer-sns">
-        <a href="https://x.com/grasta_official" target="_blank" rel="noopener" class="sns-icon" aria-label="X (Twitter)">𝕏</a>
-        <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener" class="sns-icon" aria-label="Instagram">📷</a>
-        <a class="sns-icon" aria-label="TikTok">🎵</a>
+
+    <!-- ── EVENT SECTION ── -->
+    <div class="mt-8" id="events">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-base font-bold border-l-4 border-[#b32b47] pl-3 text-gray-800">イベント情報</h2>
+        <a href="ticket.html" class="text-xs text-[#b32b47] hover:underline font-medium">› もっと見る</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <a href="ticket.html" class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition group">
+          <div class="h-36 bg-gradient-to-br from-[#2a0d18] to-[#b32b47] flex flex-col items-center justify-center text-white p-3 text-center">
+            <p class="text-xs font-medium opacity-80 mb-1">2026.11.01</p>
+            <p class="font-bold text-sm leading-snug">グラステEXPO 2026</p>
+          </div>
+          <div class="p-3">
+            <p class="text-xs font-medium text-[#b32b47]">2026年11月1日（日）</p>
+            <p class="text-xs text-gray-500 mt-0.5">東京文具共和会館</p>
+            <p class="text-xs text-gray-400 mt-1.5 group-hover:text-[#b32b47] transition">チケット詳細を見る →</p>
+          </div>
+        </a>
+
+        <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden opacity-50">
+          <div class="h-36 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-xs">近日公開</span>
+          </div>
+          <div class="p-3"><p class="text-xs text-gray-400">イベント情報 準備中</p></div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden opacity-50">
+          <div class="h-36 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-xs">近日公開</span>
+          </div>
+          <div class="p-3"><p class="text-xs text-gray-400">イベント情報 準備中</p></div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden opacity-50">
+          <div class="h-36 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-xs">近日公開</span>
+          </div>
+          <div class="p-3"><p class="text-xs text-gray-400">イベント情報 準備中</p></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="bg-gray-900 text-white mt-12 py-10 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-[#b32b47] flex items-center justify-center rounded flex-shrink-0">
+              <span class="text-white font-bold text-sm select-none">GS</span>
+            </div>
+            <div>
+              <p class="font-bold text-sm leading-tight">グラビアステーション</p>
+              <p class="text-xs text-gray-400 tracking-widest">Gravure Station</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">活動する人と応援する人を繋ぐプラットフォーム。グラビアアイドル・裏垢女子・コスプレイヤーのイベント情報を発信。</p>
+        </div>
+
+        <div class="flex gap-10">
+          <div>
+            <p class="font-medium text-xs text-white mb-3">サービス</p>
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li><a href="#" class="hover:text-white transition">活動者登録（準備中）</a></li>
+              <li><a href="#" class="hover:text-white transition">イベント掲載（準備中）</a></li>
+              <li><a href="sponsor.html" class="hover:text-white transition">協賛・スポンサー</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium text-xs text-white mb-3">サポート</p>
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li><a href="index.html#contact" class="hover:text-white transition">お問い合わせ</a></li>
+              <li><a href="privacy.html" class="hover:text-white transition">プライバシーポリシー</a></li>
+              <li><a href="terms.html" class="hover:text-white transition">利用規約</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-medium text-xs text-white mb-3">関連サービス</p>
+          <ul class="space-y-2 text-xs text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition">グラステフェス（イベント）</a></li>
+            <li><a href="bar.html" class="hover:text-white transition">グラステBAR（準備中）</a></li>
+            <li><a href="company.html" class="hover:text-white transition">合同会社グラステ</a></li>
+            <li><a href="tokushoho.html" class="hover:text-white transition">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="border-t border-gray-700 pt-6 text-center text-xs text-gray-500">
+        © 2026 合同会社グラステ / GRASTA LLC. All Rights Reserved.
       </div>
     </div>
   </footer>
 
-  <script>
-    /* ─── DATA ─── */
-    const KANA_MAP = {
-      あ: ['あ','い','う','え','お'],
-      か: ['か','き','く','け','こ'],
-      さ: ['さ','し','す','せ','そ'],
-      た: ['た','ち','つ','て','と'],
-      な: ['な','に','ぬ','ね','の'],
-      は: ['は','ひ','ふ','へ','ほ'],
-      ま: ['ま','み','む','め','も'],
-      や: ['や','ゆ','よ'],
-      ら: ['ら','り','る','れ','ろ'],
-      わ: ['わ','ゐ','ゑ','を','ん'],
-    };
-
-    /* タレントデータ（サンプル — 名前・かな・行・ジャンル・SNSを編集して追加） */
-    const TALENTS = [
-      { name: "あいな", kana: "あいな", row: "あ", genres: ["巨乳", "グラマー"], twitter: "https://x.com/", instagram: "" },
-      { name: "あかり", kana: "あかり", row: "あ", genres: ["スレンダー", "お姉系"], twitter: "", instagram: "https://www.instagram.com/" },
-      { name: "いちか", kana: "いちか", row: "あ", genres: ["ロリ系"], twitter: "https://x.com/", instagram: "" },
-      { name: "かな",   kana: "かな",   row: "か", genres: ["巨乳"], twitter: "https://x.com/", instagram: "" },
-      { name: "きらり", kana: "きらり", row: "か", genres: ["スレンダー", "ロリ系"], twitter: "", instagram: "https://www.instagram.com/" },
-      { name: "さくら", kana: "さくら", row: "さ", genres: ["グラマー", "お姉系"], twitter: "https://x.com/", instagram: "" },
-      { name: "しおり", kana: "しおり", row: "さ", genres: ["スレンダー"], twitter: "https://x.com/", instagram: "" },
-      { name: "すずか", kana: "すずか", row: "さ", genres: ["巨乳", "お姉系"], twitter: "", instagram: "https://www.instagram.com/" },
-      { name: "たまき", kana: "たまき", row: "た", genres: ["グラマー"], twitter: "https://x.com/", instagram: "" },
-      { name: "ちなみ", kana: "ちなみ", row: "た", genres: ["ロリ系", "スレンダー"], twitter: "", instagram: "" },
-      { name: "なな",   kana: "なな",   row: "な", genres: ["お姉系", "巨乳"], twitter: "https://x.com/", instagram: "" },
-      { name: "にこ",   kana: "にこ",   row: "な", genres: ["ロリ系"], twitter: "", instagram: "https://www.instagram.com/" },
-      { name: "はるか", kana: "はるか", row: "は", genres: ["スレンダー", "お姉系"], twitter: "https://x.com/", instagram: "" },
-      { name: "ひなた", kana: "ひなた", row: "は", genres: ["グラマー", "巨乳"], twitter: "", instagram: "" },
-      { name: "まりな", kana: "まりな", row: "ま", genres: ["お姉系"], twitter: "https://x.com/", instagram: "" },
-      { name: "みく",   kana: "みく",   row: "ま", genres: ["スレンダー"], twitter: "", instagram: "https://www.instagram.com/" },
-      { name: "ゆい",   kana: "ゆい",   row: "や", genres: ["ロリ系", "スレンダー"], twitter: "https://x.com/", instagram: "" },
-      { name: "ゆりか", kana: "ゆりか", row: "や", genres: ["グラマー", "お姉系"], twitter: "", instagram: "" },
-      { name: "りな",   kana: "りな",   row: "ら", genres: ["巨乳", "グラマー"], twitter: "https://x.com/", instagram: "" },
-      { name: "れいか", kana: "れいか", row: "ら", genres: ["スレンダー"], twitter: "", instagram: "https://www.instagram.com/" },
-    ];
-
-    /* イベントデータ（date: YYYY-MM-DD、title・venue・url を編集して追加） */
-    const EVENTS = [
-      { date: "2026-11-01", title: "グラステフェス", venue: "東京文具共和会館", url: "index.html" },
-      { date: "2026-11-01", title: "チケット発売日", venue: "オンライン", url: "ticket.html" },
-      { date: "2026-11-15", title: "撮影会 vol.1", venue: "都内スタジオ", url: "" },
-      { date: "2026-12-06", title: "クリスマス撮影会", venue: "都内スタジオ", url: "" },
-      { date: "2026-12-20", title: "年末グラビアPARTY", venue: "東京都内", url: "" },
-    ];
-
-    /* ─── TALENT FILTER ─── */
-    let currentRow = 'all';
-    let currentGenre = 'all';
-
-    function getRowKey(kana) {
-      const first = kana.charAt(0);
-      for (const [key, chars] of Object.entries(KANA_MAP)) {
-        if (chars.includes(first)) return key;
-      }
-      return 'other';
-    }
-
-    function renderTalents() {
-      const grid = document.getElementById('talent-grid');
-      const sorted = [...TALENTS].sort((a, b) => a.kana.localeCompare(b.kana, 'ja'));
-      const filtered = sorted.filter(t => {
-        const rowOk  = currentRow === 'all' || getRowKey(t.kana) === currentRow;
-        const genreOk = currentGenre === 'all' || t.genres.includes(currentGenre);
-        return rowOk && genreOk;
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = '<p class="talent-empty">該当するタレントが見つかりません</p>';
-        return;
-      }
-
-      grid.innerHTML = filtered.map(t => {
-        const sns = [];
-        if (t.twitter)   sns.push(`<a class="talent-sns-link" href="${t.twitter}" target="_blank" rel="noopener">𝕏 Twitter</a>`);
-        if (t.instagram) sns.push(`<a class="talent-sns-link" href="${t.instagram}" target="_blank" rel="noopener">📷 Instagram</a>`);
-        const genreTags = t.genres.map(g => `<span class="talent-genre-tag">${g}</span>`).join('');
-        return `
-          <div class="talent-card">
-            <div class="talent-card-avatar">
-              <span>👤</span>
-              <div class="talent-card-genres">${genreTags}</div>
-            </div>
-            <div class="talent-card-body">
-              <p class="talent-card-name">${t.name}</p>
-              <p class="talent-card-kana">${t.kana}</p>
-              <div class="talent-card-sns">${sns.length ? sns.join('') : '<span class="talent-card-kana">SNS未設定</span>'}</div>
-            </div>
-          </div>`;
-      }).join('');
-    }
-
-    document.getElementById('kana-tabs').addEventListener('click', e => {
-      const btn = e.target.closest('.kana-tab');
-      if (!btn) return;
-      document.querySelectorAll('.kana-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected','true');
-      currentRow = btn.dataset.row;
-      renderTalents();
-    });
-
-    document.getElementById('genre-filters').addEventListener('click', e => {
-      const btn = e.target.closest('.genre-btn');
-      if (!btn) return;
-      document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentGenre = btn.dataset.genre;
-      renderTalents();
-    });
-
-    /* ─── CALENDAR ─── */
-    const today = new Date();
-    let calYear  = today.getFullYear();
-    let calMonth = today.getMonth();
-
-    function eventsForDate(y, m, d) {
-      const ds = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      return EVENTS.filter(e => e.date === ds);
-    }
-
-    function renderCalendar() {
-      const label = document.getElementById('cal-month-label');
-      label.textContent = `${calYear}年 ${calMonth + 1}月`;
-
-      const grid = document.getElementById('cal-grid');
-      const dows = ['日','月','火','水','木','金','土'];
-      let html = dows.map(d => `<div class="cal-dow">${d}</div>`).join('');
-
-      const firstDay = new Date(calYear, calMonth, 1).getDay();
-      const lastDate = new Date(calYear, calMonth + 1, 0).getDate();
-
-      for (let i = 0; i < firstDay; i++) html += '<div class="cal-day empty"></div>';
-
-      for (let d = 1; d <= lastDate; d++) {
-        const dow = (firstDay + d - 1) % 7;
-        const isToday = calYear === today.getFullYear() && calMonth === today.getMonth() && d === today.getDate();
-        const events = eventsForDate(calYear, calMonth, d);
-        const evHtml = events.map(ev =>
-          `<a class="cal-event-dot"
-              data-title="${ev.title}"
-              data-venue="${ev.venue}"
-              data-url="${ev.url}"
-              data-date="${calYear}/${calMonth+1}/${d}"
-              href="#">${ev.title}</a>`
-        ).join('');
-        const cls = ['cal-day', dow===0?'sun':'', dow===6?'sat':'', isToday?'today':''].filter(Boolean).join(' ');
-        html += `<div class="${cls}"><span class="cal-day-num">${d}</span>${evHtml}</div>`;
-      }
-
-      grid.innerHTML = html;
-
-      grid.querySelectorAll('.cal-event-dot').forEach(el => {
-        el.addEventListener('click', e => {
-          e.preventDefault();
-          showPopup(el.dataset.title, el.dataset.venue, el.dataset.date, el.dataset.url);
-        });
-      });
-    }
-
-    function showPopup(title, venue, date, url) {
-      const popup = document.getElementById('cal-popup');
-      document.getElementById('cal-popup-title').textContent = title;
-      document.getElementById('cal-popup-meta').textContent = `${date}　${venue}`;
-      const link = document.getElementById('cal-popup-link');
-      if (url) { link.href = url; link.style.display = ''; }
-      else      { link.style.display = 'none'; }
-      popup.classList.add('show');
-    }
-
-    document.getElementById('cal-popup-close').addEventListener('click', () => {
-      document.getElementById('cal-popup').classList.remove('show');
-    });
-    document.getElementById('cal-prev').addEventListener('click', () => {
-      calMonth--;
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      renderCalendar();
-    });
-    document.getElementById('cal-next').addEventListener('click', () => {
-      calMonth++;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      renderCalendar();
-    });
-
-    /* ─── DRAWER ─── */
-    const menuBtn  = document.getElementById('menu-btn');
-    const drawerEl = document.getElementById('drawer');
-    const overlayEl = document.getElementById('drawer-overlay');
-    const closeBtn  = document.getElementById('drawer-close');
-    function openDrawer()  { drawerEl.classList.add('open'); overlayEl.classList.add('open'); document.body.style.overflow='hidden'; }
-    function closeDrawer() { drawerEl.classList.remove('open'); overlayEl.classList.remove('open'); document.body.style.overflow=''; }
-    menuBtn.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    overlayEl.addEventListener('click', closeDrawer);
-
-    /* ─── REVEAL ─── */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    /* ─── INIT ─── */
-    renderTalents();
-    renderCalendar();
-  </script>
 </body>
 </html>

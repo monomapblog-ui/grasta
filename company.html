@@ -12,10 +12,10 @@
     gtag('config', 'G-NMWGEPBMND');
   </script>
   <title>会社概要 | 合同会社グラステ</title>
+  <meta name="description" content="合同会社グラステの会社概要。グラステフェス・グラビアステーション・グラステBARの3事業でエンタテイメントの新しい形を追求します。" />
   <link rel="canonical" href="https://gravurestation.jp/company.html" />
   <link rel="icon" href="logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="logo.png" />
-  <meta name="description" content="合同会社グラステの会社概要。グラステフェス・グラビアステーション・グラステBARの3事業でエンタテイメントの新しい形を追求します。" />
 
   <!-- OGP -->
   <meta property="og:type"        content="website" />
@@ -24,654 +24,277 @@
   <meta property="og:description" content="グラステフェス・グラビアステーション・グラステBARの3事業を展開する合同会社グラステの会社概要。" />
   <meta property="og:url"         content="https://gravurestation.jp/company.html" />
   <meta property="og:image"       content="https://gravurestation.jp/ogp.jpg" />
-  <meta property="og:locale"      content="ja_JP" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:site"        content="@grasta_official" />
-  <meta name="twitter:title"       content="会社概要 | 合同会社グラステ" />
-  <meta name="twitter:description" content="グラステフェス・グラビアステーション・グラステBARの3事業を展開。" />
-  <meta name="twitter:image"       content="https://gravurestation.jp/ogp.jpg" />
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "合同会社グラステ",
-    "alternateName": "GRASTA LLC",
-    "url": "https://gravurestation.jp/company.html",
-    "email": "grasta.contact@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "東京都",
-      "addressLocality": "新宿区",
-      "addressCountry": "JP"
-    },
-    "foundingDate": "2026-01-01"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "HOME", "item": "https://gravurestation.jp/" },
-      { "@type": "ListItem", "position": 2, "name": "会社概要", "item": "https://gravurestation.jp/company.html" }
-    ]
-  }
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            enji: { DEFAULT: '#b32b47', dark: '#8c1f35', light: '#c94060' }
+          }
+        }
+      }
+    }
   </script>
 
-  <!-- Fonts -->
+  <!-- Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@500;600;700&family=Montserrat:wght@400;700;900&display=swap"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@500;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #f8f6f2;
-      --bg2:     #f0ede7;
-      --ink:     #1a1612;
-      --ink2:    #5a5450;
-      --ink3:    #9a9390;
-      --pink:    #B51748;
-      --pink2:   #D4476B;
-      --purple:  #8b52d6;
-      --border:  rgba(26,22,18,.1);
-      --display: 'Cinzel', serif;
-      --mincho:  'Shippori Mincho', serif;
-      --sans:    'Noto Sans JP', sans-serif;
-      --mono:    'Montserrat', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.8;
-      letter-spacing: .04em;
-      overflow-x: hidden;
-    }
-
-    /* ─── HEADER ─── */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(248,246,242,.92); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 5%;
-      height: 70px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo { text-decoration: none; }
-    .logo-img { height: 36px; width: auto; display: block; }
-    .menu-btn {
-      font-family: var(--display); font-size: .65rem; letter-spacing: .22em;
-      background: none; border: 1.5px solid var(--border); padding: .55rem 1.2rem;
-      border-radius: 50px; cursor: pointer; color: var(--ink); transition: border-color .2s;
-    }
-    .menu-btn:hover { border-color: var(--pink); }
-
-    /* ─── DRAWER ─── */
-    .drawer-overlay {
-      position: fixed; inset: 0; background: rgba(26,22,18,.45);
-      z-index: 1100; opacity: 0; pointer-events: none; transition: opacity .3s;
-    }
-    .drawer-overlay.open { opacity: 1; pointer-events: auto; }
-    .drawer {
-      position: fixed; top: 0; right: 0; bottom: 0; width: min(340px, 88vw);
-      background: var(--bg); z-index: 1200; transform: translateX(100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
-      display: flex; flex-direction: column; overflow-y: auto;
-    }
-    .drawer.open { transform: translateX(0); }
-    .drawer-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 1.6rem; border-bottom: 1px solid var(--border);
-    }
-    .drawer-logo-img { height: 28px; width: auto; }
-    .drawer-close { background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--ink2); padding: .4rem; }
-    .drawer-nav { padding: 1.6rem; flex: 1; }
-    .drawer-nav-label { font-family: var(--display); font-size: .58rem; letter-spacing: .28em; color: var(--ink3); margin-bottom: 1rem; }
-    .drawer-nav-list { list-style: none; display: flex; flex-direction: column; gap: .2rem; }
-    .drawer-nav-link {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .85rem .6rem; text-decoration: none; color: var(--ink);
-      border-bottom: 1px solid var(--border); font-size: .95rem; letter-spacing: .04em; transition: color .2s;
-    }
-    .drawer-nav-link:hover { color: var(--pink); }
-    .nav-en { font-family: var(--display); font-size: .58rem; letter-spacing: .22em; color: var(--ink3); }
-    .drawer-footer { padding: 1.4rem 1.6rem; border-top: 1px solid var(--border); }
-    .drawer-footer-sns { display: flex; gap: .6rem; margin-bottom: 1rem; }
-    .drawer-sns-icon {
-      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; font-size: .9rem;
-      text-decoration: none; color: var(--ink2); transition: border-color .2s, background .2s;
-    }
-    .drawer-sns-icon:hover { border-color: var(--pink2); background: rgba(181,23,72,.12); }
-    .drawer-footer-copy { font-size: .7rem; color: var(--ink3); letter-spacing: .06em; }
-
-    /* ─── BREADCRUMB ─── */
-    .breadcrumb { margin-top: 70px; background: var(--bg2); border-bottom: 1px solid var(--border); }
-    .breadcrumb-inner {
-      max-width: 1200px; margin: 0 auto; padding: .7rem 5%;
-      font-family: var(--display); font-size: .6rem; letter-spacing: .18em;
-      color: var(--ink3); display: flex; align-items: center; gap: .6rem;
-    }
-    .breadcrumb-inner a { color: var(--ink3); text-decoration: none; }
-    .breadcrumb-inner a:hover { color: var(--pink); }
-    .breadcrumb-sep { opacity: .4; }
-    .breadcrumb-current { color: var(--ink2); }
-
-    /* ─── VISION HERO ─── */
-    .vision {
-      background: linear-gradient(135deg, #1a1612 0%, #2a1520 55%, #1a1219 100%);
-      padding: 8rem 5% 7rem; text-align: center; position: relative; overflow: hidden;
-    }
-    .vision::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(181,23,72,.15) 0%, transparent 65%),
-        radial-gradient(ellipse 70% 60% at 85% 50%, rgba(139,82,214,.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .vision-inner { position: relative; max-width: 820px; margin: 0 auto; }
-    .vision-label {
-      font-family: var(--display); font-size: .62rem; letter-spacing: .42em;
-      color: var(--pink2); margin-bottom: 2rem; display: block;
-    }
-    .vision-catch {
-      font-family: var(--mincho); font-size: clamp(1.8rem, 5vw, 3.2rem);
-      font-weight: 600; color: #f8f6f2; letter-spacing: .12em; line-height: 1.5;
-      margin-bottom: 2rem;
-    }
-    .vision-catch em { color: var(--pink); font-style: normal; }
-    .vision-lead {
-      font-size: .95rem; color: rgba(248,246,242,.6); line-height: 2;
-      max-width: 580px; margin: 0 auto 3rem;
-    }
-    .vision-stats {
-      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
-    }
-    .vision-stat-num {
-      font-family: var(--mono); font-size: 2rem; font-weight: 700;
-      color: #f8f6f2; letter-spacing: .04em; display: block;
-    }
-    .vision-stat-num span { color: var(--pink); font-size: 1rem; }
-    .vision-stat-label {
-      font-family: var(--display); font-size: .58rem; letter-spacing: .2em;
-      color: rgba(248,246,242,.4); display: block; margin-top: .3rem;
-    }
-
-    /* ─── SECTION UTILITY ─── */
-    .sec-label { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; }
-    .sec-label-line { flex: 0 0 32px; height: 1px; background: var(--pink); }
-    .sec-label-text { font-family: var(--display); font-size: .62rem; letter-spacing: .28em; color: var(--pink); }
-    .sec-label-diamond { width: 5px; height: 5px; background: var(--pink); transform: rotate(45deg); flex-shrink: 0; }
-
-    /* ─── BUSINESS PILLARS ─── */
-    .pillar {
-      padding: 7rem 5%;
-    }
-    .pillar-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-    }
-    .pillar-inner.reverse { direction: rtl; }
-    .pillar-inner.reverse > * { direction: ltr; }
-
-    .pillar-visual {
-      position: relative; border-radius: 12px; overflow: hidden;
-      aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .pillar-visual-bg {
-      position: absolute; inset: 0;
-    }
-    .pillar-visual-icon {
-      position: relative; font-size: 5rem; z-index: 1;
-    }
-    .pillar-visual-num {
-      position: absolute; bottom: 1.2rem; right: 1.4rem;
-      font-family: var(--mono); font-size: 5rem; font-weight: 900;
-      color: rgba(255,255,255,.08); letter-spacing: -.02em; line-height: 1;
-      z-index: 0;
-    }
-
-    .pillar-body {}
-    .pillar-index {
-      font-family: var(--mono); font-size: .65rem; letter-spacing: .3em;
-      color: var(--pink); margin-bottom: 1rem; display: block;
-    }
-    .pillar-title {
-      font-family: var(--mincho); font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 600; letter-spacing: .1em; color: var(--ink);
-      line-height: 1.3; margin-bottom: .5rem;
-    }
-    .pillar-title-en {
-      font-family: var(--display); font-size: .72rem; letter-spacing: .28em;
-      color: var(--ink3); display: block; margin-bottom: 1.4rem;
-    }
-    .pillar-desc {
-      font-size: .92rem; color: var(--ink2); line-height: 2; margin-bottom: 2rem;
-    }
-    .pillar-features {
-      list-style: none; display: flex; flex-direction: column; gap: .7rem; margin-bottom: 2.4rem;
-    }
-    .pillar-feature {
-      display: flex; align-items: flex-start; gap: .8rem;
-      font-size: .88rem; color: var(--ink2);
-    }
-    .pillar-feature::before {
-      content: '';
-      flex-shrink: 0; width: 5px; height: 5px; margin-top: .6rem;
-      background: var(--pink); transform: rotate(45deg);
-    }
-    .pillar-btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      font-family: var(--display); font-size: .65rem; letter-spacing: .2em;
-      color: var(--pink); border: 1px solid var(--pink);
-      padding: .7rem 1.8rem; border-radius: 50px; text-decoration: none;
-      transition: background .2s, color .2s;
-    }
-    .pillar-btn:hover { background: var(--pink); color: #fff; }
-
-    /* pillar backgrounds */
-    .pillar-bg-fes    { background: linear-gradient(135deg, #1a1612, #2d1a1e); }
-    .pillar-bg-media  { background: linear-gradient(135deg, #1a1219, #1e1a2d); }
-    .pillar-bg-bar    { background: linear-gradient(135deg, #1a1e12, #1e2d1a); }
-
-    .pillar:nth-child(even) { background: var(--bg2); }
-
-    /* ─── COMPANY INFO ─── */
-    .info-section {
-      background: var(--ink); padding: 7rem 5%;
-    }
-    .info-inner { max-width: 900px; margin: 0 auto; }
-    .info-label {
-      font-family: var(--display); font-size: .62rem; letter-spacing: .38em;
-      color: var(--pink2); margin-bottom: 1rem; display: block;
-    }
-    .info-title {
-      font-family: var(--mincho); font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 500; color: #f8f6f2; letter-spacing: .1em; margin-bottom: 3rem;
-    }
-    .info-table {
-      width: 100%; border-collapse: collapse; font-size: .92rem;
-    }
-    .info-table th, .info-table td {
-      padding: 1.2rem 1.6rem; text-align: left;
-      border-bottom: 1px solid rgba(248,246,242,.08);
-      vertical-align: top; line-height: 1.8;
-    }
-    .info-table th {
-      font-family: var(--mincho); font-weight: 500; letter-spacing: .08em;
-      color: rgba(248,246,242,.5); white-space: nowrap; width: 28%;
-    }
-    .info-table td { color: rgba(248,246,242,.8); }
-    .info-table a { color: var(--pink2); text-decoration: none; }
-
-    /* ─── CONTACT ─── */
-    .contact-section { padding: 7rem 5%; text-align: center; }
-    .contact-inner { max-width: 720px; margin: 0 auto; }
-    .contact-title {
-      font-family: var(--mincho); font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 500; letter-spacing: .12em; color: var(--ink); margin-bottom: 1rem;
-    }
-    .contact-lead { font-size: .92rem; color: var(--ink2); line-height: 2; margin-bottom: 3rem; }
-    .contact-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;
-    }
-    .contact-card {
-      padding: 1.8rem 1.2rem; border: 1px solid var(--border); border-radius: 8px;
-      text-align: center;
-    }
-    .contact-card-icon { font-size: 1.6rem; margin-bottom: .6rem; display: block; }
-    .contact-card-label {
-      font-family: var(--display); font-size: .58rem; letter-spacing: .22em;
-      color: var(--ink3); display: block; margin-bottom: .3rem;
-    }
-    .contact-card-title {
-      font-family: var(--mincho); font-size: .9rem; font-weight: 500; color: var(--ink);
-    }
-    .contact-email-btn {
-      display: inline-flex; align-items: center; gap: .6rem;
-      font-family: var(--mono); font-size: .9rem; letter-spacing: .06em;
-      color: #fff; background: var(--pink);
-      padding: 1rem 2.4rem; border-radius: 50px; text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .contact-email-btn:hover { background: var(--pink2); transform: translateY(-2px); }
-    .contact-note { font-size: .78rem; color: var(--ink3); margin-top: 1rem; }
-
-    /* ─── REVEAL ─── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
-
-    /* ─── FOOTER ─── */
-    footer { background: var(--ink); color: rgba(248,246,242,.7); padding: 60px 8% 30px; }
-    .footer-top {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem;
-      padding-bottom: 3rem; border-bottom: 1px solid rgba(248,246,242,.1);
-    }
-    .footer-logo {
-      font-family: var(--display); font-size: 1.3rem; letter-spacing: .12em;
-      color: var(--bg); text-decoration: none; display: inline-block; margin-bottom: 1rem;
-    }
-    .footer-logo span { color: var(--pink); }
-    .footer-brand-desc { font-size: .82rem; line-height: 1.9; color: rgba(248,246,242,.5); }
-    .footer-col h4 { font-family: var(--display); font-size: .6rem; letter-spacing: .24em; color: rgba(248,246,242,.4); margin-bottom: 1.2rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
-    .footer-col ul a { font-size: .85rem; color: rgba(248,246,242,.6); text-decoration: none; transition: color .2s; }
-    .footer-col ul a:hover { color: var(--pink2); }
-    .footer-col ul span.footer-soon { font-size: .85rem; color: rgba(248,246,242,.3); }
-    .footer-bottom {
-      padding-top: 2rem; display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-copy { font-size: .75rem; letter-spacing: .08em; color: rgba(248,246,242,.3); }
-    .footer-sns { display: flex; gap: .6rem; }
-    .sns-icon {
-      width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(248,246,242,.15);
-      display: flex; align-items: center; justify-content: center; font-size: .85rem;
-      text-decoration: none; color: rgba(248,246,242,.5); transition: border-color .2s, background .2s;
-    }
-    .sns-icon:hover { border-color: var(--pink2); background: rgba(181,23,72,.12); }
-
-    @media (max-width: 900px) {
-      .pillar-inner, .pillar-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 3rem; }
-      .pillar-visual { aspect-ratio: 16/7; }
-      .contact-cards { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .vision-stats { gap: 2.5rem; }
-    }
-    @media (max-width: 480px) {
-      .footer-top { grid-template-columns: 1fr; }
-    }
+    * { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 text-sm">
 
-  <!-- DRAWER OVERLAY -->
-  <div class="drawer-overlay" id="drawer-overlay"></div>
-
-  <!-- MENU DRAWER -->
-  <aside class="drawer" id="drawer" aria-label="ナビゲーション">
-    <div class="drawer-header">
-      <span><img src="logo.jpg" alt="GRASTA" class="drawer-logo-img" width="113" height="100" /></span>
-      <button class="drawer-close" id="drawer-close" aria-label="閉じる">✕</button>
-    </div>
-    <nav class="drawer-nav">
-      <p class="drawer-nav-label">Navigation</p>
-      <ul class="drawer-nav-list">
-        <li><a href="index.html" class="drawer-nav-link"><span>グラステフェス</span><span class="nav-en">GRASTA FES</span></a></li>
-        <li><a href="ticket.html" class="drawer-nav-link"><span>チケット</span><span class="nav-en">TICKET</span></a></li>
-        <li><a href="station.html" class="drawer-nav-link"><span>グラビアステーション</span><span class="nav-en">STATION</span></a></li>
-        <li><a href="index.html#faq" class="drawer-nav-link"><span>よくある質問</span><span class="nav-en">FAQ</span></a></li>
-        <li><a href="company.html" class="drawer-nav-link"><span>会社概要</span><span class="nav-en">COMPANY</span></a></li>
-      </ul>
-    </nav>
-    <div class="drawer-footer">
-      <div class="drawer-footer-sns">
-        <a href="https://x.com/grasta_official" target="_blank" rel="noopener" class="drawer-sns-icon" title="X">𝕏</a>
-        <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener" class="drawer-sns-icon" title="Instagram">📷</a>
-        <a class="drawer-sns-icon" title="TikTok">🎵</a>
-      </div>
-      <p class="drawer-footer-copy">© 2026 合同会社グラステ / GRASTA LLC.</p>
-    </div>
-  </aside>
-
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo"><img src="logo.jpg" alt="GRASTA" class="logo-img" width="113" height="100" /></a>
-      <div></div>
-      <button class="menu-btn" id="menu-btn">MENU</button>
-    </div>
-  </header>
-
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <div class="breadcrumb-inner">
-      <a href="index.html">HOME</a>
-      <span class="breadcrumb-sep">/</span>
-      <span class="breadcrumb-current">COMPANY</span>
+  <!-- ── TOP UTILITY BAR ── -->
+  <div class="bg-gray-800 text-white text-xs py-1.5 px-4">
+    <div class="max-w-6xl mx-auto flex justify-end gap-5">
+      <a href="index.html" class="hover:text-gray-300 transition">← グラステフェス TOP</a>
+      <a href="station.html" class="hover:text-gray-300 transition">グラビアステーション</a>
+      <a href="index.html#contact" class="hover:text-gray-300 transition">お問い合わせ</a>
     </div>
   </div>
 
-  <!-- VISION -->
-  <section class="vision">
-    <div class="vision-inner">
-      <span class="vision-label">GRASTA LLC — OUR VISION</span>
-      <h1 class="vision-catch">エンタメの<em>新しい扉</em>を、<br>ともに開く。</h1>
-      <p class="vision-lead">合同会社グラステは、グラビア・裏垢インフルエンサーが輝ける舞台を作り続けます。イベント・メディア・バーの3事業を通じて、クリエイターとファンが本当につながれる体験をデザインします。</p>
-      <div class="vision-stats">
+  <!-- ── HERO ── -->
+  <div class="relative w-full overflow-hidden" style="height: 420px;">
+
+    <!-- 背景（プレースホルダー：実際の画像に差し替え可） -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-[#1a0a10]">
+      <!-- 装飾パターン -->
+      <div class="absolute inset-0 opacity-10"
+        style="background-image: radial-gradient(circle at 20% 50%, #b32b47 0%, transparent 50%), radial-gradient(circle at 80% 20%, #8b52d6 0%, transparent 40%);">
+      </div>
+    </div>
+
+    <!-- コンテンツ：縦方向はやや下寄り -->
+    <div class="absolute inset-0 flex flex-col items-center justify-end pb-16 px-4">
+
+      <!-- ロゴ ＋ 会社名 -->
+      <div class="flex items-center gap-4 mb-3">
+        <img src="logo.jpg" alt="GRASTA" width="113" height="100"
+          class="h-14 w-auto drop-shadow-lg" />
+        <h1 class="text-white text-3xl md:text-4xl font-bold tracking-wide"
+          style="text-shadow: 0 2px 12px rgba(0,0,0,0.7);">
+          合同会社グラステ
+        </h1>
+      </div>
+
+      <!-- Our Mission ラベル -->
+      <div class="mb-3">
+        <span class="inline-block bg-black/50 text-white text-xs px-3 py-1 tracking-widest uppercase">
+          Our Mission
+        </span>
+      </div>
+
+      <!-- ミッションテキスト（各行に半透明帯） -->
+      <div class="flex flex-col items-center gap-1.5 text-center">
+        <p class="text-white text-sm md:text-base font-medium"
+          style="background: rgba(0,0,0,0.5); padding: 4px 16px; display: inline-block;">
+          推し活における活動者とファンのマッチングを加速
+        </p>
+        <p class="text-white text-sm md:text-base font-medium"
+          style="background: rgba(0,0,0,0.5); padding: 4px 16px; display: inline-block;">
+          グラビア活動者の地位向上とセカンドキャリア形成を支援
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GLOBAL NAVIGATION ── -->
+  <nav class="bg-[#b32b47] text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex overflow-x-auto">
+      <a href="index.html"   class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">トップ <span class="opacity-70">▼</span></a>
+      <a href="#business"    class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">事業内容 <span class="opacity-70">▼</span></a>
+      <a href="index.html"   class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">主催イベント <span class="opacity-70">▼</span></a>
+      <a href="#"            class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">撮影スタジオ <span class="opacity-70">▼</span></a>
+      <a href="station.html" class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">運営メディア <span class="opacity-70">▼</span></a>
+      <a href="bar.html"     class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">バー店舗 <span class="opacity-70">▼</span></a>
+      <a href="company.html" class="px-4 py-3 text-xs font-medium whitespace-nowrap bg-[#8c1f35] transition flex items-center gap-1 border-b-2 border-white">会社概要 <span class="opacity-70">▼</span></a>
+      <a href="#news"        class="px-4 py-3 text-xs font-medium whitespace-nowrap hover:bg-[#8c1f35] transition flex items-center gap-1">お知らせ <span class="opacity-70">▼</span></a>
+    </div>
+  </nav>
+
+  <!-- ── BREADCRUMB ── -->
+  <div class="bg-white border-b border-gray-200 py-2 px-4">
+    <div class="max-w-6xl mx-auto text-xs text-gray-400">
+      <a href="index.html" class="hover:text-[#b32b47] transition">HOME</a>
+      <span class="mx-1">›</span>
+      <span class="text-gray-600">会社概要</span>
+    </div>
+  </div>
+
+  <!-- ── 事業内容 ── -->
+  <section id="business" class="bg-slate-50 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-white rounded shadow-sm p-8 md:p-10">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">事業内容</h2>
+        <p class="text-gray-700 leading-relaxed">
+          イベント・撮影会の主催、撮影スタジオ運営、グラビア関連情報サイトの運営を通じ、<br class="hidden md:block">
+          活動者とファンがより自然に出会い、応援し合える環境づくりを目指しています。
+        </p>
+
+        <!-- 3事業カード -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          <a href="index.html" class="border border-gray-200 rounded p-5 hover:shadow-md hover:-translate-y-0.5 transition group">
+            <div class="w-10 h-10 bg-[#b32b47] rounded flex items-center justify-center mb-3">
+              <span class="text-white text-lg">🎪</span>
+            </div>
+            <h3 class="font-bold text-gray-800 text-sm mb-1 group-hover:text-[#b32b47] transition">グラステフェス</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">裏垢女子が集うリアルイベント。年1〜2回開催予定。</p>
+          </a>
+          <a href="station.html" class="border border-gray-200 rounded p-5 hover:shadow-md hover:-translate-y-0.5 transition group">
+            <div class="w-10 h-10 bg-[#b32b47] rounded flex items-center justify-center mb-3">
+              <span class="text-white text-lg">📰</span>
+            </div>
+            <h3 class="font-bold text-gray-800 text-sm mb-1 group-hover:text-[#b32b47] transition">グラビアステーション</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">活動者とファンを繋ぐグラビア情報プラットフォーム。</p>
+          </a>
+          <a href="bar.html" class="border border-gray-200 rounded p-5 hover:shadow-md hover:-translate-y-0.5 transition group">
+            <div class="w-10 h-10 bg-[#b32b47] rounded flex items-center justify-center mb-3">
+              <span class="text-white text-lg">🍸</span>
+            </div>
+            <h3 class="font-bold text-gray-800 text-sm mb-1 group-hover:text-[#b32b47] transition">グラステBAR</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">タレントがスタッフを務める会員制バー。近日オープン予定。</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 会社概要テーブル ── -->
+  <section class="bg-white py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-lg font-bold text-gray-800 border-l-4 border-[#b32b47] pl-3 mb-6">会社概要</h2>
+      <div class="bg-white border border-gray-200 rounded shadow-sm overflow-hidden">
+        <table class="w-full text-sm">
+          <tbody class="divide-y divide-gray-100">
+            <tr class="hover:bg-gray-50">
+              <th class="text-left px-6 py-4 font-medium text-gray-500 bg-slate-50 w-36 whitespace-nowrap">会社名</th>
+              <td class="px-6 py-4 text-gray-800">合同会社グラステ（GRASTA LLC）</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <th class="text-left px-6 py-4 font-medium text-gray-500 bg-slate-50 whitespace-nowrap">設立</th>
+              <td class="px-6 py-4 text-gray-800">2026年1月1日</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <th class="text-left px-6 py-4 font-medium text-gray-500 bg-slate-50 whitespace-nowrap">所在地</th>
+              <td class="px-6 py-4 text-gray-800">東京都新宿区</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <th class="text-left px-6 py-4 font-medium text-gray-500 bg-slate-50 whitespace-nowrap">事業内容</th>
+              <td class="px-6 py-4 text-gray-800">イベント企画・運営 / デジタルメディア運営 / 飲食業</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <th class="text-left px-6 py-4 font-medium text-gray-500 bg-slate-50 whitespace-nowrap">お問い合わせ</th>
+              <td class="px-6 py-4">
+                <a href="mailto:info@gravurestation.jp"
+                  class="text-[#b32b47] hover:underline">info@gravurestation.jp</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── お問い合わせ ── -->
+  <section id="contact" class="bg-slate-50 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-lg font-bold text-gray-800 border-l-4 border-[#b32b47] pl-3 mb-2">お問い合わせ</h2>
+      <p class="text-gray-500 text-xs mb-6 pl-4">広告出稿・スポンサーシップ・タレント出演・イベント協賛など、各種ご相談はお気軽にご連絡ください。</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-white border border-gray-200 rounded p-5 text-center shadow-sm">
+          <span class="text-2xl">📢</span>
+          <p class="text-xs text-gray-400 tracking-widest uppercase mt-2 mb-1">Advertise</p>
+          <p class="font-medium text-gray-800 text-sm">広告・スポンサー</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded p-5 text-center shadow-sm">
+          <span class="text-2xl">🎭</span>
+          <p class="text-xs text-gray-400 tracking-widest uppercase mt-2 mb-1">Talent</p>
+          <p class="font-medium text-gray-800 text-sm">出演・タレント登録</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded p-5 text-center shadow-sm">
+          <span class="text-2xl">🤝</span>
+          <p class="text-xs text-gray-400 tracking-widest uppercase mt-2 mb-1">Partner</p>
+          <p class="font-medium text-gray-800 text-sm">業務提携・協賛</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="mailto:info@gravurestation.jp"
+          class="inline-block bg-[#b32b47] hover:bg-[#8c1f35] text-white font-medium px-8 py-3 rounded transition text-sm">
+          info@gravurestation.jp へメールする
+        </a>
+        <p class="text-xs text-gray-400 mt-3">平日 10:00 – 18:00 対応 / 土日祝は翌営業日以降に返信</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="bg-gray-900 text-white py-10 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
         <div>
-          <span class="vision-stat-num">3<span>事業</span></span>
-          <span class="vision-stat-label">BUSINESS PILLARS</span>
+          <div class="flex items-center gap-3 mb-3">
+            <img src="logo.jpg" alt="GRASTA" width="113" height="100" class="h-8 w-auto" />
+            <div>
+              <p class="font-bold text-sm leading-tight">合同会社グラステ</p>
+              <p class="text-xs text-gray-400 tracking-widest">GRASTA LLC</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">エンタメの新しい形を追求する。<br>グラビア文化の発展と活動者支援。</p>
         </div>
+
+        <div class="flex gap-10">
+          <div>
+            <p class="font-medium text-xs text-white mb-3">事業</p>
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li><a href="index.html" class="hover:text-white transition">グラステフェス</a></li>
+              <li><a href="station.html" class="hover:text-white transition">グラビアステーション</a></li>
+              <li><a href="bar.html" class="hover:text-white transition">グラステBAR</a></li>
+              <li><a href="sponsor.html" class="hover:text-white transition">協賛・スポンサー</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium text-xs text-white mb-3">会社情報</p>
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li><a href="company.html" class="hover:text-white transition">会社概要</a></li>
+              <li><a href="privacy.html" class="hover:text-white transition">プライバシーポリシー</a></li>
+              <li><a href="terms.html" class="hover:text-white transition">利用規約</a></li>
+              <li><a href="tokushoho.html" class="hover:text-white transition">特定商取引法に基づく表記</a></li>
+            </ul>
+          </div>
+        </div>
+
         <div>
-          <span class="vision-stat-num">2026<span>年設立</span></span>
-          <span class="vision-stat-label">FOUNDED IN TOKYO</span>
+          <p class="font-medium text-xs text-white mb-3">SNS</p>
+          <div class="flex flex-col gap-2">
+            <a href="https://x.com/grasta_official" target="_blank" rel="noopener"
+              class="flex items-center gap-2 bg-black text-white text-xs font-bold py-2 px-3 rounded hover:opacity-85 transition w-fit">
+              <span class="text-base leading-none">𝕏</span>
+              <span>@grasta_official</span>
+            </a>
+            <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener"
+              class="flex items-center gap-2 text-white text-xs font-bold py-2 px-3 rounded hover:opacity-85 transition w-fit"
+              style="background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
+              <span class="text-base leading-none">📷</span>
+              <span>@grasta_official</span>
+            </a>
+          </div>
         </div>
-        <div>
-          <span class="vision-stat-num">∞<span></span></span>
-          <span class="vision-stat-label">POSSIBILITIES</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PILLAR 01 — グラステフェス -->
-  <section class="pillar">
-    <div class="pillar-inner reveal">
-      <div class="pillar-visual">
-        <div class="pillar-visual-bg pillar-bg-fes"></div>
-        <span class="pillar-visual-icon">🎪</span>
-        <span class="pillar-visual-num">01</span>
       </div>
-      <div class="pillar-body">
-        <span class="pillar-index">BUSINESS 01 — EVENT</span>
-        <h2 class="pillar-title">グラステフェス</h2>
-        <span class="pillar-title-en">GRASTA FES</span>
-        <p class="pillar-desc">裏垢インフルエンサーが一堂に会す、展示会型リアルイベント。チェキ撮影・物販・パフォーマンスステージ・グラステBARなど多彩なコンテンツで、ファンとクリエイターが直接つながれる唯一無二の空間を提供します。</p>
-        <ul class="pillar-features">
-          <li class="pillar-feature">チェキ・サイン会・物販ブースで推しと直接交流</li>
-          <li class="pillar-feature">パフォーマンスステージで特別なショーを体験</li>
-          <li class="pillar-feature">グラステBAR併設でイベント後も楽しめる空間</li>
-          <li class="pillar-feature">2026年11月1日 東京文具共和会館にて開催</li>
-        </ul>
-        <a href="index.html" class="pillar-btn">イベント詳細を見る →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLAR 02 — グラビアステーション -->
-  <section class="pillar">
-    <div class="pillar-inner reverse reveal">
-      <div class="pillar-visual">
-        <div class="pillar-visual-bg pillar-bg-media"></div>
-        <span class="pillar-visual-icon">📱</span>
-        <span class="pillar-visual-num">02</span>
-      </div>
-      <div class="pillar-body">
-        <span class="pillar-index">BUSINESS 02 — MEDIA</span>
-        <h2 class="pillar-title">グラビアステーション</h2>
-        <span class="pillar-title-en">GRAVIA STATION</span>
-        <p class="pillar-desc">グラビア・コスプレ・裏垢クリエイターを中心とした総合メディアプラットフォーム。五十音順タレント一覧・ジャンル別フィルター・裏垢イベントカレンダーを備え、ファンとタレントをつなぐ情報ハブとして機能します。広告出稿・スポンサーシップも受付中。</p>
-        <ul class="pillar-features">
-          <li class="pillar-feature">タレント一覧を五十音順・ジャンル別で検索可能</li>
-          <li class="pillar-feature">裏垢イベントカレンダーで撮影会・イベントを一覧表示</li>
-          <li class="pillar-feature">企業向け広告枠・スポンサーシップで収益化</li>
-          <li class="pillar-feature">タレント情報はデータ管理で随時更新可能</li>
-        </ul>
-        <a href="station.html" class="pillar-btn">サイトを見る →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLAR 03 — グラステBAR -->
-  <section class="pillar">
-    <div class="pillar-inner reveal">
-      <div class="pillar-visual">
-        <div class="pillar-visual-bg pillar-bg-bar"></div>
-        <span class="pillar-visual-icon">🍸</span>
-        <span class="pillar-visual-num">03</span>
-      </div>
-      <div class="pillar-body">
-        <span class="pillar-index">BUSINESS 03 — BAR</span>
-        <h2 class="pillar-title">グラステBAR</h2>
-        <span class="pillar-title-en">GRASTA BAR</span>
-        <p class="pillar-desc">イベント内に設置するコンセプトバー。出演タレントとの自然な会話や交流が生まれる特別な空間として、グラステフェスの核となるコンテンツです。飲食とエンタメが溶け合う唯一の体験を提供します。</p>
-        <ul class="pillar-features">
-          <li class="pillar-feature">出演タレントと同じ空間で過ごせる特別なバー</li>
-          <li class="pillar-feature">イベントの余韻を楽しむアフターパーティー的空間</li>
-          <li class="pillar-feature">コンセプトカクテル・フードで世界観を演出</li>
-          <li class="pillar-feature">将来的には常設バーとしての展開も視野に</li>
-        </ul>
-        <a href="bar.html" class="pillar-btn">詳細を問い合わせる →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPANY INFO -->
-  <section class="info-section">
-    <div class="info-inner reveal">
-      <span class="info-label">COMPANY PROFILE</span>
-      <h2 class="info-title">会社概要</h2>
-      <table class="info-table">
-        <tr>
-          <th>会社名</th>
-          <td>合同会社グラステ（GRASTA LLC）</td>
-        </tr>
-        <tr>
-          <th>設立</th>
-          <td>2026年1月1日</td>
-        </tr>
-        <tr>
-          <th>所在地</th>
-          <td>東京都新宿区</td>
-        </tr>
-        <tr>
-          <th>事業内容</th>
-          <td>イベント企画・運営 / デジタルメディア運営 / 飲食業</td>
-        </tr>
-        <tr>
-          <th>お問い合わせ</th>
-          <td><a href="mailto:grasta.contact@gmail.com">grasta.contact@gmail.com</a></td>
-        </tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section">
-    <div class="contact-inner reveal">
-      <div class="sec-label" style="justify-content:center;">
-        <div class="sec-label-line"></div>
-        <span class="sec-label-text">CONTACT</span>
-        <div class="sec-label-diamond"></div>
-      </div>
-      <h2 class="contact-title">お問い合わせ</h2>
-      <p class="contact-lead">広告出稿・スポンサーシップ・タレント出演・イベント協賛など、<br>各種ご相談はお気軽にご連絡ください。</p>
-      <div class="contact-cards">
-        <div class="contact-card reveal d1">
-          <span class="contact-card-icon">📢</span>
-          <span class="contact-card-label">ADVERTISE</span>
-          <p class="contact-card-title">広告・スポンサー</p>
-        </div>
-        <div class="contact-card reveal d2">
-          <span class="contact-card-icon">🎭</span>
-          <span class="contact-card-label">TALENT</span>
-          <p class="contact-card-title">出演・タレント登録</p>
-        </div>
-        <div class="contact-card reveal d3">
-          <span class="contact-card-icon">🤝</span>
-          <span class="contact-card-label">PARTNER</span>
-          <p class="contact-card-title">業務提携・協賛</p>
-        </div>
-      </div>
-      <a href="mailto:grasta.contact@gmail.com" class="contact-email-btn">
-        grasta.contact@gmail.com
-      </a>
-      <p class="contact-note">平日 10:00 – 18:00 対応 / 土日祝は翌営業日以降に返信</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div>
-        <a href="index.html" class="footer-logo">GRASTA<span>.</span></a>
-        <p class="footer-brand-desc">裏垢女子たちが集う、新感覚の展示会型イベント。<br>合同会社グラステが贈る新しいエンタテイメント体験。</p>
-      </div>
-      <div class="footer-col">
-        <h4>EVENT</h4>
-        <ul>
-          <li><a href="index.html#about">イベント概要</a></li>
-          <li><a href="index.html#lineup">出演者</a></li>
-          <li><a href="index.html#schedule">スケジュール</a></li>
-          <li><a href="index.html#access">アクセス</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>SERVICES</h4>
-        <ul>
-          <li><a href="ticket.html">チケット購入</a></li>
-          <li><a href="station.html">グラビアステーション</a></li>
-          <li><a href="safety.html">安心・安全</a></li>
-          <li><a href="index.html#faq">よくある質問</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>COMPANY</h4>
-        <ul>
-          <li><a href="company.html">会社概要</a></li>
-          <li><a href="privacy.html">プライバシーポリシー</a></li>
-          <li><a href="terms.html">注意事項</a></li>
-          <li><a href="mailto:grasta.contact@gmail.com">お問い合わせ</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 <a href="company.html" style="color:inherit;text-decoration:none;">合同会社グラステ</a> / GRASTA LLC. All Rights Reserved.</p>
-      <div class="footer-sns">
-        <a href="https://x.com/grasta_official" target="_blank" rel="noopener" class="sns-icon" aria-label="X">𝕏</a>
-        <a href="https://www.instagram.com/grasta_official" target="_blank" rel="noopener" class="sns-icon" aria-label="Instagram">📷</a>
-        <a class="sns-icon" aria-label="TikTok">🎵</a>
+      <div class="border-t border-gray-700 pt-6 text-center text-xs text-gray-500">
+        © 2026 合同会社グラステ / GRASTA LLC. All Rights Reserved.
       </div>
     </div>
   </footer>
 
-  <script>
-    const menuBtn  = document.getElementById('menu-btn');
-    const drawer   = document.getElementById('drawer');
-    const overlay  = document.getElementById('drawer-overlay');
-    const closeBtn = document.getElementById('drawer-close');
-    function openDrawer()  { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
-    function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
-    menuBtn.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    overlay.addEventListener('click', closeDrawer);
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
 </body>
 </html>

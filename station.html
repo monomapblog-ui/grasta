@@ -127,76 +127,16 @@
           <h2 class="text-base font-bold border-l-4 border-[#b32b47] pl-3 text-gray-800">新着情報</h2>
         </div>
 
-        <div class="bg-white border border-gray-200 rounded shadow-sm divide-y divide-gray-100">
-
-          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
-            <div class="w-24 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>
-                <span class="text-xs text-gray-400">2026.06.01</span>
-                <span class="text-xs text-[#b32b47] bg-red-50 px-1.5 py-0.5 rounded">イベント</span>
-              </div>
-              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
-                グラステEXPO 2026 開催決定！チケット販売開始のお知らせ
-              </p>
-            </div>
-          </a>
-
-          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
-            <div class="w-24 h-16 bg-gradient-to-br from-pink-100 to-purple-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>
-                <span class="text-xs text-gray-400">2026.05.28</span>
-                <span class="text-xs text-[#b32b47] bg-red-50 px-1.5 py-0.5 rounded">出演者</span>
-              </div>
-              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
-                出演者第一弾発表！人気グラビアアイドル・裏垢女子5名が登場
-              </p>
-            </div>
-          </a>
-
-          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
-            <div class="w-24 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>
-                <span class="text-xs text-gray-400">2026.05.20</span>
-                <span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">お知らせ</span>
-              </div>
-              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
-                グラビアステーション公式サイトをリニューアルしました
-              </p>
-            </div>
-          </a>
-
-          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
-            <div class="w-24 h-16 bg-gradient-to-br from-yellow-100 to-orange-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs text-gray-400">2026.05.15</span>
-                <span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">登録</span>
-              </div>
-              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
-                コスプレイヤー・裏垢女子の新規出演者登録受付開始
-              </p>
-            </div>
-          </a>
-
-          <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
-            <div class="w-24 h-16 bg-gradient-to-br from-green-100 to-teal-100 rounded flex-shrink-0 flex items-center justify-center text-gray-400 text-xs">画像</div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs text-gray-400">2026.05.10</span>
-                <span class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">ガイドライン</span>
-              </div>
-              <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">
-                グラビアステーション運営方針・利用ガイドラインを公開しました
-              </p>
-            </div>
-          </a>
-
+        <!-- microCMS から動的取得 -->
+        <div id="news-list" class="bg-white border border-gray-200 rounded shadow-sm divide-y divide-gray-100">
+          <!-- ローディング -->
+          <div class="p-8 text-center text-gray-400 text-xs">
+            <svg class="animate-spin w-5 h-5 mx-auto mb-2 text-[#b32b47]" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+            </svg>
+            読み込み中...
+          </div>
         </div>
 
         <div class="text-right mt-2.5">
@@ -369,6 +309,55 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const MICROCMS_SERVICE = 'grasta';
+    const MICROCMS_KEY     = '74Ar0Btns8uucjSkBlvTbvPRkmly0oiAEqUq';
+
+    function formatDate(str) {
+      const d = new Date(str);
+      return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function isNew(publishedAt) {
+      return (Date.now() - new Date(publishedAt)) < 7 * 24 * 60 * 60 * 1000;
+    }
+
+    function renderNews(articles) {
+      const el = document.getElementById('news-list');
+      if (!articles.length) {
+        el.innerHTML = '<p class="p-8 text-center text-gray-400 text-xs">まだ記事がありません</p>';
+        return;
+      }
+      el.innerHTML = articles.map(a => `
+        <a href="#" class="flex gap-4 p-4 hover:bg-gray-50 transition group">
+          <div class="w-24 h-16 rounded flex-shrink-0 overflow-hidden bg-gray-200 flex items-center justify-center">
+            ${a.thumbnail
+              ? `<img src="${a.thumbnail.url}?w=192&h=128&fit=crop" alt="" class="w-full h-full object-cover" loading="lazy" />`
+              : '<span class="text-gray-400 text-xs">画像</span>'}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              ${isNew(a.publishedAt) ? '<span class="bg-pink-500 text-white text-xs px-2 py-0.5 rounded font-bold leading-none">NEW</span>' : ''}
+              <span class="text-xs text-gray-400">${formatDate(a.publishedAt)}</span>
+              ${a.category ? `<span class="text-xs text-[#b32b47] bg-red-50 px-1.5 py-0.5 rounded">${a.category}</span>` : ''}
+            </div>
+            <p class="text-sm font-medium leading-snug group-hover:text-[#b32b47] transition line-clamp-2">${a.title}</p>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    fetch(`https://${MICROCMS_SERVICE}.microcms.io/api/v1/news?limit=5&orders=-publishedAt`, {
+      headers: { 'X-MICROCMS-API-KEY': MICROCMS_KEY }
+    })
+    .then(r => r.json())
+    .then(d => renderNews(d.contents))
+    .catch(() => {
+      document.getElementById('news-list').innerHTML =
+        '<p class="p-8 text-center text-gray-400 text-xs">記事の読み込みに失敗しました</p>';
+    });
+  </script>
 
 </body>
 </html>

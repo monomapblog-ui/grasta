@@ -195,6 +195,7 @@
     #news { background: var(--bg2); }
     .news-inner { max-width: 860px; margin: 0 auto; }
     .news-list { margin-top: 3rem; display: flex; flex-direction: column; }
+    .news-loading { padding: 2rem 0; color: var(--ink3); font-size: .85rem; }
     .news-item {
       display: grid;
       grid-template-columns: 120px auto 1fr;
@@ -2470,22 +2471,8 @@
         </div>
         <h2 class="section-h2">お知らせ</h2>
       </div>
-      <div class="news-list reveal d1">
-        <a href="ticket.html" class="news-item">
-          <span class="news-date">2026.05.26</span>
-          <span class="news-tag">TICKET</span>
-          <span class="news-title">前売りチケット受付開始。当日券より500円お得な¥2,500。</span>
-        </a>
-        <div class="news-item" style="cursor:default;">
-          <span class="news-date">2026.05.26</span>
-          <span class="news-tag">VENUE</span>
-          <span class="news-title">会場が東京文具共和会館（千代田区神田錦町）に決定しました。</span>
-        </div>
-        <div class="news-item" style="cursor:default;">
-          <span class="news-date">2026.05.26</span>
-          <span class="news-tag">EVENT</span>
-          <span class="news-title">グラステEXPO 2026年11月某日開催決定！</span>
-        </div>
+      <div class="news-list reveal d1" id="index-news-list">
+        <p class="news-loading">読み込み中…</p>
       </div>
     </div>
   </section>
@@ -3052,6 +3039,42 @@
       }
       tick();
       setInterval(tick, 1000);
+    })();
+
+    // ── お知らせ (microCMS) ──
+    (function() {
+      const SERVICE = 'grasta';
+      const KEY     = '74Ar0Btns8uucjSkBlvTbvPRkmly0oiAEqUq';
+      const el      = document.getElementById('index-news-list');
+
+      function fmt(str) {
+        const d = new Date(str);
+        return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+      }
+
+      fetch(`https://${SERVICE}.microcms.io/api/v1/news?limit=5&orders=-publishedAt`, {
+        headers: { 'X-MICROCMS-API-KEY': KEY }
+      })
+      .then(r => r.json())
+      .then(d => {
+        if (!d.contents || !d.contents.length) {
+          el.innerHTML = '<p style="padding:2rem 0;color:var(--ink3);font-size:.85rem;">お知らせはまだありません。</p>';
+          return;
+        }
+        el.innerHTML = d.contents.map(a => {
+          const tag   = a.category || 'NEWS';
+          const url   = a.url || `article.html?id=${a.id}`;
+          const isLink = !!a.id;
+          const tag_el = `<span class="news-tag">${tag}</span>`;
+          const inner  = `<span class="news-date">${fmt(a.publishedAt)}</span>${tag_el}<span class="news-title">${a.title}</span>`;
+          return isLink
+            ? `<a href="article.html?id=${a.id}" class="news-item">${inner}</a>`
+            : `<div class="news-item" style="cursor:default;">${inner}</div>`;
+        }).join('');
+      })
+      .catch(() => {
+        el.innerHTML = '<p style="padding:2rem 0;color:var(--ink3);font-size:.85rem;">お知らせの読み込みに失敗しました。</p>';
+      });
     })();
 
     // ── スクロールアニメーション ──

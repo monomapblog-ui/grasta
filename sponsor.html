@@ -508,13 +508,13 @@
 
     /* ── CTA SECTION ── */
     .cta-section {
-      background: var(--ink);
-      color: var(--bg);
+      background: linear-gradient(135deg, #B51748 0%, #7a3dbf 100%);
+      color: #fff;
       padding: 96px 8%;
       text-align: center;
     }
-    .cta-section .sec-label-text { color: rgba(248,246,242,.85); }
-    .cta-section .sec-label-line { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+    .cta-section .sec-label-text { color: rgba(255,255,255,.9); }
+    .cta-section .sec-label-line { background: rgba(255,255,255,.5); }
     .cta-h2 {
       font-family: var(--mincho);
       font-size: clamp(1.8rem, 4vw, 3rem);
@@ -522,26 +522,28 @@
       letter-spacing: .08em;
       line-height: 1.5;
       margin-bottom: 1rem;
-      color: #f8f6f2;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,.2);
     }
     .cta-lead {
       font-size: .9rem;
-      color: rgba(248,246,242,.88);
+      color: rgba(255,255,255,.95);
       line-height: 2;
       margin-bottom: 3rem;
     }
     .cta-contact-box {
       max-width: 560px;
       margin: 0 auto 3rem;
-      border: 1px solid rgba(248,246,242,.3);
+      border: 1px solid rgba(255,255,255,.45);
       padding: 2.4rem;
-      background: rgba(248,246,242,.08);
+      background: rgba(255,255,255,.15);
+      border-radius: 4px;
     }
     .cta-contact-label {
       font-family: var(--mono);
       font-size: .62rem;
       letter-spacing: .22em;
-      color: rgba(248,246,242,.8);
+      color: rgba(255,255,255,.85);
       text-transform: uppercase;
       margin-bottom: .6rem;
     }
@@ -549,12 +551,12 @@
       font-family: var(--mono);
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--bg);
+      color: #fff;
       letter-spacing: .06em;
     }
     .cta-contact-note {
       font-size: .78rem;
-      color: rgba(248,246,242,.82);
+      color: rgba(255,255,255,.88);
       margin-top: .6rem;
     }
     .cta-btn-row {
@@ -568,8 +570,8 @@
       align-items: center;
       gap: .5rem;
       padding: 1.1rem 3rem;
-      background: linear-gradient(135deg, var(--pink), var(--pink2));
-      color: #fff;
+      background: #fff;
+      color: #B51748;
       font-family: var(--mono);
       font-size: .75rem;
       font-weight: 700;
@@ -584,8 +586,8 @@
       align-items: center;
       gap: .5rem;
       padding: 1.1rem 2.6rem;
-      border: 1.5px solid rgba(248,246,242,.35);
-      color: var(--bg);
+      border: 1.5px solid rgba(255,255,255,.7);
+      color: #fff;
       font-family: var(--mono);
       font-size: .75rem;
       font-weight: 700;
@@ -594,7 +596,7 @@
       text-transform: uppercase;
       transition: border-color .2s, background .2s;
     }
-    .btn-cta-outline:hover { border-color: var(--bg); background: rgba(248,246,242,.08); }
+    .btn-cta-outline:hover { border-color: #fff; background: rgba(255,255,255,.15); }
 
     /* ── FOOTER ── */
     footer {

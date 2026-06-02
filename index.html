@@ -3011,18 +3011,7 @@
       }, 900);
     });
 
-    // ── お知らせバー ──
-    const announceBar   = document.getElementById('announce-bar');
-    const announceClose = document.getElementById('announce-close');
-    if (sessionStorage.getItem('barClosed')) {
-      announceBar.classList.add('hidden');
-      document.body.classList.remove('bar-visible');
-    }
-    announceClose.addEventListener('click', () => {
-      announceBar.classList.add('hidden');
-      document.body.classList.remove('bar-visible');
-      sessionStorage.setItem('barClosed', '1');
-    });
+
 
     // ── スクロールトップボタン ──
     const scrollTopBtn = document.getElementById('scroll-top-btn');

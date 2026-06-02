@@ -1636,6 +1636,15 @@
       animation: heroKenburns 18s ease-in-out infinite alternate;
     }
 
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background: url('%E7%94%BB%E5%83%8F.png') center center / cover no-repeat;
+      opacity: 0.09;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     @keyframes heroKenburns {
       0%   { transform: scale(1)    translate(0, 0); }
       50%  { transform: scale(1.07) translate(-1.5%, -.8%); }
@@ -2407,6 +2416,7 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-photo" aria-hidden="true"></div>
 
     <div class="hero-inner">
       <h1 class="hero-h1 reveal d1">

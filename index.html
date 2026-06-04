@@ -678,6 +678,45 @@
       letter-spacing: .05em;
     }
 
+    .overview-wrap {
+      max-width: 1100px;
+      margin: 5rem auto 0;
+    }
+    .overview-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.2rem;
+    }
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    .overview-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .overview-table tr:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .overview-table th {
+      width: 120px;
+      padding: 1.1rem 0;
+      font-family: var(--mincho);
+      font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--ink2);
+      text-align: left;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .overview-table td {
+      padding: 1.1rem 0 1.1rem 2rem;
+      color: var(--ink);
+      letter-spacing: .05em;
+      line-height: 1.8;
+    }
+
     /* ─── STATS ─── */
     #stats {
       padding: 100px 8%;
@@ -2467,6 +2506,38 @@
           日常では味わえない、推しとの距離の近さと高揚感を体験できます。
         </p>
       </div>
+    </div>
+
+    <!-- イベント概要テーブル -->
+    <div class="overview-wrap reveal d3">
+      <div class="overview-label">
+        <span class="sec-label-line" style="width:24px;"></span>
+        <span style="font-family:var(--mono);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);">OVERVIEW</span>
+      </div>
+      <table class="overview-table">
+        <tbody>
+          <tr>
+            <th>開催名</th>
+            <td>グラステEXPO Vol.1</td>
+          </tr>
+          <tr>
+            <th>開催日</th>
+            <td>2026年11月某日</td>
+          </tr>
+          <tr>
+            <th>時間</th>
+            <td>11:00 – 16:30</td>
+          </tr>
+          <tr>
+            <th>会場</th>
+            <td>都内某所（東京）</td>
+          </tr>
+          <tr>
+            <th>主催</th>
+            <td>合同会社グラステ</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

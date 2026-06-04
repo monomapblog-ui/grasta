@@ -678,6 +678,87 @@
       letter-spacing: .05em;
     }
 
+    /* ─── ABOUT CONCEPT / できること ─── */
+    .about-concept {
+      max-width: 1100px;
+      margin: 5rem auto 0;
+    }
+    .about-concept-h {
+      font-family: var(--mincho);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      border-left: 3px solid var(--pink);
+      padding-left: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .about-concept-lead {
+      font-size: .88rem;
+      color: var(--ink2);
+      line-height: 2.1;
+      margin-bottom: 2rem;
+    }
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border);
+    }
+    .about-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-value-label {
+      font-family: var(--mincho);
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--ink);
+      white-space: nowrap;
+      min-width: 180px;
+    }
+    .about-value-body {
+      font-size: .84rem;
+      color: var(--ink2);
+      line-height: 2;
+    }
+    .about-can-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .about-can-row {
+      display: flex;
+      gap: 2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .about-can-num {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--border);
+      flex-shrink: 0;
+      min-width: 32px;
+      line-height: 1.4;
+    }
+    .about-can-title {
+      font-family: var(--mincho);
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      margin-bottom: .4rem;
+    }
+    .about-can-body {
+      font-size: .83rem;
+      color: var(--ink2);
+      line-height: 2;
+    }
+
     .overview-wrap {
       max-width: 1100px;
       margin: 5rem auto 0;
@@ -2505,6 +2586,73 @@
           周囲を気にせず、自分らしく推しを応援できる空間です。<br>
           日常では味わえない、推しとの距離の近さと高揚感を体験できます。
         </p>
+      </div>
+    </div>
+
+    <!-- コンセプト -->
+    <div class="about-concept reveal d3">
+      <h3 class="about-concept-h">イベントのコンセプト</h3>
+      <p class="about-concept-lead">
+        グラステEXPOは、グラビア・裏垢・コスプレをはじめとした表現者たちと、ファンが直接つながることができる同人即売会型イベントです。<br>
+        SNSの画面越しでしか会えなかった"あの子"と、リアルでチェキを撮り、言葉を交わし、作品を手に取る。そんな場所を作りたい——そのひとつの答えがグラステEXPOです。
+      </p>
+      <div class="about-values">
+        <div class="about-value-row reveal d1">
+          <div class="about-value-label">推しとの距離を縮める</div>
+          <div class="about-value-body">画面の向こうの推しに直接会える。チェキ・グリーティング・物販など、リアルならではの体験を。</div>
+        </div>
+        <div class="about-value-row reveal d2">
+          <div class="about-value-label">活動者の収益機会</div>
+          <div class="about-value-body">写真集・ブロマイド・グッズを直接手渡しで販売。活動の対価を、ファンから直接受け取れる場。</div>
+        </div>
+        <div class="about-value-row reveal d3">
+          <div class="about-value-label">周囲を気にせず推し活</div>
+          <div class="about-value-body">同じ趣味を持つ来場者が集まる空間。人目を気にせず、自分らしく推しを応援できます。</div>
+        </div>
+        <div class="about-value-row reveal d4">
+          <div class="about-value-label">新しい推しとの出会い</div>
+          <div class="about-value-body">まだ知らなかった活動者との出会いが待っている。新しい「好き」が見つかる喜び。</div>
+        </div>
+        <div class="about-value-row reveal d5">
+          <div class="about-value-label">活動者同士のつながり</div>
+          <div class="about-value-body">同じ志を持つ表現者が集まる場。コラボや刺激が生まれる、横のつながりを。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- できること -->
+    <div class="about-concept reveal d4" style="margin-top:0;">
+      <h3 class="about-concept-h">イベントでできること</h3>
+      <div class="about-can-list">
+        <div class="about-can-row reveal d1">
+          <div class="about-can-num">1</div>
+          <div class="about-can-content">
+            <div class="about-can-title">写真集・グッズ販売</div>
+            <div class="about-can-body">活動者が制作した写真集・ブロマイド・グッズ・デジタルコンテンツなどを直接販売できます。ファンに手渡せる特別な機会。<br>
+            対象：写真集、ブロマイド、グッズ、デジタルコンテンツ など</div>
+          </div>
+        </div>
+        <div class="about-can-row reveal d2">
+          <div class="about-can-num">2</div>
+          <div class="about-can-content">
+            <div class="about-can-title">チェキ撮影・グリーティング</div>
+            <div class="about-can-body">ファンと出展者が1対1でつながる時間。直接「ありがとう」を伝え、チェキとして思い出に残せます。画面越しでは絶対に生まれない、リアルの熱量を。</div>
+          </div>
+        </div>
+        <div class="about-can-row reveal d3">
+          <div class="about-can-num">3</div>
+          <div class="about-can-content">
+            <div class="about-can-title">ステージ・トークショー</div>
+            <div class="about-can-body">出展者によるトークや自己紹介ステージ（枠数限定）。会場全体で盛り上がる瞬間を共有できます。</div>
+          </div>
+        </div>
+        <div class="about-can-row reveal d4">
+          <div class="about-can-num">4</div>
+          <div class="about-can-content">
+            <div class="about-can-title">新しい推しの発見</div>
+            <div class="about-can-body">まだフォローしていない活動者のブースを巡る楽しさ。新しい出会いが、あなたを待っています。推しがいない方も、一人で来た方も、誰でも楽しめる空間です。</div>
+          </div>
+        </div>
       </div>
     </div>
 

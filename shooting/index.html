@@ -647,44 +647,73 @@
 
     /* Booking */
     .booking-section {
-      background: var(--bg3);
-      border-top: 1px solid var(--border);
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 48px 4%;
     }
     .booking-inner {
-      max-width: 600px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 64px 4%;
+    }
+    .booking-section-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1f2937;
+      border-left: 4px solid #b32b47;
+      padding-left: .75rem;
+      margin-bottom: .4rem;
+    }
+    .booking-section-lead {
+      font-size: .75rem;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      padding-left: .8rem;
+    }
+    .booking-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .booking-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 1.2rem;
       text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
     }
-    .booking-lead {
+    .booking-card-icon { font-size: 1.5rem; }
+    .booking-card-en {
+      font-size: .68rem;
+      color: #9ca3af;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: .5rem 0 .2rem;
+    }
+    .booking-card-label {
       font-size: .85rem;
-      color: var(--gray);
-      line-height: 2;
-      margin-bottom: 2.2rem;
+      font-weight: 500;
+      color: #1f2937;
     }
-    .btn-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      font-family: var(--mono);
-      font-size: .68rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
+    .booking-cta { text-align: center; }
+    .btn-contact {
+      display: inline-block;
+      background: #b32b47;
       color: #fff;
-      background: var(--gold);
-      padding: .9rem 2.4rem;
-      transition: opacity .2s;
+      font-size: .85rem;
+      font-weight: 500;
+      padding: .75rem 2rem;
+      border-radius: 4px;
+      transition: background .2s;
+      text-decoration: none;
     }
-    .btn-primary:hover { opacity: .82; }
-    .btn-outline {
-      font-family: var(--mono);
-      font-size: .68rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: .9rem 2.4rem;
-      transition: background .2s, color .2s;
+    .btn-contact:hover { background: #8c1f35; }
+    .booking-hours {
+      font-size: .72rem;
+      color: #9ca3af;
+      margin-top: .75rem;
     }
-    .btn-outline:hover { background: var(--gold); color: #fff; }
 
     /* ── FOOTER ── */
     footer {
@@ -1056,17 +1085,32 @@
   <!-- ── BOOKING ── -->
   <div class="booking-section">
     <div class="booking-inner">
-      <div class="sec-heading" style="justify-content:center;margin-bottom:1.2rem;">
-        <h2>ご予約・お問い合わせ <span class="en">Booking</span></h2>
+      <h2 class="booking-section-heading">ご予約・お問い合わせ</h2>
+      <p class="booking-section-lead">撮影会のご予約・モデル応募・各種ご相談はお気軽にご連絡ください。</p>
+
+      <div class="booking-cards">
+        <div class="booking-card">
+          <span class="booking-card-icon">📅</span>
+          <p class="booking-card-en">Booking</p>
+          <p class="booking-card-label">撮影会のご予約</p>
+        </div>
+        <div class="booking-card">
+          <span class="booking-card-icon">📸</span>
+          <p class="booking-card-en">Model</p>
+          <p class="booking-card-label">モデル応募</p>
+        </div>
+        <div class="booking-card">
+          <span class="booking-card-icon">💬</span>
+          <p class="booking-card-en">Contact</p>
+          <p class="booking-card-label">その他のご相談</p>
+        </div>
       </div>
-      <p class="booking-lead">
-        スケジュール・モデルをご確認のうえ、ご予約ください。<br>
-        ご不明点はお問い合わせフォームよりお気軽にどうぞ。<br>
-        ご返信は3営業日以内を目安にお送りします。
-      </p>
-      <div class="btn-group">
-        <a href="#" class="btn-primary">予約フォーム（準備中）</a>
-        <a href="mailto:info@gravurestation.jp" class="btn-outline">お問い合わせ</a>
+
+      <div class="booking-cta">
+        <a href="mailto:info@gravurestation.jp" class="btn-contact">
+          info@gravurestation.jp へメールする
+        </a>
+        <p class="booking-hours">平日 10:00 – 18:00 対応 / 土日祝は翌営業日以降に返信</p>
       </div>
     </div>
   </div>

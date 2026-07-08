@@ -115,15 +115,104 @@
   <!-- ── 事業内容 ── -->
   <section id="business" class="bg-slate-50 py-12 px-4">
     <div class="max-w-6xl mx-auto">
-      <div class="bg-white rounded shadow-sm p-8 md:p-10">
-        <h2 class="text-lg font-bold text-gray-800 mb-4">事業内容</h2>
-        <p class="text-gray-700 leading-relaxed">
-          イベント・撮影会の主催、撮影スタジオ運営、グラビア関連情報サイトの運営を通じ、<br class="hidden md:block">
-          活動者とファンがより自然に出会い、応援し合える環境づくりを目指しています。
-        </p>
+      <h2 class="text-lg font-bold text-gray-800 border-l-4 border-[#b32b47] pl-3 mb-6">事業内容</h2>
+      <p class="text-gray-600 text-sm leading-relaxed mb-8">
+        イベント・撮影会の主催、スタジオ運営、グラビア関連情報サイトの運営を通じ、<br class="hidden md:block">
+        活動者とファンがより自然に出会い、応援し合える環境づくりを目指しています。
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-        <!-- 3事業カード (非表示中) -->
+        <!-- グラステEXPO -->
+        <div class="bg-white rounded shadow-sm overflow-hidden border border-gray-100">
+          <div class="bg-[#b32b47] px-5 py-3 flex items-center gap-2">
+            <span class="text-white text-lg">🎪</span>
+            <span class="text-white font-bold text-sm tracking-wide">GRASTA EXPO</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">Event</p>
+            <p class="font-bold text-gray-800 mb-2">グラステEXPO</p>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              グラビア・コスプレ活動者と直接ふれ合える展示会型イベント。
+              チェキ撮影・トーク・物販など多彩なコンテンツを展開します。
+            </p>
+            <a href="index.html" class="inline-block mt-4 text-xs text-[#b32b47] hover:underline font-medium">イベント詳細 →</a>
+          </div>
+        </div>
+
+        <!-- グラビアステーション -->
+        <div class="bg-white rounded shadow-sm overflow-hidden border border-gray-100">
+          <div class="bg-gray-800 px-5 py-3 flex items-center gap-2">
+            <span class="text-white text-lg">📡</span>
+            <span class="text-white font-bold text-sm tracking-wide">GRAVURE STATION</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">Media</p>
+            <p class="font-bold text-gray-800 mb-2">グラビアステーション</p>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              グラビア活動者の情報を集約するポータルメディア。
+              出演情報・SNS・撮影会スケジュールを一元配信します。
+            </p>
+            <a href="station.html" class="inline-block mt-4 text-xs text-[#b32b47] hover:underline font-medium">サイトを見る →</a>
+          </div>
+        </div>
+
+        <!-- グラステBAR -->
+        <div class="bg-white rounded shadow-sm overflow-hidden border border-gray-100">
+          <div class="bg-amber-700 px-5 py-3 flex items-center gap-2">
+            <span class="text-white text-lg">🍸</span>
+            <span class="text-white font-bold text-sm tracking-wide">GRASTA BAR</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-gray-400 uppercase tracking-widest mb-2">F&B</p>
+            <p class="font-bold text-gray-800 mb-2">グラステBAR</p>
+            <p class="text-xs text-gray-500 leading-relaxed">
+              グラビア文化を体験できる飲食事業。
+              活動者との交流イベントや期間限定コラボを展開予定。
+            </p>
+            <a href="bar.html" class="inline-block mt-4 text-xs text-[#b32b47] hover:underline font-medium">詳細を見る →</a>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <!-- ── ニュースリリース ── -->
+  <section id="news" class="bg-white py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-bold text-gray-800 border-l-4 border-[#b32b47] pl-3">ニュースリリース</h2>
+      </div>
+
+      <!-- ===================================================
+           ニュースの追加方法：
+           下の <li> ブロックをコピーして一番上に追加してください。
+           category に使えるラベル：
+             お知らせ / プレスリリース / イベント / 採用 / メディア
+           =================================================== -->
+      <ul class="divide-y divide-gray-100 border border-gray-200 rounded shadow-sm overflow-hidden">
+
+        <!-- ▼ 新しいニュースをここに追加 ▼ -->
+
+        <li class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 px-5 py-4 hover:bg-slate-50 transition">
+          <time class="text-xs text-gray-400 whitespace-nowrap font-mono">2026.07.02</time>
+          <span class="inline-block bg-[#b32b47]/10 text-[#b32b47] text-xs font-medium px-2 py-0.5 rounded whitespace-nowrap">お知らせ</span>
+          <span class="text-sm text-gray-800">合同会社グラステ　会社設立登記が完了しました</span>
+        </li>
+
+        <li class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 px-5 py-4 hover:bg-slate-50 transition">
+          <time class="text-xs text-gray-400 whitespace-nowrap font-mono">2026.06.01</time>
+          <span class="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-2 py-0.5 rounded whitespace-nowrap">イベント</span>
+          <span class="text-sm text-gray-800">グラステEXPO 2026 開催決定のお知らせ（2026年11月開催予定）</span>
+        </li>
+
+        <li class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 px-5 py-4 hover:bg-slate-50 transition">
+          <time class="text-xs text-gray-400 whitespace-nowrap font-mono">2026.05.01</time>
+          <span class="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-2 py-0.5 rounded whitespace-nowrap">お知らせ</span>
+          <span class="text-sm text-gray-800">gravurestation.jp 公式サイトをオープンしました</span>
+        </li>
+
+      </ul>
     </div>
   </section>
 

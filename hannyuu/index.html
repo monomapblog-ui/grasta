@@ -6,30 +6,37 @@
   <title>搬入・搬出パッケージ | GRASTA CREW</title>
   <meta name="description" content="コンサート・展示会・企業イベントの搬入・搬出を丸ごと引き受けます。リーダー常駐・インカム完備・保険加入済み。¥22,000/名〜。合同会社グラステ。" />
   <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --ink:        #080E1A;
-      --ink2:       #2C3547;
+      --ink2:       #1E293B;
       --ink3:       #64748B;
       --ink4:       #94A3B8;
+      --ink5:       #CBD5E1;
       --amber:      #D97706;
       --amber-l:    #F59E0B;
       --amber-bg:   #FFFBEB;
       --amber-line: #FDE68A;
       --bg:         #FFFFFF;
-      --bg2:        #F7F9FC;
+      --bg2:        #F8FAFC;
       --bg3:        #EEF2F8;
       --navy:       #080E1A;
       --navy2:      #0F1829;
-      --border:     #E2E8F2;
+      --navy3:      #162035;
+      --border:     #E2E8F0;
       --border2:    #CBD5E1;
+      --green:      #059669;
       --red:        #DC2626;
       --shadow-sm:  0 1px 3px rgba(8,14,26,.06), 0 1px 2px rgba(8,14,26,.04);
       --shadow:     0 4px 16px rgba(8,14,26,.08), 0 2px 6px rgba(8,14,26,.05);
-      --shadow-lg:  0 12px 40px rgba(8,14,26,.12), 0 4px 12px rgba(8,14,26,.07);
+      --shadow-md:  0 8px 24px rgba(8,14,26,.10), 0 3px 8px rgba(8,14,26,.06);
+      --shadow-lg:  0 16px 48px rgba(8,14,26,.14), 0 6px 16px rgba(8,14,26,.08);
     }
 
     html { scroll-behavior: smooth; font-size: 16px; }
@@ -37,127 +44,166 @@
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Yu Gothic', 'Meiryo', sans-serif;
+      font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
       font-weight: 400;
       line-height: 1.7;
-      letter-spacing: .03em;
+      letter-spacing: .02em;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ─ SCROLL PROGRESS ─ */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--amber), var(--amber-l));
+      z-index: 9999;
+      transition: width .1s linear;
+    }
+
     /* ─ UTIL ─ */
-    .container { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
-    .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+    .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 40px; }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: .62rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
       font-weight: 800;
-      letter-spacing: .28em;
+      letter-spacing: .3em;
       text-transform: uppercase;
       color: var(--amber);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .eyebrow::before {
       content: '';
-      width: 28px;
-      height: 2px;
+      width: 24px; height: 2px;
       background: var(--amber);
       flex-shrink: 0;
     }
 
     .sec-head {
-      font-size: clamp(1.7rem, 3.8vw, 2.8rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.9rem);
       font-weight: 900;
-      line-height: 1.2;
-      letter-spacing: -.02em;
+      line-height: 1.18;
+      letter-spacing: -.025em;
       color: var(--ink);
     }
-
     .sec-head em { font-style: normal; color: var(--amber); }
 
     .sec-sub {
-      font-size: .95rem;
+      font-size: .93rem;
       color: var(--ink3);
-      line-height: 1.9;
-      margin-top: 16px;
-      max-width: 540px;
+      line-height: 1.95;
+      margin-top: 18px;
+      max-width: 520px;
     }
 
-    section { padding: 100px 0; }
+    section { padding: 108px 0; }
 
-    /* ─ SCROLL REVEAL ─ */
+    /* ─ REVEAL ─ */
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+      transform: translateY(32px);
+      transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
     }
     .reveal.up { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: .1s; }
-    .reveal-delay-2 { transition-delay: .2s; }
-    .reveal-delay-3 { transition-delay: .3s; }
-    .reveal-delay-4 { transition-delay: .4s; }
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+    .reveal-delay-4 { transition-delay: .32s; }
+    .reveal-delay-5 { transition-delay: .40s; }
 
     /* ─ HEADER ─ */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 200;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow .3s;
+      z-index: 500;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(226,232,240,.8);
+      transition: box-shadow .3s, border-color .3s;
     }
-    header.scrolled { box-shadow: 0 2px 20px rgba(8,14,26,.07); }
+    header.scrolled {
+      box-shadow: 0 2px 24px rgba(8,14,26,.08);
+      border-color: transparent;
+    }
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
-      padding: 0 32px;
+      height: 68px;
+      padding: 0 40px;
     }
 
     .header-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
       text-decoration: none;
+      flex-shrink: 0;
     }
     .brand-mark {
-      width: 32px; height: 32px;
+      width: 34px; height: 34px;
       background: var(--ink);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
-    .brand-mark svg { width: 16px; height: 16px; fill: var(--amber); }
-    .brand-text {
-      font-size: .7rem;
+    .brand-mark svg { width: 17px; height: 17px; fill: var(--amber); }
+    .brand-name {
+      font-family: 'Inter', sans-serif;
+      font-size: .68rem;
       font-weight: 800;
-      letter-spacing: .2em;
+      letter-spacing: .22em;
       text-transform: uppercase;
       color: var(--ink);
-      line-height: 1.2;
+      line-height: 1.25;
     }
-    .brand-text span { color: var(--amber); }
+    .brand-name span { color: var(--amber); }
+    .brand-sub {
+      font-size: .58rem;
+      color: var(--ink4);
+      letter-spacing: .08em;
+      font-weight: 500;
+      display: block;
+      margin-top: 1px;
+    }
 
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
     }
     .header-nav a {
       font-size: .78rem;
+      font-weight: 500;
       color: var(--ink3);
       text-decoration: none;
-      letter-spacing: .04em;
+      letter-spacing: .03em;
       transition: color .2s;
+      position: relative;
+    }
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transition: transform .2s;
     }
     .header-nav a:hover { color: var(--ink); }
+    .header-nav a:hover::after { transform: scaleX(1); }
+    .header-nav a.active { color: var(--ink); }
+    .header-nav a.active::after { transform: scaleX(1); }
 
     .btn-cta {
       display: inline-flex;
@@ -165,96 +211,208 @@
       gap: 8px;
       background: var(--ink);
       color: #fff;
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      padding: 11px 24px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .77rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: 12px 22px;
       text-decoration: none;
-      transition: background .2s, transform .15s;
+      transition: background .2s, transform .15s, box-shadow .2s;
       white-space: nowrap;
+      border: none;
+      cursor: pointer;
     }
-    .btn-cta:hover { background: #1A2540; transform: translateY(-1px); }
-    .btn-cta.amber { background: var(--amber); color: var(--ink); }
-    .btn-cta.amber:hover { background: var(--amber-l); }
+    .btn-cta:hover {
+      background: var(--ink2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(8,14,26,.2);
+    }
+    .btn-cta.amber {
+      background: var(--amber);
+      color: var(--ink);
+    }
+    .btn-cta.amber:hover {
+      background: var(--amber-l);
+      box-shadow: 0 6px 20px rgba(217,119,6,.35);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--ink);
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,.98);
+      backdrop-filter: blur(20px);
+      z-index: 490;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(-12px);
+      transition: opacity .3s, transform .3s;
+      pointer-events: none;
+    }
+    .mobile-nav.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .mobile-nav a {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 14px 32px;
+      transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--amber); }
+
+    /* ─ FLOATING CTA ─ */
+    .float-cta {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 400;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .4s, transform .4s;
+      pointer-events: none;
+    }
+    .float-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .float-cta a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: var(--ink);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      padding: 14px 24px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(217,119,6,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-cta a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(217,119,6,.5);
+    }
+    .float-cta-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--ink);
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
 
     /* ─ HERO ─ */
     .hero {
       min-height: 100svh;
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 0;
-      align-items: stretch;
-      padding-top: 64px;
+      grid-template-columns: 1fr 440px;
+      padding-top: 68px;
     }
 
     .hero-left {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 60px 80px 0;
+      padding: 80px 64px 80px max(40px, calc((100vw - 1080px)/2 + 40px));
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       background: var(--amber-bg);
       border: 1px solid var(--amber-line);
       color: var(--amber);
-      font-size: .7rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem;
       font-weight: 800;
-      letter-spacing: .16em;
-      padding: 6px 14px;
-      margin-bottom: 32px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      margin-bottom: 28px;
       width: fit-content;
     }
-    .hero-tag::before {
-      content: '';
-      width: 6px; height: 6px;
+    .hero-tag-dot {
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--amber);
       animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: .3; }
+      50% { opacity: .2; }
     }
 
     .hero-h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+      font-size: clamp(2.6rem, 5.8vw, 4.8rem);
       font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -.03em;
-      margin-bottom: 12px;
+      line-height: 1.12;
+      letter-spacing: -.035em;
+      margin-bottom: 10px;
       color: var(--ink);
     }
     .hero-h1 em {
       font-style: normal;
       position: relative;
       display: inline-block;
+      color: var(--ink);
     }
     .hero-h1 em::after {
       content: '';
       position: absolute;
-      bottom: 4px; left: 0; right: 0;
-      height: 6px;
+      bottom: 5px; left: 0; right: 0;
+      height: 8px;
       background: var(--amber-line);
       z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .8s .6s cubic-bezier(.16,1,.3,1);
     }
+    .hero-h1.up em::after { transform: scaleX(1); }
 
     .hero-lead {
-      font-size: .95rem;
+      font-size: .96rem;
       color: var(--ink2);
-      line-height: 1.9;
+      line-height: 2.0;
       margin-bottom: 40px;
       max-width: 440px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 56px;
+      margin-bottom: 52px;
     }
 
     .btn-outline {
@@ -263,94 +421,113 @@
       gap: 8px;
       border: 1.5px solid var(--border2);
       color: var(--ink3);
-      font-size: .78rem;
-      font-weight: 600;
-      padding: 11px 24px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .77rem;
+      font-weight: 500;
+      padding: 11px 22px;
       text-decoration: none;
-      transition: border-color .2s, color .2s;
+      transition: border-color .2s, color .2s, background .2s;
       white-space: nowrap;
     }
-    .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+    .btn-outline:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: var(--bg2);
+    }
 
-    .hero-trust {
+    .hero-meta {
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
       flex-wrap: wrap;
     }
-    .hero-trust-item {
+    .hero-meta-item {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: .75rem;
+      gap: 7px;
+      font-size: .74rem;
       color: var(--ink4);
     }
-    .hero-trust-item svg {
-      width: 14px; height: 14px;
+    .hero-meta-item svg {
+      width: 15px; height: 15px;
       fill: var(--amber);
       flex-shrink: 0;
     }
 
-    /* Hero right panel */
+    /* Hero right */
     .hero-right {
       background: var(--navy);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 64px 48px;
+      padding: 72px 52px;
       position: relative;
       overflow: hidden;
     }
     .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(217,119,6,.07) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(245,158,11,.04) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-right::after {
       content: 'CREW';
       position: absolute;
-      bottom: -30px; right: -20px;
-      font-size: 9rem;
+      bottom: -24px; right: -16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 8rem;
       font-weight: 900;
-      letter-spacing: -.05em;
-      color: rgba(255,255,255,.025);
+      letter-spacing: -.06em;
+      color: rgba(255,255,255,.022);
       pointer-events: none;
       white-space: nowrap;
+      line-height: 1;
     }
 
-    .hero-stat-label {
-      font-size: .6rem;
+    .hsp-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .55rem;
       font-weight: 700;
-      letter-spacing: .22em;
+      letter-spacing: .28em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.35);
-      margin-bottom: 28px;
+      color: rgba(255,255,255,.28);
+      margin-bottom: 32px;
+      position: relative;
     }
 
-    .hero-stat-list {
+    .hsp-list {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      position: relative;
     }
 
-    .hero-stat-item {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,.07);
+    .hsp-item {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,.065);
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 16px;
     }
-    .hero-stat-item:first-child { padding-top: 0; }
-    .hero-stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .hsp-item:first-child { padding-top: 0; }
+    .hsp-item:last-child { border-bottom: none; padding-bottom: 0; }
 
-    .hsi-label {
-      font-size: .73rem;
-      color: rgba(255,255,255,.45);
+    .hsp-label-sm {
+      font-size: .72rem;
+      color: rgba(255,255,255,.42);
       letter-spacing: .04em;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
-    .hsi-sub {
-      font-size: .65rem;
-      color: rgba(255,255,255,.25);
+    .hsp-sub {
+      font-size: .63rem;
+      color: rgba(255,255,255,.22);
     }
-    .hsi-num {
-      font-size: 1.8rem;
+    .hsp-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.9rem;
       font-weight: 900;
       color: var(--amber-l);
       font-variant-numeric: tabular-nums;
@@ -358,63 +535,107 @@
       text-align: right;
       line-height: 1;
     }
-    .hsi-unit {
-      font-size: .65rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.3);
+    .hsp-unit {
+      font-size: .62rem;
+      color: rgba(255,255,255,.28);
       display: block;
       text-align: right;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    .hero-note {
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,.07);
+    .hsp-note {
+      margin-top: 32px;
+      padding: 20px;
+      background: rgba(217,119,6,.08);
+      border: 1px solid rgba(245,158,11,.2);
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
+      position: relative;
     }
-    .hero-note-icon {
-      width: 28px; height: 28px;
-      background: rgba(217,119,6,.2);
-      border: 1px solid rgba(245,158,11,.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hsp-note-icon {
+      font-size: 1rem;
       flex-shrink: 0;
-      font-size: .85rem;
+      margin-top: 1px;
     }
-    .hero-note p {
-      font-size: .73rem;
-      color: rgba(255,255,255,.45);
+    .hsp-note p {
+      font-size: .72rem;
+      color: rgba(255,255,255,.4);
       line-height: 1.75;
     }
 
-    /* ─ STRIP ─ */
+    /* ─ MARQUEE STRIP ─ */
     .strip {
       background: var(--ink);
-      padding: 20px 0;
+      padding: 18px 0;
       overflow: hidden;
     }
-    .strip-inner {
+    .marquee-track {
       display: flex;
-      gap: 64px;
-      align-items: center;
-      white-space: nowrap;
+      gap: 0;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .strip-item {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: .72rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .7rem;
       font-weight: 600;
-      letter-spacing: .08em;
-      color: rgba(255,255,255,.5);
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.45);
       text-transform: uppercase;
+      padding: 0 40px;
+      white-space: nowrap;
       flex-shrink: 0;
     }
-    .strip-item svg { width: 14px; height: 14px; fill: var(--amber); }
+    .strip-item svg { width: 13px; height: 13px; fill: var(--amber); flex-shrink: 0; }
+    .strip-sep {
+      display: inline-block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    /* ─ STATS ─ */
+    .stats-bg { background: var(--bg); border-bottom: 1px solid var(--border); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      divide-x: 1px solid var(--border);
+    }
+    .stat-item {
+      padding: 48px 32px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 10px;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-num span { color: var(--amber); font-size: 1.4rem; }
+    .stat-label {
+      font-size: .78rem;
+      color: var(--ink3);
+      line-height: 1.6;
+    }
+    .stat-label strong { color: var(--ink2); display: block; font-size: .82rem; }
 
     /* ─ PAIN ─ */
     .pain-bg { background: var(--bg2); }
@@ -422,105 +643,130 @@
     .pain-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 1px;
+      background: var(--border);
       margin-top: 56px;
+      border: 1px solid var(--border);
     }
 
     .pain-card {
       background: var(--bg);
-      padding: 36px 28px;
-      border: 1px solid var(--border);
+      padding: 40px 32px;
       position: relative;
-      transition: box-shadow .25s, transform .25s;
+      transition: box-shadow .3s, transform .3s;
     }
     .pain-card:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      z-index: 1;
     }
 
-    .pain-q {
-      display: flex;
+    .pain-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: .62rem;
+      gap: 7px;
+      font-family: 'Inter', sans-serif;
+      font-size: .58rem;
       font-weight: 800;
-      letter-spacing: .14em;
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--red);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
-    .pain-q::before {
+    .pain-badge::before {
       content: '✗';
-      width: 20px; height: 20px;
+      width: 22px; height: 22px;
       background: #FEF2F2;
       border: 1px solid #FCA5A5;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .65rem;
-      color: var(--red);
+      font-size: .68rem;
     }
 
     .pain-card h3 {
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.4;
-      margin-bottom: 12px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      color: var(--ink);
     }
     .pain-card p {
-      font-size: .83rem;
+      font-size: .82rem;
       color: var(--ink3);
-      line-height: 1.85;
+      line-height: 1.9;
+    }
+    .pain-num {
+      position: absolute;
+      top: 32px; right: 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--bg3);
+      letter-spacing: -.06em;
+      line-height: 1;
+      pointer-events: none;
     }
 
     .pain-resolve {
       margin-top: 48px;
       background: var(--ink);
-      padding: 32px 40px;
+      padding: 36px 44px;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
     }
     .pain-resolve-icon {
-      width: 48px; height: 48px;
-      background: rgba(217,119,6,.15);
-      border: 1px solid rgba(245,158,11,.3);
+      width: 52px; height: 52px;
+      background: rgba(217,119,6,.12);
+      border: 1px solid rgba(245,158,11,.25);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .pain-resolve-icon svg { width: 22px; height: 22px; fill: var(--amber-l); }
+    .pain-resolve-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--amber-l); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .pain-resolve p {
-      font-size: .9rem;
+      font-size: .92rem;
       font-weight: 500;
-      color: rgba(255,255,255,.8);
-      line-height: 1.7;
+      color: rgba(255,255,255,.78);
+      line-height: 1.75;
     }
     .pain-resolve strong { color: var(--amber-l); font-weight: 800; }
 
     /* ─ SERVICE ─ */
-    .service-intro {
+    .service-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
-      margin-bottom: 72px;
+      margin-top: 64px;
     }
-    .service-compare {
+
+    .compare-table {
       border: 1px solid var(--border);
       overflow: hidden;
     }
-    .compare-header {
+    .compare-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       background: var(--bg3);
-      padding: 14px 20px;
-      font-size: .65rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--ink3);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border2);
     }
+    .compare-head-cell {
+      padding: 12px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .compare-head-cell:first-child {
+      border-right: 1px solid var(--border);
+      color: var(--red);
+    }
+    .compare-head-cell:last-child { color: var(--green); }
+
     .compare-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -528,71 +774,111 @@
     }
     .compare-row:last-child { border-bottom: none; }
     .compare-cell {
-      padding: 16px 20px;
-      font-size: .82rem;
-      line-height: 1.6;
+      padding: 15px 20px;
+      font-size: .81rem;
+      line-height: 1.55;
       display: flex;
       align-items: flex-start;
       gap: 8px;
     }
     .compare-cell:first-child { border-right: 1px solid var(--border); }
-    .compare-label {
-      font-size: .6rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 12px 20px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--border2);
-      background: var(--bg2);
-    }
-    .compare-label span:first-child {
-      border-right: 1px solid var(--border);
-      padding-right: 20px;
-      color: var(--red);
-    }
-    .compare-label span:last-child {
-      padding-left: 0;
-      color: #059669;
-    }
     .compare-cell.bad { color: var(--ink3); }
-    .compare-cell.bad::before { content: '✗'; color: var(--red); font-weight: 800; flex-shrink: 0; font-size: .9rem; }
+    .compare-cell.bad::before {
+      content: '✗';
+      color: var(--red);
+      font-weight: 800;
+      flex-shrink: 0;
+      font-size: .88rem;
+      margin-top: .05em;
+    }
     .compare-cell.good { color: var(--ink2); font-weight: 500; }
-    .compare-cell.good::before { content: '✓'; color: #059669; font-weight: 800; flex-shrink: 0; font-size: .9rem; }
+    .compare-cell.good::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 800;
+      flex-shrink: 0;
+      font-size: .88rem;
+      margin-top: .05em;
+    }
 
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .event-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      font-size: .84rem;
+      color: var(--ink2);
+      transition: background .2s;
+    }
+    .event-item:last-child { border-bottom: 1px solid var(--border); }
+    .event-item:hover { background: var(--amber-bg); }
+    .event-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    /* Feature cards */
     .sf-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 64px;
     }
     .sf-card {
-      background: var(--bg2);
-      padding: 32px 28px;
-      border: 1px solid var(--border);
-      transition: box-shadow .25s, background .2s;
+      background: var(--bg);
+      padding: 36px 28px;
+      transition: background .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
     }
-    .sf-card:hover { background: var(--bg); box-shadow: var(--shadow); }
+    .sf-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s;
+    }
+    .sf-card:hover { background: var(--amber-bg); box-shadow: inset 0 0 0 1px var(--amber-line); }
+    .sf-card:hover::before { transform: scaleX(1); }
 
     .sf-num {
-      font-size: 2.8rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 2.6rem;
       font-weight: 900;
       color: var(--border2);
-      letter-spacing: -.04em;
+      letter-spacing: -.06em;
       line-height: 1;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       font-variant-numeric: tabular-nums;
+      transition: color .3s;
     }
+    .sf-card:hover .sf-num { color: var(--amber-line); }
+
     .sf-card h3 {
-      font-size: .92rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      line-height: 1.4;
+      font-size: .9rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      line-height: 1.45;
+      color: var(--ink);
     }
     .sf-card p {
-      font-size: .8rem;
+      font-size: .79rem;
       color: var(--ink3);
-      line-height: 1.85;
+      line-height: 1.9;
     }
 
     /* ─ PRICING ─ */
@@ -601,60 +887,66 @@
     .pricing-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 28px;
       margin-top: 56px;
     }
 
     .price-card {
       background: var(--bg);
       border: 1px solid var(--border);
-      padding: 40px 36px;
+      padding: 44px 40px;
       position: relative;
+      transition: box-shadow .3s;
     }
+    .price-card:hover { box-shadow: var(--shadow-md); }
     .price-card.featured {
-      border-color: var(--ink);
-      border-width: 2px;
+      border: 2px solid var(--ink);
     }
     .price-badge {
       position: absolute;
-      top: -1px; left: 36px;
+      top: -1px; left: 40px;
       background: var(--ink);
       color: #fff;
-      font-size: .6rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .58rem;
       font-weight: 800;
-      letter-spacing: .14em;
-      padding: 4px 12px;
+      letter-spacing: .18em;
+      padding: 5px 14px;
       text-transform: uppercase;
     }
     .price-type {
-      font-size: .65rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
       font-weight: 700;
-      letter-spacing: .18em;
+      letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--ink4);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .price-name {
       font-size: 1.05rem;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--ink);
       margin-bottom: 28px;
+      line-height: 1.4;
     }
     .price-amount {
       display: flex;
       align-items: baseline;
       gap: 4px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .price-yen {
+      font-family: 'Inter', sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--ink2);
     }
     .price-fig {
-      font-size: 3rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 3.4rem;
       font-weight: 900;
-      letter-spacing: -.04em;
+      letter-spacing: -.05em;
       color: var(--ink);
       font-variant-numeric: tabular-nums;
       line-height: 1;
@@ -662,7 +954,7 @@
     .price-unit-str {
       font-size: .78rem;
       color: var(--ink3);
-      line-height: 1.2;
+      line-height: 1.3;
       align-self: flex-end;
       padding-bottom: 6px;
     }
@@ -671,7 +963,7 @@
       color: var(--ink4);
       margin-bottom: 28px;
     }
-    .price-divider {
+    hr.price-divider {
       border: none;
       border-top: 1px solid var(--border);
       margin: 28px 0;
@@ -680,7 +972,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
     }
     .price-items li {
       display: flex;
@@ -688,7 +980,7 @@
       gap: 10px;
       font-size: .83rem;
       color: var(--ink2);
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .price-items li::before {
       content: '';
@@ -696,93 +988,98 @@
       border-radius: 50%;
       background: var(--amber);
       flex-shrink: 0;
-      margin-top: .5em;
+      margin-top: .55em;
     }
-
     .price-foot {
-      margin-top: 28px;
-      padding: 18px 20px;
+      margin-top: 32px;
+      padding: 20px 24px;
       background: var(--bg2);
       border: 1px solid var(--border);
       font-size: .78rem;
       color: var(--ink3);
-      line-height: 1.8;
+      line-height: 1.85;
     }
     .price-foot strong { color: var(--ink2); font-weight: 600; }
 
     /* ─ FLOW ─ */
     .flow-list {
-      margin-top: 64px;
       display: flex;
       flex-direction: column;
-      gap: 0;
+      margin-top: 64px;
     }
+
     .flow-item {
       display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 0;
+      grid-template-columns: 88px 1fr;
       position: relative;
     }
-    .flow-item:not(:last-child)::after {
+    .flow-item:not(:last-child) .flow-left::after {
       content: '';
       position: absolute;
-      left: 39px;
-      top: 60px;
+      left: 43px;
+      top: 48px;
       bottom: 0;
       width: 2px;
-      background: var(--border);
+      background: linear-gradient(to bottom, var(--border2), var(--border));
     }
 
     .flow-left {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 6px;
+      padding-top: 4px;
+      position: relative;
     }
     .flow-dot {
-      width: 40px; height: 40px;
+      width: 44px; height: 44px;
       border: 2px solid var(--border2);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: .62rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
       font-weight: 900;
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       color: var(--ink3);
       background: var(--bg);
       flex-shrink: 0;
-      transition: border-color .3s, color .3s, background .3s;
+      position: relative;
+      z-index: 1;
+      transition: border-color .3s, background .3s, color .3s, box-shadow .3s;
     }
     .flow-item:hover .flow-dot {
       border-color: var(--amber);
       color: var(--amber);
       background: var(--amber-bg);
+      box-shadow: 0 0 0 6px rgba(217,119,6,.1);
     }
 
     .flow-right {
-      padding: 0 0 48px 28px;
+      padding: 0 0 52px 32px;
     }
     .flow-right h3 {
-      font-size: .92rem;
-      font-weight: 800;
-      line-height: 1.4;
-      margin-bottom: 8px;
+      font-size: .94rem;
+      font-weight: 900;
+      line-height: 1.45;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
-    .flow-time {
-      font-size: .65rem;
-      font-weight: 600;
+    .flow-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: .6rem;
+      font-weight: 700;
       color: var(--ink4);
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       background: var(--bg3);
-      padding: 2px 8px;
+      padding: 3px 9px;
     }
     .flow-right p {
       font-size: .82rem;
       color: var(--ink3);
-      line-height: 1.85;
+      line-height: 1.9;
     }
 
     /* ─ TRUST ─ */
@@ -797,38 +1094,45 @@
     }
     .trust-card {
       background: var(--navy2);
-      padding: 40px 32px;
+      padding: 44px 36px;
       position: relative;
       overflow: hidden;
+      transition: background .3s;
     }
+    .trust-card:hover { background: var(--navy3); }
     .trust-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--amber), transparent);
+      background: linear-gradient(90deg, var(--amber), transparent 60%);
     }
     .trust-icon {
-      width: 44px; height: 44px;
-      background: rgba(217,119,6,.12);
-      border: 1px solid rgba(245,158,11,.25);
+      width: 48px; height: 48px;
+      background: rgba(217,119,6,.1);
+      border: 1px solid rgba(245,158,11,.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      transition: background .3s, border-color .3s;
     }
-    .trust-icon svg { width: 20px; height: 20px; fill: var(--amber-l); }
+    .trust-card:hover .trust-icon {
+      background: rgba(217,119,6,.18);
+      border-color: rgba(245,158,11,.4);
+    }
+    .trust-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--amber-l); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .trust-card h3 {
-      font-size: .9rem;
-      font-weight: 800;
+      font-size: .92rem;
+      font-weight: 900;
       color: rgba(255,255,255,.9);
-      margin-bottom: 10px;
-      line-height: 1.4;
+      margin-bottom: 12px;
+      line-height: 1.45;
     }
     .trust-card p {
-      font-size: .8rem;
-      color: rgba(255,255,255,.45);
-      line-height: 1.85;
+      font-size: .79rem;
+      color: rgba(255,255,255,.42);
+      line-height: 1.9;
     }
 
     /* ─ FAQ ─ */
@@ -836,42 +1140,54 @@
       margin-top: 56px;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 0;
     }
     details.faq-item {
       border: 1px solid var(--border);
+      border-bottom: none;
       background: var(--bg);
       overflow: hidden;
     }
-    details.faq-item[open] {
-      border-color: var(--border2);
-    }
+    details.faq-item:last-child { border-bottom: 1px solid var(--border); }
+    details.faq-item[open] { background: var(--bg2); border-color: var(--border2); }
+    details.faq-item + details.faq-item { margin-top: -1px; }
+
     summary.faq-q {
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 22px 24px;
+      padding: 22px 28px;
       cursor: pointer;
       list-style: none;
       user-select: none;
+      transition: background .2s;
     }
     summary.faq-q::-webkit-details-marker { display: none; }
+    summary.faq-q:hover { background: var(--bg2); }
+    details[open] summary.faq-q { background: transparent; }
+
     .faq-qmark {
-      width: 26px; height: 26px;
+      width: 28px; height: 28px;
       background: var(--ink);
       color: #fff;
-      font-size: .7rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem;
       font-weight: 900;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
+    details[open] .faq-qmark {
+      background: var(--amber);
+      color: var(--ink);
+    }
     .faq-qtxt {
       font-size: .9rem;
       font-weight: 700;
       line-height: 1.5;
       flex: 1;
+      color: var(--ink);
     }
     .faq-arr {
       width: 24px; height: 24px;
@@ -881,15 +1197,18 @@
       justify-content: center;
       flex-shrink: 0;
       color: var(--ink4);
-      font-size: .7rem;
-      transition: transform .25s;
+      font-size: .72rem;
+      transition: transform .3s, border-color .2s;
     }
-    details[open] .faq-arr { transform: rotate(180deg); }
+    details[open] .faq-arr {
+      transform: rotate(180deg);
+      border-color: var(--border2);
+    }
     .faq-a {
-      padding: 4px 24px 24px calc(24px + 26px + 16px);
+      padding: 0 28px 24px calc(28px + 28px + 16px);
       font-size: .85rem;
       color: var(--ink3);
-      line-height: 1.9;
+      line-height: 1.95;
     }
 
     /* ─ CTA ─ */
@@ -900,12 +1219,12 @@
 
     .cta-layout {
       display: grid;
-      grid-template-columns: 1fr 480px;
+      grid-template-columns: 1fr 500px;
       gap: 80px;
       align-items: start;
     }
 
-    .cta-left { padding-top: 8px; }
+    .cta-left { padding-top: 4px; }
 
     .cta-points {
       list-style: none;
@@ -918,31 +1237,35 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      font-size: .85rem;
+      font-size: .86rem;
       color: var(--ink2);
       line-height: 1.6;
     }
-    .cta-points li::before {
-      content: '';
+    .cta-check {
       width: 20px; height: 20px;
       background: var(--amber-bg);
-      border: 1px solid var(--amber-line);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23D97706' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
+      border: 1.5px solid var(--amber-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
       margin-top: .1em;
     }
+    .cta-check svg { width: 10px; height: 10px; fill: none; stroke: var(--amber); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .cta-mail {
-      margin-top: 40px;
+      margin-top: 44px;
       padding-top: 32px;
       border-top: 1px solid var(--border);
     }
-    .cta-mail p {
-      font-size: .75rem;
+    .cta-mail-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
       color: var(--ink4);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .cta-mail a {
       font-size: .95rem;
@@ -957,13 +1280,14 @@
     .form-card {
       background: var(--bg);
       border: 1px solid var(--border);
-      padding: 36px 32px;
-      box-shadow: var(--shadow);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-md);
     }
     .form-title {
       font-size: 1rem;
-      font-weight: 800;
+      font-weight: 900;
       margin-bottom: 4px;
+      color: var(--ink);
     }
     .form-desc {
       font-size: .78rem;
@@ -989,7 +1313,7 @@
     .field label {
       font-size: .7rem;
       font-weight: 700;
-      letter-spacing: .06em;
+      letter-spacing: .05em;
       color: var(--ink2);
     }
     .field .req { color: var(--amber); margin-left: 3px; }
@@ -997,10 +1321,10 @@
     .field textarea,
     .field select {
       background: var(--bg);
-      border: 1px solid var(--border2);
+      border: 1.5px solid var(--border2);
       color: var(--ink);
-      font-family: inherit;
-      font-size: .88rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .87rem;
       padding: 11px 14px;
       outline: none;
       transition: border-color .2s, box-shadow .2s;
@@ -1013,68 +1337,92 @@
     .field textarea:focus,
     .field select:focus {
       border-color: var(--ink);
-      box-shadow: 0 0 0 3px rgba(8,14,26,.06);
+      box-shadow: 0 0 0 4px rgba(8,14,26,.06);
     }
+    .field input.error,
+    .field textarea.error { border-color: var(--red); }
+    .field .field-error {
+      font-size: .68rem;
+      color: var(--red);
+      display: none;
+    }
+    .field input.error + .field-error,
+    .field textarea.error + .field-error { display: block; }
     .field input::placeholder,
-    .field textarea::placeholder { color: var(--ink4); }
-    .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2394A3B8'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 8px; padding-right: 32px; }
+    .field textarea::placeholder { color: var(--ink5); }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2394A3B8'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 8px;
+      padding-right: 32px;
+      cursor: pointer;
+    }
 
     .submit-btn {
       width: 100%;
       background: var(--ink);
       color: #fff;
       border: none;
-      font-family: inherit;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: .88rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      padding: 16px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      padding: 17px;
       cursor: pointer;
-      transition: background .2s;
-      margin-top: 6px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .submit-btn:hover { background: #1A2540; }
-    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .submit-btn:hover:not(:disabled) {
+      background: var(--ink2);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(8,14,26,.18);
+    }
+    .submit-btn:disabled { opacity: .55; cursor: not-allowed; }
 
     .form-legal {
-      font-size: .7rem;
+      font-size: .68rem;
       color: var(--ink4);
       text-align: center;
-      margin-top: 12px;
-      line-height: 1.6;
+      margin-top: 14px;
+      line-height: 1.7;
     }
 
     .form-success {
       display: none;
       text-align: center;
-      padding: 40px 0;
+      padding: 48px 0;
     }
-    .form-success-icon {
-      width: 56px; height: 56px;
+    .form-success-circle {
+      width: 64px; height: 64px;
       background: var(--amber-bg);
       border: 2px solid var(--amber-line);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 1.4rem;
+      margin: 0 auto 24px;
+      font-size: 1.5rem;
     }
     .form-success h3 {
-      font-size: 1rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 10px;
     }
     .form-success p {
-      font-size: .83rem;
+      font-size: .84rem;
       color: var(--ink3);
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     /* ─ FOOTER ─ */
     footer {
       background: var(--ink);
-      padding: 40px 0;
+      padding: 48px 0 40px;
       border-top: 3px solid var(--amber);
     }
     .footer-inner {
@@ -1085,50 +1433,106 @@
       gap: 16px;
     }
     .footer-brand {
-      font-size: .7rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .68rem;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.35);
     }
     .footer-brand strong { color: var(--amber-l); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: .72rem;
+      color: rgba(255,255,255,.28);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.6); }
     .footer-copy {
-      font-size: .68rem;
-      color: rgba(255,255,255,.25);
+      font-size: .66rem;
+      color: rgba(255,255,255,.2);
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.06);
     }
 
     /* ─ RESPONSIVE ─ */
+    @media (max-width: 1000px) {
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: flex; }
+      .float-cta { display: none; }
+    }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 60px 0 40px; }
-      .hero-right { padding: 40px 32px; min-height: 320px; }
-      .hero-right::before { font-size: 6rem; }
-      .pain-grid { grid-template-columns: 1fr; gap: 12px; }
-      .service-intro { grid-template-columns: 1fr; gap: 48px; }
-      .sf-grid { grid-template-columns: 1fr; }
+      .hero-left { padding: 64px 40px 40px; }
+      .hero-right { padding: 44px 40px; min-height: 340px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .pain-grid { grid-template-columns: 1fr; background: none; border: none; gap: 12px; }
+      .pain-card { border: 1px solid var(--border); }
+      .service-2col { grid-template-columns: 1fr; gap: 48px; }
+      .sf-grid { grid-template-columns: 1fr 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: 1fr; gap: 12px; background: transparent; }
-      .trust-card { border: 1px solid rgba(255,255,255,.08); }
-      .cta-layout { grid-template-columns: 1fr; gap: 48px; }
+      .trust-card { border: 1px solid rgba(255,255,255,.07); }
+      .cta-layout { grid-template-columns: 1fr; gap: 52px; }
       .form-row-2 { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .header-nav { display: none; }
       section { padding: 72px 0; }
     }
 
-    @media (max-width: 480px) {
-      .container { padding: 0 20px; }
-      .hero-left { padding: 40px 0 32px; }
-      .header-inner { padding: 0 20px; }
+    @media (max-width: 600px) {
+      .container, .container-narrow { padding: 0 24px; }
+      .header-inner { padding: 0 24px; }
+      .hero-left { padding: 48px 24px 36px; }
+      .hero-right { padding: 36px 24px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { padding: 32px 20px; }
+      .sf-grid { grid-template-columns: 1fr; }
+      .pain-resolve { flex-direction: column; gap: 20px; padding: 28px 28px; }
+      section { padding: 60px 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
-      * { transition: none !important; animation: none !important; }
+      .marquee-track { animation: none; }
+      * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Floating CTA -->
+  <div class="float-cta" id="float-cta">
+    <a href="#contact">
+      <div class="float-cta-dot"></div>
+      無料で見積もりを依頼する
+    </a>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#service" class="mobile-nav-link">サービス</a>
+    <a href="#pricing" class="mobile-nav-link">料金</a>
+    <a href="#flow" class="mobile-nav-link">依頼の流れ</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="#contact" class="btn-cta amber" style="margin-top:16px;">無料見積もりを依頼する</a>
+  </nav>
 
   <!-- HEADER -->
   <header id="site-header">
@@ -1137,44 +1541,53 @@
         <div class="brand-mark">
           <svg viewBox="0 0 16 16"><path d="M2 4h12v2H2V4zm0 3h12v2H2V7zm0 3h8v2H2v-2z"/></svg>
         </div>
-        <div class="brand-text">GRASTA <span>CREW</span><br><span style="color:#94A3B8;font-size:.55rem;letter-spacing:.1em;font-weight:500;">搬入・搬出パッケージ</span></div>
+        <div>
+          <div class="brand-name">GRASTA <span>CREW</span></div>
+          <span class="brand-sub">搬入・搬出パッケージ</span>
+        </div>
       </a>
-      <nav class="header-nav">
+      <nav class="header-nav" id="desktop-nav">
         <a href="#service">サービス</a>
         <a href="#pricing">料金</a>
         <a href="#flow">依頼の流れ</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#contact" class="btn-cta">無料見積もりを依頼する</a>
+      <a href="#contact" class="btn-cta" id="header-cta">無料見積もりを依頼する</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left container" style="max-width:none;padding-left:max(32px,calc((100vw - 1060px)/2 + 32px))">
-      <div class="hero-tag reveal">搬入・搬出 元請け一括受託</div>
+  <section class="hero" style="padding:0;">
+    <div class="hero-left">
+      <div class="hero-tag reveal">
+        <div class="hero-tag-dot"></div>
+        搬入・搬出 元請け一括受託
+      </div>
       <h1 class="hero-h1 reveal reveal-delay-1">
         設営の手間を、<br><em>まるごと</em><br>引き受ける。
       </h1>
       <p class="hero-lead reveal reveal-delay-2">
         コンサート・展示会・企業イベントの搬入・搬出を<br>
         リーダー主導のチームで一括受託。<br>
-        主催者はスタッフへの指示出し不要、当日の現場管理もお任せください。
+        主催者はスタッフへの指示出し不要。当日の現場管理もお任せください。
       </p>
       <div class="hero-actions reveal reveal-delay-3">
         <a href="#contact" class="btn-cta amber">無料で見積もりを依頼する →</a>
         <a href="#service" class="btn-outline">サービスの詳細を見る</a>
       </div>
-      <div class="hero-trust reveal reveal-delay-4">
-        <div class="hero-trust-item">
+      <div class="hero-meta reveal reveal-delay-4">
+        <div class="hero-meta-item">
           <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.8L14 5.8l-3 2.9.7 4.1L8 10.8l-3.7 1.9.7-4.1L2 5.8l4.1-.6z"/></svg>
           <span>法人として正式受託</span>
         </div>
-        <div class="hero-trust-item">
+        <div class="hero-meta-item">
           <svg viewBox="0 0 16 16"><path d="M8 1L3 4v4c0 3.3 2.1 6.4 5 7.2 2.9-.8 5-3.9 5-7.2V4L8 1z"/></svg>
           <span>損害賠償保険加入済み</span>
         </div>
-        <div class="hero-trust-item">
+        <div class="hero-meta-item">
           <svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 9H7V7h2v4zm0-6H7V3h2v2z"/></svg>
           <span>見積もり無料・2営業日以内</span>
         </div>
@@ -1182,83 +1595,103 @@
     </div>
 
     <div class="hero-right">
-      <p class="hero-stat-label">— Package Overview —</p>
-      <div class="hero-stat-list">
-        <div class="hero-stat-item">
+      <p class="hsp-label">— Package Overview —</p>
+      <div class="hsp-list">
+        <div class="hsp-item">
           <div>
-            <p class="hsi-label">スタッフ料金</p>
-            <p class="hsi-sub">元請け一括価格</p>
+            <p class="hsp-label-sm">スタッフ料金</p>
+            <p class="hsp-sub">元請け一括価格</p>
           </div>
           <div>
-            <div class="hsi-num">22,000</div>
-            <span class="hsi-unit">円 / 名・日（税別）</span>
-          </div>
-        </div>
-        <div class="hero-stat-item">
-          <div>
-            <p class="hsi-label">最大スタッフ規模</p>
-            <p class="hsi-sub">リーダー2名含む</p>
-          </div>
-          <div>
-            <div class="hsi-num">10名</div>
-            <span class="hsi-unit">まで対応</span>
+            <div class="hsp-num" data-count="22000" data-suffix="">¥22,000</div>
+            <span class="hsp-unit">円 / 名・日（税別）</span>
           </div>
         </div>
-        <div class="hero-stat-item">
+        <div class="hsp-item">
           <div>
-            <p class="hsi-label">インカム</p>
-            <p class="hsi-sub">業務用トランシーバー</p>
+            <p class="hsp-label-sm">最大スタッフ規模</p>
+            <p class="hsp-sub">リーダー2名含む</p>
           </div>
           <div>
-            <div class="hsi-num">持参</div>
-            <span class="hsi-unit">追加費用なし</span>
+            <div class="hsp-num">10名</div>
+            <span class="hsp-unit">まで対応</span>
           </div>
         </div>
-        <div class="hero-stat-item">
+        <div class="hsp-item">
           <div>
-            <p class="hsi-label">見積もり</p>
-            <p class="hsi-sub">問い合わせから</p>
+            <p class="hsp-label-sm">インカム</p>
+            <p class="hsp-sub">業務用トランシーバー</p>
           </div>
           <div>
-            <div class="hsi-num">無料</div>
-            <span class="hsi-unit">2営業日以内に回答</span>
+            <div class="hsp-num">持参</div>
+            <span class="hsp-unit">追加費用なし</span>
+          </div>
+        </div>
+        <div class="hsp-item">
+          <div>
+            <p class="hsp-label-sm">見積もり回答</p>
+            <p class="hsp-sub">問い合わせから</p>
+          </div>
+          <div>
+            <div class="hsp-num">2営業日</div>
+            <span class="hsp-unit">以内に回答・無料</span>
           </div>
         </div>
       </div>
-      <div class="hero-note">
-        <div class="hero-note-icon">🛡</div>
+      <div class="hsp-note">
+        <div class="hsp-note-icon">🛡</div>
         <p>損害賠償責任保険に加入済みです。万一の事故・機材損傷も保険でカバーします。</p>
       </div>
     </div>
   </section>
 
-  <!-- STRIP -->
+  <!-- MARQUEE STRIP -->
   <div class="strip">
-    <div class="container">
-      <div class="strip-inner">
-        <div class="strip-item">
-          <svg viewBox="0 0 16 16"><path d="M8 1L3 4v4c0 3.3 2.1 6.4 5 7.2 2.9-.8 5-3.9 5-7.2V4L8 1z"/></svg>
-          損害賠償保険加入済み
-        </div>
-        <div class="strip-item">
-          <svg viewBox="0 0 16 16"><path d="M14 2H2v12h12V2zM7 11H5V7h2v4zm0-6H5V3h2v2zm4 6H9V9h2v2zm0-4H9V3h2v4z"/></svg>
-          合同会社グラステ運営
-        </div>
-        <div class="strip-item">
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.8L14 5.8l-3 2.9.7 4.1L8 10.8l-3.7 1.9.7-4.1L2 5.8l4.1-.6z"/></svg>
-          リーダー2名常駐
-        </div>
-        <div class="strip-item">
-          <svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 9H7V7h2v4zm0-6H7V3h2v2z"/></svg>
-          インカム完備で持参
-        </div>
-        <div class="strip-item">
-          <svg viewBox="0 0 16 16"><path d="M2 4h12v2H2V4zm0 3h12v2H2V7zm0 3h8v2H2v-2z"/></svg>
-          搬入〜搬出まで一貫対応
-        </div>
-      </div>
+    <div class="marquee-track" id="marquee">
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M8 1L3 4v4c0 3.3 2.1 6.4 5 7.2 2.9-.8 5-3.9 5-7.2V4L8 1z"/></svg>損害賠償保険加入済み</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M14 2H2v12h12V2zM7 11H5V7h2v4zm0-6H5V3h2v2zm4 6H9V9h2v2zm0-4H9V3h2v4z"/></svg>合同会社グラステ運営</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.8L14 5.8l-3 2.9.7 4.1L8 10.8l-3.7 1.9.7-4.1L2 5.8l4.1-.6z"/></svg>リーダー2名常駐</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 9H7V7h2v4zm0-6H7V3h2v2z"/></svg>インカム完備で持参</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M2 4h12v2H2V4zm0 3h12v2H2V7zm0 3h8v2H2v-2z"/></svg>搬入〜搬出まで一貫対応</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M8 1L3 4v4c0 3.3 2.1 6.4 5 7.2 2.9-.8 5-3.9 5-7.2V4L8 1z"/></svg>損害賠償保険加入済み</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M14 2H2v12h12V2zM7 11H5V7h2v4zm0-6H5V3h2v2zm4 6H9V9h2v2zm0-4H9V3h2v4z"/></svg>合同会社グラステ運営</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.8L14 5.8l-3 2.9.7 4.1L8 10.8l-3.7 1.9.7-4.1L2 5.8l4.1-.6z"/></svg>リーダー2名常駐</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 9H7V7h2v4zm0-6H7V3h2v2z"/></svg>インカム完備で持参</div>
+      <div class="strip-sep"></div>
+      <div class="strip-item"><svg viewBox="0 0 16 16"><path d="M2 4h12v2H2V4zm0 3h12v2H2V7zm0 3h8v2H2v-2z"/></svg>搬入〜搬出まで一貫対応</div>
+      <div class="strip-sep"></div>
     </div>
   </div>
+
+  <!-- STATS -->
+  <section class="stats-bg" style="padding:0;">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="count-num" data-target="22000" data-prefix="¥" data-suffix="">¥22,000</span></div>
+        <div class="stat-label"><strong>スタッフ1名あたり料金</strong>1日・税別</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num"><span class="count-num" data-target="10" data-prefix="" data-suffix="名">10名</span></div>
+        <div class="stat-label"><strong>最大チーム規模</strong>リーダー2名含む</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num"><span class="count-num" data-target="2" data-prefix="" data-suffix="営業日">2営業日</span></div>
+        <div class="stat-label"><strong>見積もり回答スピード</strong>無料でご提案</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num">5<span>年</span></div>
+        <div class="stat-label"><strong>イベント運営実績</strong>自社企画含む</div>
+      </div>
+    </div>
+  </section>
 
   <!-- PAIN -->
   <section class="pain-bg" id="pain">
@@ -1270,25 +1703,28 @@
 
       <div class="pain-grid">
         <div class="pain-card reveal reveal-delay-1">
-          <div class="pain-q">問題</div>
+          <div class="pain-num">01</div>
+          <div class="pain-badge">問題</div>
           <h3>スタッフが直前まで<br>揃わない</h3>
-          <p>声をかけても人が集まらない。当日のドタキャンが怖くて、毎回ヒヤヒヤしながら迎えた当日。</p>
+          <p>声をかけても人が集まらない。当日のドタキャンが怖くて、毎回ヒヤヒヤしながら当日を迎えている。</p>
         </div>
         <div class="pain-card reveal reveal-delay-2">
-          <div class="pain-q">問題</div>
+          <div class="pain-num">02</div>
+          <div class="pain-badge">問題</div>
           <h3>現場管理が<br>本業の邪魔になる</h3>
           <p>スタッフへの指示出し・動線確認・トラブル対応で消耗し、本来やるべきことに集中できない。</p>
         </div>
         <div class="pain-card reveal reveal-delay-3">
-          <div class="pain-q">問題</div>
+          <div class="pain-num">03</div>
+          <div class="pain-badge">問題</div>
           <h3>素人に頼んで<br>機材を壊されたくない</h3>
-          <p>機材の扱いをわかっているスタッフに頼みたいが、適切な人が見つからない。</p>
+          <p>機材の扱いをわかっているスタッフに頼みたいが、適切な人材が見つからない。事故時の補償も不安。</p>
         </div>
       </div>
 
       <div class="pain-resolve reveal">
         <div class="pain-resolve-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
         <p>3つの悩み、すべて<strong>グラステクルーの元請けパッケージ</strong>が解決します。<br>
         チームの手配から当日の現場管理まで一切合切お任せください。主催者がスタッフと直接やり取りする必要はありません。</p>
@@ -1305,13 +1741,13 @@
         <p class="sec-sub">グラステクルーは「元請け」として業務を一括受託します。スタッフのアサインから当日の現場管理まで、主催者側の負担をゼロにします。</p>
       </div>
 
-      <div class="service-intro" style="margin-top:56px;">
+      <div class="service-2col">
         <div class="reveal">
-          <p style="font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px;">一般的な個別手配との違い</p>
-          <div class="service-compare">
-            <div class="compare-label">
-              <span>個別手配</span>
-              <span style="padding-left:20px;">グラステクルー</span>
+          <p style="font-family:'Inter',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px;">一般的な個別手配との違い</p>
+          <div class="compare-table">
+            <div class="compare-head">
+              <div class="compare-head-cell">個別手配</div>
+              <div class="compare-head-cell">グラステクルー</div>
             </div>
             <div class="compare-row">
               <div class="compare-cell bad">スタッフ一人ひとりと個別に連絡</div>
@@ -1331,26 +1767,29 @@
             </div>
             <div class="compare-row">
               <div class="compare-cell bad">インカムは各自で用意</div>
-              <div class="compare-cell good">業務用インカム持参で追加費用ゼロ</div>
+              <div class="compare-cell good">業務用インカム持参・追加費用ゼロ</div>
             </div>
           </div>
         </div>
 
         <div class="reveal reveal-delay-2">
-          <p style="font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink4);margin-bottom:12px;">対応可能なイベント例</p>
-          <div style="display:flex;flex-direction:column;gap:2px;">
-            <div style="padding:14px 18px;background:var(--bg2);border:1px solid var(--border);font-size:.83rem;display:flex;align-items:center;gap:10px;"><span style="color:var(--amber);font-weight:800;">●</span>コンサート・ライブイベント</div>
-            <div style="padding:14px 18px;background:var(--bg2);border:1px solid var(--border);font-size:.83rem;display:flex;align-items:center;gap:10px;"><span style="color:var(--amber);font-weight:800;">●</span>展示会・博覧会・見本市</div>
-            <div style="padding:14px 18px;background:var(--bg2);border:1px solid var(--border);font-size:.83rem;display:flex;align-items:center;gap:10px;"><span style="color:var(--amber);font-weight:800;">●</span>企業イベント・社内行事</div>
-            <div style="padding:14px 18px;background:var(--bg2);border:1px solid var(--border);font-size:.83rem;display:flex;align-items:center;gap:10px;"><span style="color:var(--amber);font-weight:800;">●</span>グラビア・コスプレイベント</div>
-            <div style="padding:14px 18px;background:var(--bg2);border:1px solid var(--border);font-size:.83rem;display:flex;align-items:center;gap:10px;"><span style="color:var(--amber);font-weight:800;">●</span>物産展・フリーマーケット</div>
-            <div style="padding:14px 18px;background:var(--bg3);border:1px solid var(--border);font-size:.78rem;color:var(--ink3);">その他、搬入・搬出が発生するイベントはご相談ください</div>
+          <p style="font-family:'Inter',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:14px;">対応可能なイベント例</p>
+          <div class="event-list">
+            <div class="event-item"><div class="event-dot"></div>コンサート・ライブイベント</div>
+            <div class="event-item"><div class="event-dot"></div>展示会・博覧会・見本市</div>
+            <div class="event-item"><div class="event-dot"></div>企業イベント・社内行事</div>
+            <div class="event-item"><div class="event-dot"></div>グラビア・コスプレイベント</div>
+            <div class="event-item"><div class="event-dot"></div>物産展・フリーマーケット</div>
+            <div class="event-item" style="background:var(--bg2);font-size:.78rem;color:var(--ink3);">
+              <div class="event-dot" style="background:var(--ink5);"></div>
+              その他、搬入・搬出が発生するイベントはご相談ください
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="sf-grid reveal">
-        <div class="sf-card">
+      <div class="sf-grid">
+        <div class="sf-card reveal">
           <div class="sf-num">01</div>
           <h3>リーダー2名常駐</h3>
           <p>経験豊富なリーダーが2名体制で現場を統括。スタッフへの指示出し・進行管理・トラブル対応を一手に引き受け、主催者は本業に専念できます。</p>
@@ -1397,9 +1836,9 @@
           <hr class="price-divider" />
           <ul class="price-items">
             <li>搬入・搬出作業（拘束時間に応じて相談）</li>
-            <li>リーダーへの報告・連絡</li>
+            <li>リーダーへの報告・連絡対応</li>
             <li>基本的な機材ハンドリング</li>
-            <li>インカム使用（持参品）</li>
+            <li>業務用インカム使用（持参品・追加費用なし）</li>
           </ul>
         </div>
 
@@ -1440,39 +1879,39 @@
         <p class="sec-sub">スムーズにご依頼いただけるよう、シンプルなプロセスをご用意しています。</p>
       </div>
 
-      <div class="flow-list" style="margin-top:64px;">
+      <div class="flow-list">
         <div class="flow-item reveal">
           <div class="flow-left"><div class="flow-dot">01</div></div>
           <div class="flow-right">
-            <h3>お問い合わせ・ヒアリング <span class="flow-time">当日〜翌営業日</span></h3>
+            <h3>お問い合わせ・ヒアリング <span class="flow-tag">当日〜翌営業日</span></h3>
             <p>フォームまたはメールでご連絡ください。イベント概要・日程・会場・必要スタッフ数・作業内容についてヒアリングします。</p>
           </div>
         </div>
         <div class="flow-item reveal reveal-delay-1">
           <div class="flow-left"><div class="flow-dot">02</div></div>
           <div class="flow-right">
-            <h3>お見積もりのご提案 <span class="flow-time">2営業日以内（無料）</span></h3>
+            <h3>お見積もりのご提案 <span class="flow-tag">2営業日以内（無料）</span></h3>
             <p>ヒアリング内容をもとに、スタッフ構成・料金・対応可否をご提案します。複数プランの提示も可能です。</p>
           </div>
         </div>
         <div class="flow-item reveal reveal-delay-2">
           <div class="flow-left"><div class="flow-dot">03</div></div>
           <div class="flow-right">
-            <h3>契約・事前打合せ <span class="flow-time">イベント2週間前まで</span></h3>
+            <h3>契約・事前打合せ <span class="flow-tag">イベント2週間前まで</span></h3>
             <p>業務委託契約の締結後、動線・タイムスケジュール・担当者連絡先を確認します。スタッフへの事前説明もこのタイミングで行います。</p>
           </div>
         </div>
         <div class="flow-item reveal reveal-delay-3">
           <div class="flow-left"><div class="flow-dot">04</div></div>
           <div class="flow-right">
-            <h3>当日・現場対応 <span class="flow-time">当日</span></h3>
+            <h3>当日・現場対応 <span class="flow-tag">当日</span></h3>
             <p>リーダー主導で搬入・設営から撤収・搬出まで完遂します。進捗はリーダーから主催者へ随時報告します。</p>
           </div>
         </div>
         <div class="flow-item reveal reveal-delay-4">
           <div class="flow-left"><div class="flow-dot">05</div></div>
           <div class="flow-right" style="padding-bottom:0;">
-            <h3>報告書提出・請求 <span class="flow-time">作業完了後</span></h3>
+            <h3>報告書提出・請求 <span class="flow-tag">作業完了後</span></h3>
             <p>作業完了後に報告書を提出します。請求書を発行の上、銀行振込にてお支払いをお願いします（月末締め翌月末払い基本）。</p>
           </div>
         </div>
@@ -1484,27 +1923,27 @@
   <section class="trust-bg">
     <div class="container">
       <div class="reveal">
-        <div class="eyebrow" style="color:var(--amber-l);">Why Us</div>
-        <h2 class="sec-head" style="color:#fff;">安心して任せられる<br>3つの理由。</h2>
+        <div class="eyebrow" style="color:var(--amber-l);">Why GRASTA CREW</div>
+        <h2 class="sec-head" style="color:#fff;">安心して任せられる<br><em style="color:var(--amber-l);">3つの理由。</em></h2>
       </div>
       <div class="trust-grid">
         <div class="trust-card reveal reveal-delay-1">
           <div class="trust-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
           </div>
           <h3>法人として責任ある受託</h3>
           <p>合同会社グラステが法人として正式に業務委託契約を締結します。個人への依頼と異なり、責任の所在が明確で、請求書・契約書の発行も対応します。</p>
         </div>
         <div class="trust-card reveal reveal-delay-2">
           <div class="trust-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L4 7v5c0 5.25 3.75 10.15 8 11.25C16.25 22.15 20 17.25 20 12V7L12 3z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 3L4 7v5c0 5.25 3.75 10.15 8 11.25C16.25 22.15 20 17.25 20 12V7L12 3z"/></svg>
           </div>
           <h3>保険加入でリスクをカバー</h3>
           <p>業務中の事故・機材損傷に備えた損害賠償責任保険に加入済みです。主催者様の資産・スタッフの安全の両面で万全の体制を整えています。</p>
         </div>
         <div class="trust-card reveal reveal-delay-3">
           <div class="trust-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <h3>イベント業界を知るチーム</h3>
           <p>グラビア・コスプレ・展示会イベントを自社で企画・運営する会社が母体です。現場の勝手を知るスタッフが対応するため、主催者との息が合います。</p>
@@ -1574,13 +2013,25 @@
           <h2 class="sec-head">まず、<br>相談してみて<br>ください。</h2>
           <p class="sec-sub" style="margin-top:20px;">イベント規模・作業内容・日程を伝えていただければ、2営業日以内にお見積もりをご提案します。</p>
           <ul class="cta-points">
-            <li>見積もりは完全無料、依頼しなくてもOK</li>
-            <li>2営業日以内に担当者からご連絡します</li>
-            <li>小規模（2名〜）の案件もご相談いただけます</li>
-            <li>法人宛の請求書・契約書を発行します</li>
+            <li>
+              <div class="cta-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+              見積もりは完全無料、依頼しなくてもOK
+            </li>
+            <li>
+              <div class="cta-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+              2営業日以内に担当者からご連絡します
+            </li>
+            <li>
+              <div class="cta-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+              小規模（2名〜）の案件もご相談いただけます
+            </li>
+            <li>
+              <div class="cta-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+              法人宛の請求書・契約書を発行します
+            </li>
           </ul>
           <div class="cta-mail">
-            <p>メールでの直接連絡</p>
+            <p class="cta-mail-label">Direct Contact</p>
             <a href="mailto:info@gravurestation.jp">info@gravurestation.jp</a>
           </div>
         </div>
@@ -1595,15 +2046,18 @@
                 <div class="field">
                   <label>会社名・団体名<span class="req">*</span></label>
                   <input type="text" name="company" placeholder="株式会社〇〇" required />
+                  <span class="field-error">入力してください</span>
                 </div>
                 <div class="field">
                   <label>ご担当者名<span class="req">*</span></label>
                   <input type="text" name="name" placeholder="山田 太郎" required />
+                  <span class="field-error">入力してください</span>
                 </div>
               </div>
               <div class="field">
                 <label>メールアドレス<span class="req">*</span></label>
                 <input type="email" name="email" placeholder="info@example.com" required />
+                <span class="field-error">正しいメールアドレスを入力してください</span>
               </div>
               <div class="field">
                 <label>電話番号</label>
@@ -1643,12 +2097,12 @@
             </form>
 
             <div class="form-success" id="form-success">
-              <div class="form-success-icon">✓</div>
+              <div class="form-success-circle">✓</div>
               <h3>送信が完了しました</h3>
               <p>お問い合わせありがとうございます。<br>2営業日以内に担当者よりご連絡いたします。</p>
             </div>
 
-            <p class="form-legal">送信することで、お問い合わせ内容への返信目的でのみ<br>個人情報を使用することに同意したものとします。</p>
+            <p class="form-legal">送信することで、お問い合わせへの返信目的でのみ<br>個人情報を使用することに同意したものとします。</p>
           </div>
         </div>
       </div>
@@ -1659,66 +2113,132 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand">GRASTA <strong>CREW</strong> — 合同会社グラステ</div>
-        <div class="footer-copy">© 2026 合同会社グラステ. All Rights Reserved.</div>
+        <div class="footer-brand">GRASTA <strong>CREW</strong></div>
+        <div class="footer-links">
+          <a href="https://gravurestation.jp">gravurestation.jp</a>
+          <a href="mailto:info@gravurestation.jp">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span style="font-size:.68rem;color:rgba(255,255,255,.25);">合同会社グラステ — 東京都新宿区</span>
+        <span class="footer-copy">© 2026 合同会社グラステ. All Rights Reserved.</span>
       </div>
     </div>
   </footer>
 
   <script>
-    // Header scroll effect
+    // ─ Scroll progress ─
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      progressBar.style.width = pct + '%';
+    }, { passive: true });
+
+    // ─ Header ─
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => io.observe(el));
+    // ─ Floating CTA ─
+    const floatCta = document.getElementById('float-cta');
+    window.addEventListener('scroll', () => {
+      floatCta.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
 
-    // Form submit
+    // ─ Hamburger ─
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // ─ Active nav on scroll ─
+    const sections = ['service', 'pricing', 'flow', 'faq', 'contact'];
+    const navLinks = document.querySelectorAll('#desktop-nav a');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // ─ Scroll reveal ─
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('up');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ─ Hero underline ─
+    const h1 = document.querySelector('.hero-h1');
+    if (h1) {
+      setTimeout(() => h1.classList.add('up'), 400);
+    }
+
+    // ─ Form ─
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = document.getElementById('submit-btn');
       const form = document.getElementById('contact-form');
+      const btn = document.getElementById('submit-btn');
+      let valid = true;
 
-      if (!form.company.value || !form.name.value || !form.email.value) {
-        btn.textContent = '必須項目をご入力ください';
-        setTimeout(() => btn.textContent = '無料で見積もりを依頼する →', 2000);
-        return;
-      }
+      ['company', 'name', 'email'].forEach(name => {
+        const input = form[name];
+        const isEmpty = !input.value.trim();
+        const isBadEmail = name === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+        input.classList.toggle('error', isEmpty || isBadEmail);
+        if (isEmpty || isBadEmail) valid = false;
+      });
+
+      if (!valid) return;
 
       btn.textContent = '送信中...';
       btn.disabled = true;
 
-      const data = {
-        company: form.company.value,
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        type: form.type.value,
-        staff: form.staff.value,
-        message: form.message.value,
-      };
-
       fetch('https://formspree.io/f/xnjeanwa', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          company: form.company.value,
+          name: form.name.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          type: form.type.value,
+          staff: form.staff.value,
+          message: form.message.value,
+        }),
       })
-      .then(() => {
+      .then(res => {
+        if (!res.ok) throw new Error();
         form.style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       })
       .catch(() => {
-        form.style.display = 'none';
         document.getElementById('form-success').innerHTML =
-          '<p style="font-size:.88rem;color:var(--ink3);line-height:1.8;">エラーが発生しました。お手数ですが<br><a href="mailto:info@gravurestation.jp" style="color:var(--amber);font-weight:700;">info@gravurestation.jp</a><br>まで直接ご連絡ください。</p>';
+          '<p style="font-size:.88rem;color:var(--ink3);line-height:1.85;">エラーが発生しました。お手数ですが<br><a href="mailto:info@gravurestation.jp" style="color:var(--amber);font-weight:700;">info@gravurestation.jp</a><br>まで直接ご連絡ください。</p>';
+        form.style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       });
     }
